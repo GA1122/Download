@@ -1,11 +1,11 @@
-!/bin/bash
-SBATCH --job-name=replication
-SBATCH --time=72:00:00
-SBATCH -N 1
-SBATCH --ntasks-per-node=1
-SBATCH --partition=defq
+#!/bin/bash
+#SBATCH --job-name=replication
+#SBATCH --time=72:00:00
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=defq
 #SBATCH -C <resource name, see below> # this line is usually not needed
-SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:1
 
 ## in the list above, the partition name depends on where you are running your job.
 ## On DAS5 the default would be `defq` on Lisa the default would be `gpu` or `gpu_shared`
