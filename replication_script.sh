@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #SBATCH --job-name=replication
 #SBATCH --time=72:00:00
 #SBATCH -N 1
