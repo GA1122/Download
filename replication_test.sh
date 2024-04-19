@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --job-name=replication_test.sh
+#SBATCH --job-name=replication_test
 #SBATCH --time=72:00:00
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1
@@ -18,7 +18,7 @@
 
 ## Enable the following two lines for DAS5
 module load cuda12.1/toolkit
-module load cuDNN/cuda12.1
+module load cuDNN/cuda12.1/9.1.0.70
 
 ## Enable the following line for DAS6
 # module load cuda11.3/toolkit/11.3.1
