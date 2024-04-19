@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --job-name=replication_test
+#SBATCH --job-name=replication_test.sh
 #SBATCH --time=72:00:00
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1
