@@ -17,11 +17,11 @@
 # Load GPU drivers
 
 ## Enable the following two lines for DAS5
-module load cuda12.1/toolkit
-module load cuDNN/cuda12.1/9.1.0.70
+# module load cuda12.1/toolkit
+# module load cuDNN/cuda12.1/9.1.0.70
 
 ## Enable the following line for DAS6
-# module load cuda11.3/toolkit/11.3.1
+module load cuda12.1/toolkit
 
 ## For Lisa and Snellius, modules are usually not needed
 ## https://userinfo.surfsara.nl/systems/shared/modules
