@@ -42,4 +42,4 @@ mkdir o`echo $$`
 cd o`echo $$`
 
 # Run the actual experiment.
-python /home/gas690/git/DeepDFA/DDFA/code_gnn/main_cli.py fit --config /home/gas690/git/DeepDFA/DDFA/configs/config_bigvul.yaml --config /home/gas690/git/DeepDFA/DDFA/configs/config_ggnn.yaml $@
+python /home/gas690/DeepDFA/DDFA/code_gnn/main_cli.py fit --config /home/gas690/DeepDFA/DDFA/configs/config_bigvul.yaml --config /home/gas690/DeepDFA/DDFA/configs/config_ggnn.yaml $@
