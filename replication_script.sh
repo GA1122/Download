@@ -42,4 +42,4 @@ mkdir o`echo $$`
 cd o`echo $$`
 
 # Run the actual experiment.
-scripts/train.sh --seed_everything 1
+/home/gas690/DeepDFA/DDFA/scripts/train.sh --seed_everything 1
