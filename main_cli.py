@@ -5,8 +5,8 @@ import dgl
 import numpy as np
 from pytorch_lightning.utilities.cli import LightningCLI
 import tqdm
-from home.gas690.DeepDFA.DDFA.code_gnn.models.flow_gnn.ggnn import FlowGNNGGNNModule
-from home.gas690.DeepDFA.DDFA.code_gnn.my_tb import MyTensorBoardLogger
+from DeepDFA.DDFA.code_gnn.models.flow_gnn.ggnn import FlowGNNGGNNModule
+from DeepDFA.DDFA.code_gnn.my_tb import MyTensorBoardLogger
 from sastvd.linevd.datamodule import BigVulDatasetLineVDDataModule
 import sastvd.helpers.datasets as svdds
 from pytorch_lightning.utilities.warnings import PossibleUserWarning
