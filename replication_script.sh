@@ -42,4 +42,4 @@ mkdir o`echo $$`
 cd o`echo $$`
 
 # Run the actual experiment.
-python code_gnn/main_cli.py fit --config configs/config_bigvul.yaml --config configs/config_ggnn.yaml $@
+scripts/train.sh --seed_everything 1
