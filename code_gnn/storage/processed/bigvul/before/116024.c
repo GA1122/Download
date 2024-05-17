@@ -1,0 +1,2 @@
+void PanelSettingsMenuModel::ExtensionUninstallCanceled() {
+}

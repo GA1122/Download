@@ -1,0 +1,3 @@
+void WebMediaPlayerImpl::OnVideoAverageKeyframeDistanceUpdate() {
+  UpdateBackgroundVideoOptimizationState();
+}

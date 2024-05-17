@@ -1,0 +1,1 @@
+  ~CacheQueryResult() {}

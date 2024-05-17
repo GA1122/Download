@@ -1,0 +1,3 @@
+ASCIIHexStream::~ASCIIHexStream() {
+  delete str;
+}

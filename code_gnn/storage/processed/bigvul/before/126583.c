@@ -1,0 +1,3 @@
+void TabStripGtk::StopAllHighlighting() {
+  NOTIMPLEMENTED();
+}

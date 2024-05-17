@@ -1,0 +1,1 @@
+RendererCapabilities::~RendererCapabilities() {}

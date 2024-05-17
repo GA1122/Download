@@ -1,0 +1,1 @@
+IOThread::Globals::~Globals() {}

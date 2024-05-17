@@ -1,0 +1,2 @@
+void WebFrameLoaderClient::dispatchDidLoadMainResource(DocumentLoader*) {
+}

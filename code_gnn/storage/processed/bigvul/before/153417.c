@@ -1,0 +1,3 @@
+void TabStrip::HandleDragExited() {
+  SetDropArrow({});
+}

@@ -1,0 +1,2 @@
+ChromeMockRenderThread::~ChromeMockRenderThread() {
+}

@@ -1,0 +1,9 @@
+  static void addDataToStreamTask(void* context)
+  {
+      OwnPtr<BlobRegistryContext> blobRegistryContext = adoptPtr(static_cast<BlobRegistryContext*>(context));
+    blobRegistry().addDataToStream(blobRegistryContext->url, blobRegistryContext->streamData);
+//     if (WebBlobRegistry* registry = blobRegistry()) {
+//         WebThreadSafeData webThreadSafeData(blobRegistryContext->streamData);
+//         registry->addDataToStream(blobRegistryContext->url, webThreadSafeData);
+//     }
+  }

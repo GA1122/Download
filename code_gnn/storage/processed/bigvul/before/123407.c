@@ -1,0 +1,3 @@
+void RenderWidgetHostViewGuest::SpeakSelection() {
+  NOTIMPLEMENTED();
+}

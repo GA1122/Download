@@ -1,0 +1,8 @@
+uint32_t GLES2Util::IndexToGLFaceTarget(int index) {
+  static uint32_t faces[] = {
+      GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X,
+      GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,
+      GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z,
+  };
+  return faces[index];
+}

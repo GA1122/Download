@@ -1,0 +1,2 @@
+DevToolsWindow::ObserverWithAccessor::~ObserverWithAccessor() {
+}

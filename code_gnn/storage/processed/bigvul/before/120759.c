@@ -1,0 +1,2 @@
+FakeBluetoothAgentManagerClient::~FakeBluetoothAgentManagerClient() {
+}

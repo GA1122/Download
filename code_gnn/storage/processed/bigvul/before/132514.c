@@ -1,0 +1,2 @@
+UsbFindDevicesFunction::~UsbFindDevicesFunction() {
+}

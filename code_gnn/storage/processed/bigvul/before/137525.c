@@ -1,0 +1,3 @@
+FrameReference::FrameReference() {
+  Reset(NULL);
+}

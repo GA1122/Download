@@ -1,0 +1,2 @@
+NetworkInterface::~NetworkInterface() {
+}

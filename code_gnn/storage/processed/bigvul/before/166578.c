@@ -1,0 +1,3 @@
+void BrowserCommandController::ZoomStateChanged() {
+  UpdateCommandsForZoomState();
+}

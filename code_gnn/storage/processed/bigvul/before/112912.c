@@ -1,0 +1,3 @@
+GDataCache::~GDataCache() {
+  AssertOnSequencedWorkerPool();
+}

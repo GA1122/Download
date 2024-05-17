@@ -1,0 +1,6 @@
+PHP_MINIT_FUNCTION(bcmath)
+{
+	REGISTER_INI_ENTRIES();
+
+	return SUCCESS;
+}

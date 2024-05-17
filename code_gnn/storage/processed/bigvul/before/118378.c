@@ -1,0 +1,2 @@
+CardUnmaskPromptViews::FadeOutView::~FadeOutView() {
+}

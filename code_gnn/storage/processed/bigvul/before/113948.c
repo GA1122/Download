@@ -1,0 +1,1 @@
+RegistrationManager::PendingRegistrationInfo::PendingRegistrationInfo() {}

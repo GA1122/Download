@@ -1,0 +1,3 @@
+  PageCaptureSaveAsMHTMLDelegate() {
+    PageCaptureSaveAsMHTMLFunction::SetTestDelegate(this);
+  }

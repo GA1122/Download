@@ -1,0 +1,3 @@
+void LayerTreeHostImpl::SetNeedsRedrawForScrollbarAnimation() {
+  SetNeedsRedraw();
+}

@@ -1,0 +1,2 @@
+QuotaThreadTask::~QuotaThreadTask() {
+}

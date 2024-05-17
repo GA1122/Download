@@ -1,0 +1,3 @@
+TabStripGtk::DropInfo::~DropInfo() {
+  DestroyContainer();
+}

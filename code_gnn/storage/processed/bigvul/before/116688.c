@@ -1,0 +1,3 @@
+void RenderViewImpl::enterFullscreen() {
+  enterFullScreen();
+}

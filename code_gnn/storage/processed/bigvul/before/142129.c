@@ -1,0 +1,1 @@
+  BookmarkEditorViewTest() : model_(nullptr) {}

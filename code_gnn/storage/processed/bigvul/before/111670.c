@@ -1,0 +1,2 @@
+GDataFile::~GDataFile() {
+}

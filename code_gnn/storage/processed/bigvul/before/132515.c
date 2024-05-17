@@ -1,0 +1,2 @@
+UsbGetConfigurationFunction::~UsbGetConfigurationFunction() {
+}

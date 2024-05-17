@@ -1,0 +1,3 @@
+void BrowserCommandController::TabStateChanged() {
+  UpdateCommandsForTabState();
+}

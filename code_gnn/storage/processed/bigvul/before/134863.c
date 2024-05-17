@@ -1,0 +1,3 @@
+float GetModernUIScale() {
+  return GetModernUIScaleWrapper();
+}

@@ -1,0 +1,1 @@
+HTMLFormElement::~HTMLFormElement() {}

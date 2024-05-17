@@ -1,0 +1,2 @@
+  ~DownloadItemTest() {
+  }

@@ -1,0 +1,3 @@
+JPEGImageDecoder::~JPEGImageDecoder()
+{
+}

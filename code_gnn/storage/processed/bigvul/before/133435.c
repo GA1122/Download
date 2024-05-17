@@ -1,0 +1,4 @@
+void SVGImage::resetAnimation()
+{
+    stopAnimation();
+}

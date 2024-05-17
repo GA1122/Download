@@ -1,0 +1,1 @@
+  MockTabStripModelObserver() : empty_(true) {}

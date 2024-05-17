@@ -1,0 +1,2 @@
+ExtensionsUpdatedObserver::~ExtensionsUpdatedObserver() {
+}

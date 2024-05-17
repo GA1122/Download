@@ -1,0 +1,48 @@
+void RenderView::didCreateDataSource(WebFrame* frame, WebDataSource* ds) {
+  bool content_initiated = !pending_navigation_state_.get();
+  NavigationState* state = content_initiated ?
+      NavigationState::CreateContentInitiated() :
+      pending_navigation_state_.release();
+
+  if (webview()) {
+    if (WebFrame* old_frame = webview()->mainFrame()) {
+      const WebURLRequest& original_request = ds->originalRequest();
+      const GURL referrer(
+          original_request.httpHeaderField(WebString::fromUTF8("Referer")));
+      if (!referrer.is_empty() &&
+          NavigationState::FromDataSource(
+              old_frame->dataSource())->was_prefetcher()) {
+        for (;old_frame;old_frame = old_frame->traverseNext(false)) {
+          WebDataSource* old_frame_ds = old_frame->dataSource();
+          if (old_frame_ds && referrer == GURL(old_frame_ds->request().url())) {
+            state->set_was_referred_by_prefetcher(true);
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if (content_initiated) {
+    const WebURLRequest& request = ds->request();
+    switch (request.cachePolicy()) {
+      case WebURLRequest::UseProtocolCachePolicy:   
+        state->set_load_type(NavigationState::LINK_LOAD_NORMAL);
+        break;
+      case WebURLRequest::ReloadIgnoringCacheData:   
+        state->set_load_type(NavigationState::LINK_LOAD_RELOAD);
+        break;
+      case WebURLRequest::ReturnCacheDataElseLoad:   
+        state->set_load_type(NavigationState::LINK_LOAD_CACHE_STALE_OK);
+        break;
+      case WebURLRequest::ReturnCacheDataDontLoad:   
+        state->set_load_type(NavigationState::LINK_LOAD_CACHE_ONLY);
+        break;
+    }
+  }
+
+  ds->setExtraData(state);
+
+  FOR_EACH_OBSERVER(
+      RenderViewObserver, observers_, DidCreateDataSource(frame, ds));
+}

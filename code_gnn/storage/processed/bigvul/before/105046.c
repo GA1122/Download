@@ -1,0 +1,2 @@
+TestURLFetcher::~TestURLFetcher() {
+}

@@ -1,0 +1,3 @@
+    SupportsGroupPolicyEnabledComponentUpdates() const {
+  return false;
+}

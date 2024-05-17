@@ -1,0 +1,2 @@
+RenderViewHostImplTestHarness::~RenderViewHostImplTestHarness() {
+}

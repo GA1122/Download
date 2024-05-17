@@ -1,0 +1,2 @@
+SoundTriggerHwService::Module::~Module() {
+}

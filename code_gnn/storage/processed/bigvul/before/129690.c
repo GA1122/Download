@@ -1,0 +1,4 @@
+void ResourceFetcher::derefResourceLoaderHost()
+{
+    deref();
+}

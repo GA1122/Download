@@ -1,0 +1,2 @@
+MockPrinter::~MockPrinter() {
+}

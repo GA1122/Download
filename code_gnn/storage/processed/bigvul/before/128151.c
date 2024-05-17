@@ -1,0 +1,2 @@
+CastDetailedView::~CastDetailedView() {
+}

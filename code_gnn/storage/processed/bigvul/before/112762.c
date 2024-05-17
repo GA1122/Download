@@ -1,0 +1,3 @@
+void PrintPreviewHandler::OnPrintDialogShown() {
+  ActivateInitiatorTabAndClosePreviewTab();
+}

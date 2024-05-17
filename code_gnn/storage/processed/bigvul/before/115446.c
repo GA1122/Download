@@ -1,0 +1,3 @@
+void InjectedBundlePage::platformDidStartProvisionalLoadForFrame(WKBundleFrameRef)
+{
+}

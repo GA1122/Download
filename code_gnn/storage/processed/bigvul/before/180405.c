@@ -1,0 +1,44 @@
+ int propagate_mnt(struct mount *dest_mnt, struct mountpoint *dest_mp,
+ 		    struct mount *source_mnt, struct hlist_head *tree_list)
+ {
+ 	struct mount *m, *n;
+ 	int ret = 0;
+ 
+ 	 
+  	user_ns = current->nsproxy->mnt_ns->user_ns;
+  	last_dest = dest_mnt;
+// 	first_source = source_mnt;
+  	last_source = source_mnt;
+  	mp = dest_mp;
+  	list = tree_list;
+ 	dest_master = dest_mnt->mnt_master;
+ 
+ 	 
+ 	for (n = next_peer(dest_mnt); n != dest_mnt; n = next_peer(n)) {
+ 		ret = propagate_one(n);
+ 		if (ret)
+ 			goto out;
+ 	}
+ 
+ 	 
+ 	for (m = next_group(dest_mnt, dest_mnt); m;
+ 			m = next_group(m, dest_mnt)) {
+ 		 
+ 		n = m;
+ 		do {
+ 			ret = propagate_one(n);
+ 			if (ret)
+ 				goto out;
+ 			n = next_peer(n);
+ 		} while (n != m);
+ 	}
+ out:
+ 	read_seqlock_excl(&mount_lock);
+ 	hlist_for_each_entry(n, tree_list, mnt_hash) {
+ 		m = n->mnt_parent;
+ 		if (m->mnt_master != dest_mnt->mnt_master)
+ 			CLEAR_MNT_MARK(m->mnt_master);
+ 	}
+ 	read_sequnlock_excl(&mount_lock);
+ 	return ret;
+ }

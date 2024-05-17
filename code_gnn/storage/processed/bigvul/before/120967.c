@@ -1,0 +1,1 @@
+SocketStream::ResponseHeaders::ResponseHeaders() : IOBuffer() {}

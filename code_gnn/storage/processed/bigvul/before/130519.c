@@ -1,0 +1,2 @@
+GetErrorQuery::~GetErrorQuery() {
+}

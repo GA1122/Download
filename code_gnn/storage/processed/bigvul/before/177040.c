@@ -1,0 +1,2 @@
+InputDispatcher::KeyEntry::~KeyEntry() {
+}

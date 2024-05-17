@@ -1,0 +1,18 @@
+  image_transform_png_set_tRNS_to_alpha_add(image_transform *this,
+    PNG_CONST image_transform **that, png_byte colour_type, png_byte bit_depth)
+//     const image_transform **that, png_byte colour_type, png_byte bit_depth)
+  {
+     UNUSED(bit_depth)
+  
+  this->next = *that;
+  *that = this;
+ 
+  
+      
+   return (colour_type & PNG_COLOR_MASK_ALPHA) == 0;
+//    return
+// #  if PNG_LIBPNG_VER >= 10700
+//       colour_type != PNG_COLOR_TYPE_PALETTE &&
+// #  endif
+//    (colour_type & PNG_COLOR_MASK_ALPHA) == 0;
+  }

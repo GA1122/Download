@@ -1,0 +1,3 @@
+SyncSocket::~SyncSocket() {
+  Close();
+}

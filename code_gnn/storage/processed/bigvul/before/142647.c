@@ -1,0 +1,3 @@
+void WebstoreStandaloneInstaller::OnManifestParsed() {
+  ProceedWithInstallPrompt();
+}

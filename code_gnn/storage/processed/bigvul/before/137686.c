@@ -1,0 +1,2 @@
+PrintPreviewDialogDelegate::~PrintPreviewDialogDelegate() {
+}

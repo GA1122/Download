@@ -1,0 +1,2 @@
+CastCastView::~CastCastView() {
+}

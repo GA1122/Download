@@ -1,0 +1,4 @@
+PHP_FUNCTION(ltrim)
+{
+	php_do_trim(INTERNAL_FUNCTION_PARAM_PASSTHRU, 1);
+}

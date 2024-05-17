@@ -1,0 +1,1 @@
+LinearHistogram::~LinearHistogram() {}

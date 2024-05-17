@@ -1,0 +1,2 @@
+GlobalConfirmInfoBar::DelegateProxy::~DelegateProxy() {
+}

@@ -1,0 +1,3 @@
+InvalidationNotifier::~InvalidationNotifier() {
+  DCHECK(CalledOnValidThread());
+}

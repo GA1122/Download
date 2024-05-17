@@ -1,0 +1,3 @@
+ScreenOrientation::~ScreenOrientation()
+{
+}

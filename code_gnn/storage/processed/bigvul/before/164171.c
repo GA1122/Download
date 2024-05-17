@@ -1,0 +1,3 @@
+  void FindMainResponseExclusionsInDatabase() {
+    FindMainResponseExclusions(true);
+  }

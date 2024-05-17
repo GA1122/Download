@@ -1,0 +1,1 @@
+void LocalDOMWindow::blur() {}

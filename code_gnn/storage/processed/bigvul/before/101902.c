@@ -1,0 +1,3 @@
+void PrintDialogGtk::AddRefToDialog() {
+  AddRef();
+}

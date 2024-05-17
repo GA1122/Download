@@ -1,0 +1,1 @@
+BuildCommitCommand::~BuildCommitCommand() {}

@@ -1,0 +1,3 @@
+ScriptProcessorHandler::~ScriptProcessorHandler() {
+  Uninitialize();
+}

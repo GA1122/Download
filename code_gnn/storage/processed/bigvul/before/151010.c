@@ -1,0 +1,3 @@
+void DevToolsUIBindings::LoadCompleted() {
+  FrontendLoaded();
+}

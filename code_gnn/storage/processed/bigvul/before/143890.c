@@ -1,0 +1,3 @@
+void FrameImpl::Reload() {
+  NOTIMPLEMENTED();
+}

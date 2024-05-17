@@ -1,0 +1,2 @@
+NaClIPCAdapter::LockedData::~LockedData() {
+}

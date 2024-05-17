@@ -1,0 +1,23 @@
+void Editor::unappliedEditing(UndoStep* cmd) {
+  EventQueueScope scope;
+
+  dispatchEditableContentChangedEvents(cmd->startingRootEditableElement(),
+                                       cmd->endingRootEditableElement());
+  dispatchInputEventEditableContentChanged(
+      cmd->startingRootEditableElement(), cmd->endingRootEditableElement(),
+      InputEvent::InputType::HistoryUndo, nullAtom,
+      InputEvent::EventIsComposing::NotComposing);
+
+  frame().document()->updateStyleAndLayoutIgnorePendingStylesheets();
+
+  const VisibleSelection& newSelection =
+      correctedVisibleSelection(cmd->startingSelection());
+  DCHECK(newSelection.isValidFor(*frame().document())) << newSelection;
+  changeSelectionAfterCommand(
+      newSelection.asSelection(),
+      FrameSelection::CloseTyping | FrameSelection::ClearTypingStyle);
+
+  m_lastEditCommand = nullptr;
+  m_undoStack->registerRedoStep(cmd);
+  respondToChangedContents(newSelection.start());
+}

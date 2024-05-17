@@ -1,0 +1,2 @@
+RuntimeCustomBindings::~RuntimeCustomBindings() {
+}

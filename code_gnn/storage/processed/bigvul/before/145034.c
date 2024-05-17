@@ -1,0 +1,2 @@
+CustomButton::~CustomButton() {
+}

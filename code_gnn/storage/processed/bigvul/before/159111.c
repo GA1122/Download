@@ -1,0 +1,16 @@
+  DownloadItemActivatedData(DownloadItem::DownloadType download_type,
+                            uint32_t download_id,
+                            std::string original_url,
+                            std::string final_url,
+                            std::string file_name,
+                            DownloadDangerType danger_type,
+                            int64_t start_offset,
+                            bool has_user_gesture)
+      : download_type_(download_type),
+        download_id_(download_id),
+        original_url_(original_url),
+        final_url_(final_url),
+        file_name_(file_name),
+        danger_type_(danger_type),
+        start_offset_(start_offset),
+        has_user_gesture_(has_user_gesture) {}

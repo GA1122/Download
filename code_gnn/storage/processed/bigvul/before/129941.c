@@ -1,0 +1,2 @@
+ NativeStackSamplerWin::~NativeStackSamplerWin() {
+}

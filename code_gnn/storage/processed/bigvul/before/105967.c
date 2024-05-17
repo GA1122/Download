@@ -1,0 +1,4 @@
+JSTestCustomNamedGetter::~JSTestCustomNamedGetter()
+{
+    releaseImplIfNotNull();
+}

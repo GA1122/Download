@@ -1,0 +1,3 @@
+void PrintViewManagerBase::DidStartLoading() {
+  UpdatePrintingEnabled();
+}

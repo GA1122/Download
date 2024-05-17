@@ -1,0 +1,6 @@
+    ~ScopedRequest() {
+    if (requested_) {
+//     if (requested_ && owner_->delegate_) {
+        owner_->delegate_->StopEnumerateDevices(request_id_);
+      }
+    }

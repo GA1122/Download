@@ -1,0 +1,3 @@
+InputWindowHandle::~InputWindowHandle() {
+ delete mInfo;
+}

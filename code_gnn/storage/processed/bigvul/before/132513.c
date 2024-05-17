@@ -1,0 +1,2 @@
+UsbControlTransferFunction::~UsbControlTransferFunction() {
+}

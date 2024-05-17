@@ -1,0 +1,3 @@
+  DefaultTransportFactory() {
+    ui::DefaultContextFactory::Initialize();
+  }

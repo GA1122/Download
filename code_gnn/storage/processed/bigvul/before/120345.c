@@ -1,0 +1,2 @@
+  TestGestureRecognizer() : GestureRecognizerImpl() {
+  }

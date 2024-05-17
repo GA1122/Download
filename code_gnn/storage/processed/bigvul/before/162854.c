@@ -1,0 +1,3 @@
+GLManager::GLManager() {
+  SetupBaseContext();
+}

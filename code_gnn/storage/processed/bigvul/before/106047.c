@@ -1,0 +1,4 @@
+JSTestMediaQueryListListener::~JSTestMediaQueryListListener()
+{
+    releaseImplIfNotNull();
+}

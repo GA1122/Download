@@ -1,0 +1,3 @@
+void PanelBrowserView::DestroyPanelBrowser() {
+  DestroyBrowser();
+}

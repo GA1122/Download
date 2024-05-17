@@ -1,0 +1,2 @@
+AppListSyncableService::SyncItem::~SyncItem() {
+}

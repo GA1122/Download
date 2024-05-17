@@ -1,0 +1,2 @@
+OnNotificationBalloonCountObserver::~OnNotificationBalloonCountObserver() {
+}

@@ -1,0 +1,2 @@
+ShellContentClient::~ShellContentClient() {
+}

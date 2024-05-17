@@ -1,0 +1,2 @@
+DaemonProcessTest::~DaemonProcessTest() {
+}

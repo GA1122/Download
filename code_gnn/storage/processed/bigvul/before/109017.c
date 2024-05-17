@@ -1,0 +1,3 @@
+void RenderViewImpl::PpapiPluginSelectionChanged() {
+  SyncSelectionIfRequired();
+}

@@ -1,0 +1,2 @@
+AllSamplesPassedQuery::~AllSamplesPassedQuery() {
+}

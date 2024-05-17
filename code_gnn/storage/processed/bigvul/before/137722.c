@@ -1,0 +1,4 @@
+PrintViewManagerBase::~PrintViewManagerBase() {
+  ReleasePrinterQuery();
+  DisconnectFromCurrentPrintJob();
+}

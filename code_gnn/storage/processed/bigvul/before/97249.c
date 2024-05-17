@@ -1,0 +1,2 @@
+WebFrameLoaderClient::~WebFrameLoaderClient() {
+}

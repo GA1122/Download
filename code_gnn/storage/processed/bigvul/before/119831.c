@@ -1,0 +1,3 @@
+NavigationControllerImpl::~NavigationControllerImpl() {
+  DiscardNonCommittedEntriesInternal();
+}

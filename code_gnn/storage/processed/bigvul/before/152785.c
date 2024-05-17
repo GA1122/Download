@@ -1,0 +1,1 @@
+SparseHistogram::~SparseHistogram() {}

@@ -1,0 +1,1 @@
+  TestClientChannel() : receiver_(this) {}

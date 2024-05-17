@@ -1,0 +1,3 @@
+PPAPITestBase::PPAPITestBase() {
+  EnableDOMAutomation();
+}

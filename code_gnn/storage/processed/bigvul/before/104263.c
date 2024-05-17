@@ -1,0 +1,4 @@
+void RTCVoidRequestImpl::stop()
+{
+    clear();
+}

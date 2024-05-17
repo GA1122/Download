@@ -1,0 +1,3 @@
+    TestBrowserWindow::GetWebContentsModalDialogHost() {
+  return NULL;
+}

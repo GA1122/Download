@@ -1,0 +1,2 @@
+  NoLowResPictureLayerImplTest()
+      : PictureLayerImplTest(NoLowResTilingsSettings()) {}

@@ -1,0 +1,3 @@
+void PushMessagingServiceImpl::ShutdownHandler() {
+  NOTREACHED();
+}

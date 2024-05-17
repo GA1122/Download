@@ -1,0 +1,3 @@
+void ShellWindowViews::DeleteDelegate() {
+  OnNativeClose();
+}

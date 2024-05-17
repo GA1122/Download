@@ -1,0 +1,1 @@
+CoordinatorImpl::ClientInfo::~ClientInfo() {}

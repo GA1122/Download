@@ -1,0 +1,85 @@
+static PixelPacket *SetPixelCacheNexusPixels(const CacheInfo *cache_info,
+  const MapMode mode,const RectangleInfo *region,
+  const MagickBooleanType buffered,NexusInfo *nexus_info,
+  ExceptionInfo *exception)
+{
+  MagickBooleanType
+    status;
+
+  MagickSizeType
+    length,
+    number_pixels;
+
+  assert(cache_info != (const CacheInfo *) NULL);
+  assert(cache_info->signature == MagickSignature);
+  if (cache_info->type == UndefinedCache)
+    return((PixelPacket *) NULL);
+  nexus_info->region=(*region);
+  if (((cache_info->type == MemoryCache) || (cache_info->type == MapCache)) &&
+      (buffered == MagickFalse))
+    {
+      ssize_t
+        x,
+        y;
+
+      x=nexus_info->region.x+(ssize_t) nexus_info->region.width-1;
+      y=nexus_info->region.y+(ssize_t) nexus_info->region.height-1;
+      if (((nexus_info->region.x >= 0) && (x < (ssize_t) cache_info->columns) &&
+           (nexus_info->region.y >= 0) && (y < (ssize_t) cache_info->rows)) &&
+          ((nexus_info->region.height == 1UL) || ((nexus_info->region.x == 0) &&
+           ((nexus_info->region.width == cache_info->columns) ||
+            ((nexus_info->region.width % cache_info->columns) == 0)))))
+        {
+          MagickOffsetType
+            offset;
+
+           
+          offset=(MagickOffsetType) nexus_info->region.y*cache_info->columns+
+            nexus_info->region.x;
+          nexus_info->pixels=cache_info->pixels+offset;
+          nexus_info->indexes=(IndexPacket *) NULL;
+          if (cache_info->active_index_channel != MagickFalse)
+            nexus_info->indexes=cache_info->indexes+offset;
+          PrefetchPixelCacheNexusPixels(nexus_info,mode);
+          nexus_info->authentic_pixel_cache=IsAuthenticPixelCache(cache_info,
+            nexus_info);
+          return(nexus_info->pixels);
+        }
+    }
+   
+  number_pixels=(MagickSizeType) nexus_info->region.width*
+    nexus_info->region.height;
+  length=number_pixels*sizeof(PixelPacket);
+  if (cache_info->active_index_channel != MagickFalse)
+    length+=number_pixels*sizeof(IndexPacket);
+  if (nexus_info->cache == (PixelPacket *) NULL)
+    {
+      nexus_info->length=length;
+      status=AcquireCacheNexusPixels(cache_info,nexus_info,exception);
+      if (status == MagickFalse)
+        {
+          nexus_info->length=0;
+          return((PixelPacket *) NULL);
+        }
+    }
+  else
+    if (nexus_info->length < length)
+      {
+        RelinquishCacheNexusPixels(nexus_info);
+        nexus_info->length=length;
+        status=AcquireCacheNexusPixels(cache_info,nexus_info,exception);
+        if (status == MagickFalse)
+          {
+            nexus_info->length=0;
+            return((PixelPacket *) NULL);
+          }
+      }
+  nexus_info->pixels=nexus_info->cache;
+  nexus_info->indexes=(IndexPacket *) NULL;
+  if (cache_info->active_index_channel != MagickFalse)
+    nexus_info->indexes=(IndexPacket *) (nexus_info->pixels+number_pixels);
+  PrefetchPixelCacheNexusPixels(nexus_info,mode);
+  nexus_info->authentic_pixel_cache=IsAuthenticPixelCache(cache_info,
+    nexus_info);
+  return(nexus_info->pixels);
+}

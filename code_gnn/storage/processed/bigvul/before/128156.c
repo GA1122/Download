@@ -1,0 +1,2 @@
+CastConfigDelegateChromeos::CastConfigDelegateChromeos() {
+}

@@ -1,0 +1,1 @@
+    ~BitmapTextureGL() { destroy(); }

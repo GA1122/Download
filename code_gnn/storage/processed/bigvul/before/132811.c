@@ -1,0 +1,2 @@
+PictureLayer::~PictureLayer() {
+}

@@ -1,0 +1,3 @@
+void WebRtcAudioRenderer::Start() {
+  NOTIMPLEMENTED();
+}

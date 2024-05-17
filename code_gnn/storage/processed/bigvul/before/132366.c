@@ -1,0 +1,3 @@
+void VirtualKeyboardController::OnKeyboardDeviceConfigurationChanged() {
+  UpdateDevices();
+}

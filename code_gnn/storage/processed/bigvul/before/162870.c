@@ -1,0 +1,2 @@
+void GLManager::SetGpuControlClient(GpuControlClient*) {
+}

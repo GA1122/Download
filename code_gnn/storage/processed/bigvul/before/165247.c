@@ -1,0 +1,1 @@
+  TestHighlighterController() : binding_(this) {}

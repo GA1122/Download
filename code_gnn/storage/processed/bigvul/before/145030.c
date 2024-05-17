@@ -1,0 +1,2 @@
+void CustomButton::StateChanged() {
+}

@@ -1,0 +1,1 @@
+    void writeNull() { append(NullTag); }

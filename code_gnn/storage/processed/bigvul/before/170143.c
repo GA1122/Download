@@ -1,0 +1,3 @@
+void PasswordAutofillAgent::FrameWillClose() {
+  FrameClosing();
+}

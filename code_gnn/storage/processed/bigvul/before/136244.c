@@ -1,0 +1,2 @@
+CSPHandler::~CSPHandler() {
+}

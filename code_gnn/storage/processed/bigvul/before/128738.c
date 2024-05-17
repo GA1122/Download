@@ -1,0 +1,2 @@
+TemplateURL::AssociatedExtensionInfo::~AssociatedExtensionInfo() {
+}

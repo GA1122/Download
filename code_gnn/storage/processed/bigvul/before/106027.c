@@ -1,0 +1,4 @@
+JSTestInterface::~JSTestInterface()
+{
+    releaseImplIfNotNull();
+}

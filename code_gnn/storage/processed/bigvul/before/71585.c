@@ -1,0 +1,36 @@
+static MagickBooleanType JPEGWarningHandler(j_common_ptr jpeg_info,int level)
+{
+#define JPEGExcessiveWarnings  1000
+
+  char
+    message[JMSG_LENGTH_MAX];
+
+  ErrorManager
+    *error_manager;
+
+  Image
+    *image;
+
+  *message='\0';
+  error_manager=(ErrorManager *) jpeg_info->client_data;
+  image=error_manager->image;
+  if (level < 0)
+    {
+       
+      (jpeg_info->err->format_message)(jpeg_info,message);
+      if (jpeg_info->err->num_warnings++ > JPEGExcessiveWarnings)
+        JPEGErrorHandler(jpeg_info);
+      ThrowBinaryException(CorruptImageWarning,(char *) message,
+        image->filename);
+    }
+  else
+    if ((image->debug != MagickFalse) &&
+        (level >= jpeg_info->err->trace_level))
+      {
+         
+        (jpeg_info->err->format_message)(jpeg_info,message);
+        (void) LogMagickEvent(CoderEvent,GetMagickModule(),
+          "[%s] JPEG Trace: \"%s\"",image->filename,message);
+      }
+  return(MagickTrue);
+}

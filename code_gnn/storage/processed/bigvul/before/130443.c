@@ -1,0 +1,2 @@
+JankTimeBomb::~JankTimeBomb() {
+}

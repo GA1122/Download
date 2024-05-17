@@ -1,0 +1,2 @@
+AutocompleteEditController::~AutocompleteEditController() {
+}

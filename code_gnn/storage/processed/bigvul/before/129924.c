@@ -1,0 +1,2 @@
+ DomDistillerViewerSource::~DomDistillerViewerSource() {
+}

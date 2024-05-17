@@ -1,0 +1,1 @@
+BufferQueueConsumer::~BufferQueueConsumer() {}

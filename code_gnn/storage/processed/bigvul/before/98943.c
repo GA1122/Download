@@ -1,0 +1,3 @@
+HTMLConstructionSite::~HTMLConstructionSite()
+{
+}

@@ -1,0 +1,4 @@
+void GraphicsContext::clearPlatformShadow() 
+{ 
+    notImplemented(); 
+}

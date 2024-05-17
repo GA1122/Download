@@ -1,0 +1,1 @@
+FramebufferManager::TextureDetachObserver::TextureDetachObserver() {}

@@ -1,0 +1,3 @@
+void ColorChooserWin::End() {
+  OnColorChooserDialogClosed();
+}

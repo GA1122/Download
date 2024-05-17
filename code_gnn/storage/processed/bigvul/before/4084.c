@@ -1,0 +1,3 @@
+StreamPredictor::~StreamPredictor() {
+  gfree(predLine);
+}

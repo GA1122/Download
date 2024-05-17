@@ -1,0 +1,3 @@
+void TitleWatcher::DidStopLoading() {
+  TestTitle();
+}

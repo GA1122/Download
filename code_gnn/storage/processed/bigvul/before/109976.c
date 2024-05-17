@@ -1,0 +1,2 @@
+AudioOutputDevice::AudioThreadCallback::~AudioThreadCallback() {
+}

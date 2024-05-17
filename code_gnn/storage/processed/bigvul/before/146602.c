@@ -1,0 +1,1 @@
+  ~ScopedFramebufferRestorer() { context_->RestoreCurrentFramebuffer(); }

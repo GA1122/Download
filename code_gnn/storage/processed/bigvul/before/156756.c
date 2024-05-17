@@ -1,0 +1,2 @@
+RenderFrameHostCreatedObserver::~RenderFrameHostCreatedObserver() {
+}

@@ -1,0 +1,3 @@
+RenderThreadImpl::RenderThreadImpl() {
+  Init();
+}

@@ -1,0 +1,2 @@
+ExtensionViewGuest::~ExtensionViewGuest() {
+}

@@ -1,0 +1,2 @@
+void RenderWidgetHostImpl::OnPointerEventActivate() {
+}

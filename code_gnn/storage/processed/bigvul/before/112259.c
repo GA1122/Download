@@ -1,0 +1,2 @@
+UrlFetcher::Core::~Core() {
+}

@@ -1,0 +1,3 @@
+  ResizeCorner() {
+    EnableCanvasFlippingForRTLUI(true);
+  }

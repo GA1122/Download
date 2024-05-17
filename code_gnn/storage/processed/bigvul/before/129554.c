@@ -1,0 +1,2 @@
+    FailedProvisionalLoadInfo()
+    : error(net::OK) {}

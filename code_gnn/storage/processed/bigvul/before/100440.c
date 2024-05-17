@@ -1,0 +1,3 @@
+RenderThread::RenderThread() {
+  Init();
+}

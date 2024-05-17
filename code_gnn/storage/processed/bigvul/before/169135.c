@@ -1,0 +1,3 @@
+bool IsExtensionProcessSharingAllowed() {
+  return true;
+}

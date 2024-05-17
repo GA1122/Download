@@ -1,0 +1,1 @@
+  PSStack() {sp = psStackSize; }

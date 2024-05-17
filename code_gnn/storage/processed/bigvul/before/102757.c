@@ -1,0 +1,1 @@
+    virtual void beginCommitOnCCThread(CCLayerTreeHostImpl*) { }

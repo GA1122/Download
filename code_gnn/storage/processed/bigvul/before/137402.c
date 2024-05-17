@@ -1,0 +1,3 @@
+    RendererBlinkPlatformImplTestOverride() {
+  InitializeMojo();
+}

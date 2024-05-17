@@ -1,0 +1,3 @@
+void WebPageProxy::restoreFromSessionStateData(WebData*)
+{
+}

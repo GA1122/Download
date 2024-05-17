@@ -1,0 +1,2 @@
+FaviconWebUIHandler::~FaviconWebUIHandler() {
+}

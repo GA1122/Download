@@ -1,0 +1,3 @@
+void FrameLoaderClient::setMainFrameDocumentReady(bool)
+{
+}

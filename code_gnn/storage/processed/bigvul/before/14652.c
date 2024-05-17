@@ -1,0 +1,4 @@
+PHP_FUNCTION(strnatcmp)
+{
+	php_strnatcmp(INTERNAL_FUNCTION_PARAM_PASSTHRU, 0);
+}

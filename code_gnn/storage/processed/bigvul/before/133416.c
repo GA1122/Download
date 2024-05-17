@@ -1,0 +1,1 @@
+PaletteDelegateChromeOS::PaletteDelegateChromeOS() {}

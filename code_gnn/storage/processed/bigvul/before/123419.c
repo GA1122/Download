@@ -1,0 +1,2 @@
+RenderWidgetHostViewGuest::~RenderWidgetHostViewGuest() {
+}

@@ -1,0 +1,2 @@
+InfoBar::~InfoBar() {
+}

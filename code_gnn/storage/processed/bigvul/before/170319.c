@@ -1,0 +1,3 @@
+UsbChooserContext::~UsbChooserContext() {
+  OnDeviceManagerConnectionError();
+}

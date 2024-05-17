@@ -1,0 +1,2 @@
+ExtensionUnloadNotificationObserver::~ExtensionUnloadNotificationObserver() {
+}

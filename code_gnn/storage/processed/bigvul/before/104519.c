@@ -1,0 +1,2 @@
+CrosMock::~CrosMock() {
+}

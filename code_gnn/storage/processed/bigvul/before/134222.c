@@ -1,0 +1,1 @@
+  BookmarkNodeDataTest() : model_(NULL) {}

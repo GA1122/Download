@@ -1,0 +1,2 @@
+BnMemory::~BnMemory() {
+}

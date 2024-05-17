@@ -1,0 +1,2 @@
+InProcessBrowserTest::~InProcessBrowserTest() {
+}

@@ -1,0 +1,2 @@
+BlinkTestRunner::~BlinkTestRunner() {
+}

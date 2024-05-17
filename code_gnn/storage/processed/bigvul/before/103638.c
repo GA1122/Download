@@ -1,0 +1,3 @@
+ChromeContentRendererClient::ChromeContentRendererClient() {
+  chrome::InitializePPAPI();
+}

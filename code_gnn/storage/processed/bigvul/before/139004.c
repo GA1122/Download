@@ -1,0 +1,2 @@
+WallpaperManagerBase::TestApi::~TestApi() {
+}

@@ -1,0 +1,1 @@
+AviaryScheddPlugin::archive(const ClassAd * ) { };

@@ -1,0 +1,3 @@
+void UnblockFileTaskRunner() {
+  GetLockForBlockingDefaultFileTaskRunner().Release();
+}

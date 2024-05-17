@@ -1,0 +1,3 @@
+void FrameLoaderClient::didFinishLoad() {
+    notImplemented();
+}

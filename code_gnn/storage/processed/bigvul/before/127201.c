@@ -1,0 +1,2 @@
+FakeDesktopSession::~FakeDesktopSession() {
+}

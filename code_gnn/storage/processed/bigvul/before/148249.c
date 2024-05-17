@@ -1,0 +1,1 @@
+BrowserPpapiHostImpl::HostMessageFilter::~HostMessageFilter() {}

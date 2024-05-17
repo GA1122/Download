@@ -1,0 +1,1 @@
+void EmptyCompletionCallback(int result) {}

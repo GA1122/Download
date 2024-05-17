@@ -1,0 +1,63 @@
+static PHP_MINIT_FUNCTION(mcrypt)  
+{
+	le_mcrypt = zend_register_list_destructors_ex(php_mcrypt_module_dtor, NULL, "mcrypt", module_number);
+
+	 
+	REGISTER_LONG_CONSTANT("MCRYPT_ENCRYPT", 0, CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("MCRYPT_DECRYPT", 1, CONST_PERSISTENT);
+
+	 
+	REGISTER_LONG_CONSTANT("MCRYPT_DEV_RANDOM", 0, CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("MCRYPT_DEV_URANDOM", 1, CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("MCRYPT_RAND", 2, CONST_PERSISTENT);
+
+	 
+	MCRYPT_ENTRY2_2_4(3DES, "tripledes");
+	MCRYPT_ENTRY2_2_4(ARCFOUR_IV, "arcfour-iv");
+	MCRYPT_ENTRY2_2_4(ARCFOUR, "arcfour");
+	MCRYPT_ENTRY2_2_4(BLOWFISH, "blowfish");
+	MCRYPT_ENTRY2_2_4(BLOWFISH_COMPAT, "blowfish-compat");
+	MCRYPT_ENTRY2_2_4(CAST_128, "cast-128");
+	MCRYPT_ENTRY2_2_4(CAST_256, "cast-256");
+	MCRYPT_ENTRY2_2_4(CRYPT, "crypt");
+	MCRYPT_ENTRY2_2_4(DES, "des");
+	MCRYPT_ENTRY2_2_4(ENIGNA, "crypt");
+	MCRYPT_ENTRY2_2_4(GOST, "gost");
+	MCRYPT_ENTRY2_2_4(LOKI97, "loki97");
+	MCRYPT_ENTRY2_2_4(PANAMA, "panama");
+	MCRYPT_ENTRY2_2_4(RC2, "rc2");
+	MCRYPT_ENTRY2_2_4(RIJNDAEL_128, "rijndael-128");
+	MCRYPT_ENTRY2_2_4(RIJNDAEL_192, "rijndael-192");
+	MCRYPT_ENTRY2_2_4(RIJNDAEL_256, "rijndael-256");
+	MCRYPT_ENTRY2_2_4(SAFER64, "safer-sk64");
+	MCRYPT_ENTRY2_2_4(SAFER128, "safer-sk128");
+	MCRYPT_ENTRY2_2_4(SAFERPLUS, "saferplus");
+	MCRYPT_ENTRY2_2_4(SERPENT, "serpent");
+	MCRYPT_ENTRY2_2_4(THREEWAY, "threeway");
+	MCRYPT_ENTRY2_2_4(TRIPLEDES, "tripledes");
+	MCRYPT_ENTRY2_2_4(TWOFISH, "twofish");
+	MCRYPT_ENTRY2_2_4(WAKE, "wake");
+	MCRYPT_ENTRY2_2_4(XTEA, "xtea");
+
+	MCRYPT_ENTRY2_2_4(IDEA, "idea");
+	MCRYPT_ENTRY2_2_4(MARS, "mars");
+	MCRYPT_ENTRY2_2_4(RC6, "rc6");
+	MCRYPT_ENTRY2_2_4(SKIPJACK, "skipjack");
+ 
+	MCRYPT_ENTRY2_2_4(MODE_CBC, "cbc");
+	MCRYPT_ENTRY2_2_4(MODE_CFB, "cfb");
+	MCRYPT_ENTRY2_2_4(MODE_ECB, "ecb");
+	MCRYPT_ENTRY2_2_4(MODE_NOFB, "nofb");
+	MCRYPT_ENTRY2_2_4(MODE_OFB, "ofb");
+	MCRYPT_ENTRY2_2_4(MODE_STREAM, "stream");
+	REGISTER_INI_ENTRIES();
+
+	php_stream_filter_register_factory("mcrypt.*", &php_mcrypt_filter_factory TSRMLS_CC);
+	php_stream_filter_register_factory("mdecrypt.*", &php_mcrypt_filter_factory TSRMLS_CC);
+
+	MCG(fd[RANDOM]) = -1;
+	MCG(fd[URANDOM]) = -1;
+
+	return SUCCESS;
+}
+ 

@@ -1,0 +1,2 @@
+AeroPeekWindow::~AeroPeekWindow() {
+}

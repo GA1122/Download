@@ -1,0 +1,3 @@
+ASessionDescription::ASessionDescription()
+ : mIsValid(false) {
+}

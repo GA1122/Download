@@ -1,0 +1,2 @@
+  NGColumnLayoutAlgorithmTest()
+      : ScopedLayoutNGBlockFragmentationForTest(true) {}

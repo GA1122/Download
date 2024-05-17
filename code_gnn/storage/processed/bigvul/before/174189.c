@@ -1,0 +1,3 @@
+SoftVPXEncoder::~SoftVPXEncoder() {
+    releaseEncoder();
+}

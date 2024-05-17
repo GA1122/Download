@@ -1,0 +1,10 @@
+bool PermissionsData::CanExecuteScriptEverywhere(const Extension* extension) {
+  if (extension->location() == Manifest::COMPONENT)
+    return true;
+
+  const ExtensionsClient::ScriptingWhitelist& whitelist =
+      ExtensionsClient::Get()->GetScriptingWhitelist();
+
+  return std::find(whitelist.begin(), whitelist.end(), extension->id()) !=
+          whitelist.end();
+ }

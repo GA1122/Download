@@ -1,0 +1,2 @@
+PDFiumEngine::FindTextIndex::~FindTextIndex() {
+}

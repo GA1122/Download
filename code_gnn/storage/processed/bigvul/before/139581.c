@@ -1,0 +1,3 @@
+void RenderMediaClient::Initialize() {
+  GetInstance();
+}

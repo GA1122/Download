@@ -1,0 +1,1 @@
+  void Advance() { ++position_; }

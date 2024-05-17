@@ -1,0 +1,2 @@
+  void SwitchTabTo(TabContents* contents) {
+  }

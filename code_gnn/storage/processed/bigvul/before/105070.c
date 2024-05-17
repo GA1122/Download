@@ -1,0 +1,1 @@
+  SyncServerStatusChecker() : running_(false) {}

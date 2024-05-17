@@ -1,0 +1,1 @@
+AutomationInternalCustomBindings::~AutomationInternalCustomBindings() {}

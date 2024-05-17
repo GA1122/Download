@@ -1,0 +1,2 @@
+void StatusNoOp(ServiceWorkerStatusCode status) {
+}

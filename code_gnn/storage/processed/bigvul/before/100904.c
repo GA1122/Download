@@ -1,0 +1,2 @@
+ExtensionInstallUI::~ExtensionInstallUI() {
+}

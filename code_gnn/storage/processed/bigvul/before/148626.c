@@ -1,0 +1,2 @@
+void SkiaOutputSurfaceImpl::BindFramebuffer() {
+}

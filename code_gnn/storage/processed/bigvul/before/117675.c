@@ -1,0 +1,1 @@
+BrowserInit::LaunchWithProfile::Tab::~Tab() {}

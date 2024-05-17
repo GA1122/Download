@@ -1,0 +1,3 @@
+WebPluginDelegatePepper::~WebPluginDelegatePepper() {
+  DestroyInstance();
+}

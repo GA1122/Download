@@ -1,0 +1,1 @@
+RenderFrameImpl::UniqueNameFrameAdapter::~UniqueNameFrameAdapter() {}

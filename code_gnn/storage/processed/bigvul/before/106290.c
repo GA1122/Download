@@ -1,0 +1,2 @@
+HistoryModelWorker::~HistoryModelWorker() {
+}

@@ -1,0 +1,1 @@
+DomOperationObserver::~DomOperationObserver() {}

@@ -1,0 +1,2 @@
+MockInputMethod::~MockInputMethod() {
+}

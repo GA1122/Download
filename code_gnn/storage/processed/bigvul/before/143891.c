@@ -1,0 +1,3 @@
+ void FrameImpl::Stop() {
+  NOTIMPLEMENTED();
+}

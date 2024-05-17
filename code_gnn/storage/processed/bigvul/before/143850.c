@@ -1,0 +1,3 @@
+  void MergeHistogramDeltas() {
+    provider()->MergeHistogramDeltas();
+  }

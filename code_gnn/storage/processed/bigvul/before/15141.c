@@ -1,0 +1,14 @@
+PHP_FUNCTION(imagedashedline)
+{
+	zval *IM;
+	long x1, y1, x2, y2, col;
+	gdImagePtr im;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rlllll", &IM, &x1, &y1, &x2, &y2, &col) == FAILURE) {
+		return;
+	}
+
+	ZEND_FETCH_RESOURCE(im, gdImagePtr, &IM, -1, "Image", le_gd);
+	gdImageDashedLine(im, x1, y1, x2, y2, col);
+	RETURN_TRUE;
+}

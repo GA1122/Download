@@ -1,0 +1,3 @@
+void InputHandlerProxy::DeliverInputForBeginFrame() {
+  DispatchQueuedInputEvents();
+}

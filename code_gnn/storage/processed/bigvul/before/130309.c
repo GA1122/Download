@@ -1,0 +1,2 @@
+FormatEtcEnumerator::~FormatEtcEnumerator() {
+}

@@ -1,0 +1,2 @@
+QuotaTaskObserver::QuotaTaskObserver() {
+}

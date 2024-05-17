@@ -1,0 +1,1 @@
+DownloadCoreServiceImpl::~DownloadCoreServiceImpl() {}

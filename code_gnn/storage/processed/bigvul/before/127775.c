@@ -1,0 +1,2 @@
+TestTransactionConsumer::~TestTransactionConsumer() {
+}

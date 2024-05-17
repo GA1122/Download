@@ -1,0 +1,2 @@
+GpuProcessPolicy::GpuProcessPolicy() : GpuProcessPolicy(false) {
+}

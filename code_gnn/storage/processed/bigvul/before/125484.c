@@ -1,0 +1,2 @@
+GDataFileSystem::GetFileFromCacheParams::~GetFileFromCacheParams() {
+}

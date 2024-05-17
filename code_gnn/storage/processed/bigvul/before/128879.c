@@ -1,0 +1,3 @@
+SVGDocumentExtensions::~SVGDocumentExtensions()
+{
+}

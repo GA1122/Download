@@ -1,0 +1,29 @@
+PHP_MINIT_FUNCTION(finfo)
+{
+	zend_class_entry _finfo_class_entry;
+	INIT_CLASS_ENTRY(_finfo_class_entry, "finfo", finfo_class_functions);
+	_finfo_class_entry.create_object = finfo_objects_new;
+	finfo_class_entry = zend_register_internal_class(&_finfo_class_entry TSRMLS_CC);
+
+	 
+	memcpy(&finfo_object_handlers, zend_get_std_object_handlers(), sizeof(zend_object_handlers));
+
+	le_fileinfo = zend_register_list_destructors_ex(finfo_resource_destructor, NULL, "file_info", module_number);
+
+	REGISTER_LONG_CONSTANT("FILEINFO_NONE",			MAGIC_NONE, CONST_CS|CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("FILEINFO_SYMLINK",		MAGIC_SYMLINK, CONST_CS|CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("FILEINFO_MIME",			MAGIC_MIME, CONST_CS|CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("FILEINFO_MIME_TYPE",	MAGIC_MIME_TYPE, CONST_CS|CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("FILEINFO_MIME_ENCODING",MAGIC_MIME_ENCODING, CONST_CS|CONST_PERSISTENT);
+ 
+	REGISTER_LONG_CONSTANT("FILEINFO_DEVICES",		MAGIC_DEVICES, CONST_CS|CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("FILEINFO_CONTINUE",		MAGIC_CONTINUE, CONST_CS|CONST_PERSISTENT);
+#ifdef MAGIC_PRESERVE_ATIME
+	REGISTER_LONG_CONSTANT("FILEINFO_PRESERVE_ATIME",	MAGIC_PRESERVE_ATIME, CONST_CS|CONST_PERSISTENT);
+#endif
+#ifdef MAGIC_RAW
+	REGISTER_LONG_CONSTANT("FILEINFO_RAW",			MAGIC_RAW, CONST_CS|CONST_PERSISTENT);
+#endif
+
+	return SUCCESS;
+}

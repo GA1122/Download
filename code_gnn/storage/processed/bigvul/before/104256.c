@@ -1,0 +1,4 @@
+void RTCSessionDescriptionRequestImpl::stop()
+{
+    clear();
+}

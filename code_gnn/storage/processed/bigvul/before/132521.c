@@ -1,0 +1,2 @@
+UsbPermissionCheckingFunction::~UsbPermissionCheckingFunction() {
+}

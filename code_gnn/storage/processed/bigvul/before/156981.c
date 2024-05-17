@@ -1,0 +1,2 @@
+void WebMediaPlayerMS::OnPlay() {
+}

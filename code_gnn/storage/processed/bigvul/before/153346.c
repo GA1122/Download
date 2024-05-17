@@ -1,0 +1,3 @@
+void Tab::OnThemeChanged() {
+  UpdateForegroundColors();
+}

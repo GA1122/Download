@@ -1,0 +1,3 @@
+void NaClIPCAdapter::OnChannelError() {
+  CloseChannel();
+}

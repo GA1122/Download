@@ -1,0 +1,2 @@
+AppCacheDatabase::GroupRecord::~GroupRecord() {
+}

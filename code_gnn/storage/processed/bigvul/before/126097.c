@@ -1,0 +1,1 @@
+MetricEventDurationObserver::~MetricEventDurationObserver() {}

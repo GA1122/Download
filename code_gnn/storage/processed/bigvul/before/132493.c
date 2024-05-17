@@ -1,0 +1,2 @@
+UsbConnectionFunction::UsbConnectionFunction() {
+}

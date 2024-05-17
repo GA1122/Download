@@ -1,0 +1,2 @@
+ EmulationHandler::~EmulationHandler() {
+ }

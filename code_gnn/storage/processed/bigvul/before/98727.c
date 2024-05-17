@@ -1,0 +1,3 @@
+void WebPluginDelegatePepper::InstallMissingPlugin() {
+  NOTIMPLEMENTED();
+}

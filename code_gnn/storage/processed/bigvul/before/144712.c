@@ -1,0 +1,2 @@
+WebContentsImpl::ColorChooserInfo::~ColorChooserInfo() {
+}

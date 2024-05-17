@@ -1,0 +1,5 @@
+static inline bool vmx_control_verify(u32 control, u32 low, u32 high)
+{
+	 
+	return ((control & high) | low) == control;
+}

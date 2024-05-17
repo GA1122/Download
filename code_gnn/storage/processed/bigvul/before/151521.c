@@ -1,0 +1,1 @@
+WorkerFetchContext::~WorkerFetchContext() {}

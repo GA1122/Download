@@ -1,0 +1,2 @@
+TopSitesCache::CanonicalURLQuery::~CanonicalURLQuery() {
+}

@@ -1,0 +1,3 @@
+void UpdateDeviceList() {
+  NOTIMPLEMENTED();
+}

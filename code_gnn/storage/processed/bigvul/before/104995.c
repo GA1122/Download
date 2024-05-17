@@ -1,0 +1,3 @@
+GraphicsContextPlatformPrivate::~GraphicsContextPlatformPrivate()
+{
+}

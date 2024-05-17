@@ -1,0 +1,3 @@
+void LoginDisplayHostWebUI::ShowFeedback() {
+  NOTREACHED();
+}

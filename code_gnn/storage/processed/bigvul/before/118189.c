@@ -1,0 +1,1 @@
+DialogOverlayString::~DialogOverlayString() {}

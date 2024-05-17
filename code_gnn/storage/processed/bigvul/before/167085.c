@@ -1,0 +1,1 @@
+BluetoothSocketSetPausedFunction::BluetoothSocketSetPausedFunction() {}

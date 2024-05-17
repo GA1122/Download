@@ -1,0 +1,2 @@
+InputDispatcher::InjectionState::~InjectionState() {
+}

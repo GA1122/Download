@@ -1,0 +1,3 @@
+  PaintControllerUnderInvalidationTest()
+      : PaintControllerTestBase(),
+        ScopedPaintUnderInvalidationCheckingForTest(true) {}

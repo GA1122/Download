@@ -1,0 +1,22 @@
+BrowserViewRenderer::BrowserViewRenderer(
+    BrowserViewRendererClient* client,
+    const scoped_refptr<base::SingleThreadTaskRunner>& ui_task_runner,
+    bool disable_page_visibility)
+    : client_(client),
+      shared_renderer_state_(ui_task_runner, this),
+      ui_task_runner_(ui_task_runner),
+      disable_page_visibility_(disable_page_visibility),
+      compositor_(NULL),
+      is_paused_(false),
+      view_visible_(false),
+      window_visible_(false),
+      attached_to_window_(false),
+      hardware_enabled_(false),
+      dip_scale_(0.f),
+      page_scale_factor_(1.f),
+      min_page_scale_factor_(0.f),
+      max_page_scale_factor_(0.f),
+      on_new_picture_enable_(false),
+      clear_view_(false),
+      offscreen_pre_raster_(false),
+      fallback_tick_pending_(false) {}

@@ -1,0 +1,26 @@
+  void HandleLocaltime(int fd, const Pickle& pickle, void* iter,
+                       std::vector<int>& fds) {
+
+    std::string time_string;
+    if (!pickle.ReadString(&iter, &time_string) ||
+        time_string.size() != sizeof(time_t)) {
+      return;
+    }
+
+    time_t time;
+    memcpy(&time, time_string.data(), sizeof(time));
+    const struct tm* expanded_time = localtime(&time);
+
+    std::string result_string;
+    const char* time_zone_string = "";
+    if (expanded_time != NULL) {
+      result_string = std::string(reinterpret_cast<const char*>(expanded_time),
+                                  sizeof(struct tm));
+      time_zone_string = expanded_time->tm_zone;
+    }
+
+    Pickle reply;
+    reply.WriteString(result_string);
+    reply.WriteString(time_zone_string);
+    SendRendererReply(fds, reply, -1);
+  }

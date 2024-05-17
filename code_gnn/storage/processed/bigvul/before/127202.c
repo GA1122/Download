@@ -1,0 +1,2 @@
+MockDaemonProcess::~MockDaemonProcess() {
+}

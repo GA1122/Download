@@ -1,0 +1,5 @@
+static int whiteheat_firmware_attach(struct usb_serial *serial)
+{
+	 
+	return 1;
+}

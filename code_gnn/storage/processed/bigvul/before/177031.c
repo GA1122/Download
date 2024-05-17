@@ -1,0 +1,2 @@
+InputDispatcher::ConfigurationChangedEntry::~ConfigurationChangedEntry() {
+}

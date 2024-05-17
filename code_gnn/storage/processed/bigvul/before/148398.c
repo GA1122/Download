@@ -1,0 +1,3 @@
+WebContentsImpl::GetJavaRenderFrameHostDelegate() {
+  return GetJavaWebContents();
+}

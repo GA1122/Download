@@ -1,0 +1,2 @@
+OmniboxState::~OmniboxState() {
+}

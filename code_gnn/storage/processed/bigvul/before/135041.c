@@ -1,0 +1,2 @@
+AppCacheUpdateJob::UrlToFetch::~UrlToFetch() {
+}

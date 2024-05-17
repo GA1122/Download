@@ -1,0 +1,3 @@
+void OfflineAudioDestinationHandler::StopRendering() {
+   NOTREACHED();
+ }

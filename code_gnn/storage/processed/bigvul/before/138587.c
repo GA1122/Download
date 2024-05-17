@@ -1,0 +1,2 @@
+WriteFromUrlOperation::~WriteFromUrlOperation() {
+}

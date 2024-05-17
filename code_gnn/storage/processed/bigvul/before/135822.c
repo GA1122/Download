@@ -1,0 +1,3 @@
+void SelectionEditor::DidFinishDOMMutation() {
+  AssertSelectionValid();
+}

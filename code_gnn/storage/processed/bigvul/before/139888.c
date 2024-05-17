@@ -1,0 +1,2 @@
+MidiManagerUsb::~MidiManagerUsb() {
+}

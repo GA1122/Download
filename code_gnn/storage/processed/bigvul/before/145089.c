@@ -1,0 +1,3 @@
+TestingDiscardableMemory::~TestingDiscardableMemory()
+{
+}

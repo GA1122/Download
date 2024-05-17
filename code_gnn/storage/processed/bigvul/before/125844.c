@@ -1,0 +1,2 @@
+LogData::~LogData() {
+}

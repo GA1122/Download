@@ -1,0 +1,3 @@
+HttpProxyClientSocket::~HttpProxyClientSocket() {
+  Disconnect();
+}

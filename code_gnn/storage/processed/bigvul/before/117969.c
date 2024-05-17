@@ -1,0 +1,4 @@
+void ScriptController::updatePlatformScriptObjects()
+{
+    notImplemented();
+}

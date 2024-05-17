@@ -1,0 +1,1 @@
+ChromeInvalidationClient::Listener::~Listener() {}

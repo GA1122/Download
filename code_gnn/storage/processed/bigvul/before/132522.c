@@ -1,0 +1,2 @@
+UsbReleaseInterfaceFunction::~UsbReleaseInterfaceFunction() {
+}

@@ -1,0 +1,1 @@
+  Object() : next_(nullptr) {}

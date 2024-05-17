@@ -1,0 +1,2 @@
+ExtensionSystemImpl::Shared::~Shared() {
+}

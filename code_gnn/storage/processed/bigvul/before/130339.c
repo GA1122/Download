@@ -1,0 +1,3 @@
+RuleFeatureSet::~RuleFeatureSet()
+{
+}

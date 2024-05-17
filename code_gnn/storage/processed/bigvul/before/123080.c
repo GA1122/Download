@@ -1,0 +1,3 @@
+void RenderWidgetHostViewAndroid::AcceleratedSurfaceSuspend() {
+   NOTREACHED();
+ }

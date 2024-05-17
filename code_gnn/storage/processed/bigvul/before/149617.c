@@ -1,0 +1,3 @@
+PreconnectManagerTest::~PreconnectManagerTest() {
+  VerifyAndClearExpectations();
+}

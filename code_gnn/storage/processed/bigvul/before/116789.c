@@ -1,0 +1,2 @@
+TestContentClient::~TestContentClient() {
+}

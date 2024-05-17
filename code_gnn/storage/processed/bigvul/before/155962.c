@@ -1,0 +1,1 @@
+SyncConfigInfo::~SyncConfigInfo() {}

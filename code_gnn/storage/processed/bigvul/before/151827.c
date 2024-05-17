@@ -1,0 +1,1 @@
+  void TerminateLoad() { offliner()->TerminateLoadIfInProgress(); }

@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetPushMessagingService() {
+  return nullptr;
+}

@@ -1,0 +1,2 @@
+TranslateInfoBarBase::~TranslateInfoBarBase() {
+}

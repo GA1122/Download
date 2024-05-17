@@ -1,0 +1,3 @@
+  void ReceivedAck() {
+    ReceivedAckImpl(false);
+  }

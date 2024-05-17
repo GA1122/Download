@@ -1,0 +1,3 @@
+WebContentsImpl::GetRendererManagementDelegate() {
+  return GetRenderManager();
+}

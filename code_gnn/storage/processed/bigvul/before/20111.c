@@ -1,0 +1,74 @@
+int __sk_mem_schedule(struct sock *sk, int size, int kind)
+{
+	struct proto *prot = sk->sk_prot;
+	int amt = sk_mem_pages(size);
+	long allocated;
+	int parent_status = UNDER_LIMIT;
+
+	sk->sk_forward_alloc += amt * SK_MEM_QUANTUM;
+
+	allocated = sk_memory_allocated_add(sk, amt, &parent_status);
+
+	 
+	if (parent_status == UNDER_LIMIT &&
+			allocated <= sk_prot_mem_limits(sk, 0)) {
+		sk_leave_memory_pressure(sk);
+		return 1;
+	}
+
+	 
+	if ((parent_status > SOFT_LIMIT) ||
+			allocated > sk_prot_mem_limits(sk, 1))
+		sk_enter_memory_pressure(sk);
+
+	 
+	if ((parent_status == OVER_LIMIT) ||
+			(allocated > sk_prot_mem_limits(sk, 2)))
+		goto suppress_allocation;
+
+	 
+	if (kind == SK_MEM_RECV) {
+		if (atomic_read(&sk->sk_rmem_alloc) < prot->sysctl_rmem[0])
+			return 1;
+
+	} else {  
+		if (sk->sk_type == SOCK_STREAM) {
+			if (sk->sk_wmem_queued < prot->sysctl_wmem[0])
+				return 1;
+		} else if (atomic_read(&sk->sk_wmem_alloc) <
+			   prot->sysctl_wmem[0])
+				return 1;
+	}
+
+	if (sk_has_memory_pressure(sk)) {
+		int alloc;
+
+		if (!sk_under_memory_pressure(sk))
+			return 1;
+		alloc = sk_sockets_allocated_read_positive(sk);
+		if (sk_prot_mem_limits(sk, 2) > alloc *
+		    sk_mem_pages(sk->sk_wmem_queued +
+				 atomic_read(&sk->sk_rmem_alloc) +
+				 sk->sk_forward_alloc))
+			return 1;
+	}
+
+suppress_allocation:
+
+	if (kind == SK_MEM_SEND && sk->sk_type == SOCK_STREAM) {
+		sk_stream_moderate_sndbuf(sk);
+
+		 
+		if (sk->sk_wmem_queued + size >= sk->sk_sndbuf)
+			return 1;
+	}
+
+	trace_sock_exceed_buf_limit(sk, prot, allocated);
+
+	 
+	sk->sk_forward_alloc -= amt * SK_MEM_QUANTUM;
+
+	sk_memory_allocated_sub(sk, amt);
+
+	return 0;
+}

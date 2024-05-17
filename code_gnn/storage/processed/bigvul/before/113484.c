@@ -1,0 +1,21 @@
+void WebPagePrivate::enterFullScreenForElement(Element* element)
+{
+#if ENABLE(VIDEO)
+    if (!element)
+        return;
+    if (m_webSettings->fullScreenVideoCapable() && element->hasTagName(HTMLNames::videoTag)) {
+        enterFullscreenForNode(element);
+    } else {
+        if (transformedActualVisibleSize() != transformedViewportSize()) {
+            m_scaleBeforeFullScreen = currentScale();
+
+            m_scrollPositionBeforeFullScreen = m_mainFrame->view()->scrollPosition();
+
+            m_orientationBeforeFullScreen = orientation();
+        }
+
+        client()->fullscreenStart();
+        m_fullscreenNode = element;
+    }
+#endif
+}

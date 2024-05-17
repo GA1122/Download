@@ -1,0 +1,1 @@
+   WebstoreInlineInstallerListenerTest() {}

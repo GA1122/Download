@@ -1,0 +1,1 @@
+ WarmupURLFetcher::~WarmupURLFetcher() {}

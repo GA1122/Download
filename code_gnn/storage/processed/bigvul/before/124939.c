@@ -1,0 +1,3 @@
+void RenderBox::repaintOverhangingFloats(bool)
+{
+}

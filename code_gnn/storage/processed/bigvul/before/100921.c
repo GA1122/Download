@@ -1,0 +1,20 @@
+void TaskManagerHandler::RegisterMessages() {
+  web_ui_->RegisterMessageCallback("killProcesses",
+      base::Bind(&TaskManagerHandler::HandleKillProcesses,
+                 base::Unretained(this)));
+  web_ui_->RegisterMessageCallback("inspect",
+      base::Bind(&TaskManagerHandler::HandleInspect,
+                 base::Unretained(this)));
+  web_ui_->RegisterMessageCallback("activatePage",
+      base::Bind(&TaskManagerHandler::HandleActivatePage,
+                 base::Unretained(this)));
+  web_ui_->RegisterMessageCallback("openAboutMemory",
+      base::Bind(&TaskManagerHandler::OpenAboutMemory,
+                 base::Unretained(this)));
+  web_ui_->RegisterMessageCallback("enableTaskManager",
+      base::Bind(&TaskManagerHandler::EnableTaskManager,
+                 base::Unretained(this)));
+  web_ui_->RegisterMessageCallback("disableTaskManager",
+      base::Bind(&TaskManagerHandler::DisableTaskManager,
+                 base::Unretained(this)));
+}

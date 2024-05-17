@@ -1,0 +1,2 @@
+ MockRenderThread::~MockRenderThread() {
+}

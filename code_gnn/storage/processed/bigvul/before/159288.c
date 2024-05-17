@@ -1,0 +1,1 @@
+DownloadManagerDelegate::~DownloadManagerDelegate() {}

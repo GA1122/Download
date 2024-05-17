@@ -1,0 +1,4 @@
+    BlinkTestEnvironmentScope()
+    {
+        content::SetUpBlinkTestEnvironment();
+    }

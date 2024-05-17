@@ -1,0 +1,1 @@
+ServiceManagerConnection::~ServiceManagerConnection() {}

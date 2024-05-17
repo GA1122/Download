@@ -1,0 +1,3 @@
+xsltGetXIncludeDefault(void) {
+    return(xsltDoXIncludeDefault);
+}

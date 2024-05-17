@@ -1,0 +1,1 @@
+AviaryScheddPlugin::newClassAd(const char * ) { };

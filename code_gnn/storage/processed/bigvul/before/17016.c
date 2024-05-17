@@ -1,0 +1,3 @@
+void WebContext::updateUserScripts() {
+  UpdateUserScripts();
+}

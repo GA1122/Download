@@ -1,0 +1,4 @@
+SafeSock::sendTargetSharedPortID()
+{
+	return true;
+}

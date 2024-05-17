@@ -1,0 +1,3 @@
+MHTMLPageSerializerDelegate::~MHTMLPageSerializerDelegate()
+{
+}

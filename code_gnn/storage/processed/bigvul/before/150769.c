@@ -1,0 +1,1 @@
+  CacheQueryResult() : outcome(CacheQueryOutcome::SUCCESS) {}

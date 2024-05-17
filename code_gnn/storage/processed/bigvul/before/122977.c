@@ -1,0 +1,3 @@
+void RenderWidgetHostImpl::GotFocus() {
+  Focus();
+}

@@ -1,0 +1,4 @@
+HeapCache::HeapCache()
+ : DeathRecipient()
+{
+}

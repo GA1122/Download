@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetSpecialStoragePolicy() {
+  return nullptr;
+}

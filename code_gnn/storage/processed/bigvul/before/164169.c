@@ -1,0 +1,3 @@
+  void FindInterceptPatternMatchInWorkingSet() {
+    FindInterceptPatternMatch(false);
+  }

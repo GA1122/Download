@@ -1,0 +1,4 @@
+PHP_FUNCTION(strcspn)
+{
+	php_spn_common_handler(INTERNAL_FUNCTION_PARAM_PASSTHRU, STR_STRCSPN);
+}

@@ -1,0 +1,3 @@
+MoveLoopMouseWatcher::~MoveLoopMouseWatcher() {
+  Unhook();
+}

@@ -1,0 +1,1 @@
+InputMethodLibraryImpl::Observer::~Observer() {}

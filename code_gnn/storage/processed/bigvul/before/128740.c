@@ -1,0 +1,2 @@
+TemplateURLRef::SearchTermsArgs::~SearchTermsArgs() {
+}

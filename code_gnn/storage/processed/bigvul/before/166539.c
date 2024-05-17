@@ -1,0 +1,3 @@
+void BrowserCommandController::FullscreenStateChanged() {
+  UpdateCommandsForFullscreenMode();
+}

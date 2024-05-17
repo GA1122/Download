@@ -1,0 +1,1 @@
+  ~IncrementalMarkingScopeBase() { heap_.DecommitCallbackStacks(); }

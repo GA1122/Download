@@ -1,0 +1,4 @@
+AuthBackend::~AuthBackend()
+{
+    delete d;
+}

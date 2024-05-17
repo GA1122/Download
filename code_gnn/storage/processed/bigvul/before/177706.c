@@ -1,0 +1,1 @@
+  virtual ~VP9WorkerThreadTest() {}

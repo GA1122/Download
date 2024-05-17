@@ -1,0 +1,3 @@
+void Tab::SelectedStateChanged() {
+  UpdateForegroundColors();
+}

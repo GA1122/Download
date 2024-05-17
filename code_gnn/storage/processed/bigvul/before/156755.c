@@ -1,0 +1,1 @@
+RedirectNotificationObserver::~RedirectNotificationObserver() {}

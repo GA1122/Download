@@ -1,0 +1,2 @@
+SchedulerHelper::~SchedulerHelper() {
+}

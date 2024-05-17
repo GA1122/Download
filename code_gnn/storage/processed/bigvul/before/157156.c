@@ -1,0 +1,1 @@
+UrlData::UrlDataWithLoadingState::UrlDataWithLoadingState() {}

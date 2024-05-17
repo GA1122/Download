@@ -1,0 +1,2 @@
+DecoderFramebufferState::~DecoderFramebufferState() {
+}

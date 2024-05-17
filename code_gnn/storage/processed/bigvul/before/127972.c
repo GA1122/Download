@@ -1,0 +1,2 @@
+BrowserViewRenderer::~BrowserViewRenderer() {
+}

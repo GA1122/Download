@@ -1,0 +1,1 @@
+BluetoothSocketConnectFunction::~BluetoothSocketConnectFunction() {}

@@ -1,0 +1,4 @@
+void Scrollbar::updateThumbProportion()
+{
+    updateThumb();
+}

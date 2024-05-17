@@ -1,0 +1,3 @@
+OfflineAudioDestinationHandler::~OfflineAudioDestinationHandler() {
+  DCHECK(!IsInitialized());
+}

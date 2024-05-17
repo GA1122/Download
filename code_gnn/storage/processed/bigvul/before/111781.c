@@ -1,0 +1,31 @@
+SyncBackendHost::DoInitializeOptions::DoInitializeOptions(
+    MessageLoop* sync_loop,
+    SyncBackendRegistrar* registrar,
+    ExtensionsActivityMonitor* extensions_activity_monitor,
+    const WeakHandle<JsEventHandler>& event_handler,
+    const GURL& service_url,
+    MakeHttpBridgeFactoryFn make_http_bridge_factory_fn,
+    const sync_api::SyncCredentials& credentials,
+    ChromeSyncNotificationBridge* chrome_sync_notification_bridge,
+    sync_notifier::SyncNotifierFactory* sync_notifier_factory,
+    bool delete_sync_data_folder,
+    const std::string& restored_key_for_bootstrapping,
+    sync_api::SyncManager::TestingMode testing_mode,
+    UnrecoverableErrorHandler* unrecoverable_error_handler,
+    ReportUnrecoverableErrorFunction report_unrecoverable_error_function)
+    : sync_loop(sync_loop),
+      registrar(registrar),
+      extensions_activity_monitor(extensions_activity_monitor),
+      event_handler(event_handler),
+      service_url(service_url),
+      make_http_bridge_factory_fn(make_http_bridge_factory_fn),
+      credentials(credentials),
+      chrome_sync_notification_bridge(chrome_sync_notification_bridge),
+      sync_notifier_factory(sync_notifier_factory),
+      delete_sync_data_folder(delete_sync_data_folder),
+      restored_key_for_bootstrapping(restored_key_for_bootstrapping),
+      testing_mode(testing_mode),
+      unrecoverable_error_handler(unrecoverable_error_handler),
+      report_unrecoverable_error_function(
+          report_unrecoverable_error_function) {
+}

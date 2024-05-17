@@ -1,0 +1,3 @@
+ExtensionsAPIClient::GetNonNativeFileSystemDelegate() {
+  return nullptr;
+}

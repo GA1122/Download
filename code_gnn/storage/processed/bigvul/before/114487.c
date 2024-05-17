@@ -1,0 +1,3 @@
+RenderingHelper::RenderingHelper() {
+  Clear();
+}

@@ -1,0 +1,2 @@
+MdSettingsUI::~MdSettingsUI() {
+}

@@ -1,0 +1,2 @@
+UsbClaimInterfaceFunction::UsbClaimInterfaceFunction() {
+}

@@ -1,0 +1,3 @@
+    TranslateInfoBarDelegate::AsTranslateInfoBarDelegate() {
+  return this;
+}

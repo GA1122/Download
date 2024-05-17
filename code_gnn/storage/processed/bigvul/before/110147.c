@@ -1,0 +1,2 @@
+ ShellWindowFrameView::~ShellWindowFrameView() {
+ }

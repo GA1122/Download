@@ -1,0 +1,2 @@
+CommandLatencyQuery::~CommandLatencyQuery() {
+}

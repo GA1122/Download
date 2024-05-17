@@ -1,0 +1,2 @@
+void WebGLRenderingContextBase::HoldReferenceToDrawingBuffer(DrawingBuffer*) {
+}

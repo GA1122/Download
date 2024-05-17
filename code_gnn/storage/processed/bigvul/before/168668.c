@@ -1,0 +1,1 @@
+IndexedDBTransaction::TaskQueue::~TaskQueue() { clear(); }

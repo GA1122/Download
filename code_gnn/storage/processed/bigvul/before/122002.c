@@ -1,0 +1,2 @@
+AppListController::~AppListController() {
+}

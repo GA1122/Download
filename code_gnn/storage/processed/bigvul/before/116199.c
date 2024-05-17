@@ -1,0 +1,3 @@
+void SSLErrorHandler::OnDispatched() {
+  TakeNoAction();
+}

@@ -1,0 +1,1 @@
+  FrameFetchContextMockLocalFrameClient() : EmptyLocalFrameClient() {}

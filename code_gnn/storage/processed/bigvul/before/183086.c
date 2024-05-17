@@ -1,0 +1,18 @@
+  static int em_ret_near_imm(struct x86_emulate_ctxt *ctxt)
+  {
+  	int rc;
+// 	unsigned long eip;
+  
+	ctxt->dst.type = OP_REG;
+	ctxt->dst.addr.reg = &ctxt->_eip;
+	ctxt->dst.bytes = ctxt->op_bytes;
+	rc = emulate_pop(ctxt, &ctxt->dst.val, ctxt->op_bytes);
+// 	rc = emulate_pop(ctxt, &eip, ctxt->op_bytes);
+// 	if (rc != X86EMUL_CONTINUE)
+// 		return rc;
+// 	rc = assign_eip_near(ctxt, eip);
+  	if (rc != X86EMUL_CONTINUE)
+  		return rc;
+  	rsp_increment(ctxt, ctxt->src.val);
+ 	return X86EMUL_CONTINUE;
+ }

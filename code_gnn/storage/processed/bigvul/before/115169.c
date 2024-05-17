@@ -1,0 +1,43 @@
+void BluetoothOptionsHandler::GetLocalizedValues(
+    DictionaryValue* localized_strings) {
+  DCHECK(localized_strings);
+
+  localized_strings->SetString("bluetooth",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_SECTION_TITLE_BLUETOOTH));
+  localized_strings->SetString("enableBluetooth",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_ENABLE));
+  localized_strings->SetString("findBluetoothDevices",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_FIND_BLUETOOTH_DEVICES));
+  localized_strings->SetString("bluetoothScanning",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_SCANNING));
+  localized_strings->SetString("bluetoothDeviceConnected",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_CONNECTED));
+  localized_strings->SetString("bluetoothDeviceConnecting",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_CONNECTING));
+  localized_strings->SetString("bluetoothDeviceNotPaired",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_NOT_PAIRED));
+  localized_strings->SetString("bluetoothDevicePaired",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_PAIRED));
+  localized_strings->SetString("bluetoothDeviceFailedPairing",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_FAILED_PAIRING));
+  localized_strings->SetString("bluetoothConnectDevice",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_CONNECT));
+  localized_strings->SetString("bluetoothDisconnectDevice",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_DISCONNECT));
+  localized_strings->SetString("bluetoothForgetDevice",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_FORGET));
+  localized_strings->SetString("bluetoothCancel",
+      l10n_util::GetStringUTF16(IDS_OPTIONS_SETTINGS_BLUETOOTH_CANCEL));
+  localized_strings->SetString("bluetoothConfirmPasskey",
+      l10n_util::GetStringUTF16(
+      IDS_OPTIONS_SETTINGS_BLUETOOTH_CONFIRM_PASSKEY_REQUEST));
+  localized_strings->SetString("bluetoothEnterPasskey",
+      l10n_util::GetStringUTF16(
+      IDS_OPTIONS_SETTINGS_BLUETOOTH_ENTER_PASSKEY_REQUEST));
+  localized_strings->SetString("bluetoothRemotePasskey",
+      l10n_util::GetStringUTF16(
+      IDS_OPTIONS_SETTINGS_BLUETOOTH_REMOTE_PASSKEY_REQUEST));
+  localized_strings->SetString("bluetoothFailedPairingInstructions",
+      l10n_util::GetStringUTF16(
+      IDS_OPTIONS_SETTINGS_BLUETOOTH_FAILED_PAIRING_INSTRUCTIONS));
+}

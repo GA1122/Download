@@ -1,0 +1,3 @@
+  void BasicFindMainInterceptResponseInDatabase() {
+    BasicFindMainInterceptResponse(true);
+  }

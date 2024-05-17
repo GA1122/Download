@@ -1,0 +1,1 @@
+WebContentsDestroyedObserver::~WebContentsDestroyedObserver() {}

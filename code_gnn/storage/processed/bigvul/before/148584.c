@@ -1,0 +1,3 @@
+void WebContentsImpl::UpdateOverridingUserAgent() {
+  NotifyPreferencesChanged();
+}

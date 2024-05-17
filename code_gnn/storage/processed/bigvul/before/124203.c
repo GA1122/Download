@@ -1,0 +1,3 @@
+    ContentBrowserClient::GetSpeechRecognitionManagerDelegate() {
+  return NULL;
+}

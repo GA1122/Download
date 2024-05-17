@@ -1,0 +1,3 @@
+void BrowserWindowGtk::FocusAppMenu() {
+  NOTIMPLEMENTED();
+}

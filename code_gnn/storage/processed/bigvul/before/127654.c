@@ -1,0 +1,3 @@
+XScopedImage::~XScopedImage() {
+  reset(NULL);
+}

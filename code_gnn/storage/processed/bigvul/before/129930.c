@@ -1,0 +1,1 @@
+DistillerNativeJavaScript::~DistillerNativeJavaScript() {}

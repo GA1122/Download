@@ -1,0 +1,3 @@
+void UserSelectionScreen::HandleGetUsers() {
+  SendUserList();
+}

@@ -1,0 +1,3 @@
+SessionService::~SessionService() {
+  Save();
+}

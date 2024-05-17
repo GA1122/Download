@@ -1,0 +1,3 @@
+        GlobalGLData()
+            : stencilIndex(1)
+        { }

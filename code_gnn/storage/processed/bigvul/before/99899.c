@@ -1,0 +1,2 @@
+WebPluginDelegateProxy::~WebPluginDelegateProxy() {
+}

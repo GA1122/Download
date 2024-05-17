@@ -1,0 +1,2 @@
+ConflictResolver::ConflictResolver() {
+}

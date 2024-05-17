@@ -1,0 +1,1 @@
+InlineLoginHandlerImpl::~InlineLoginHandlerImpl() {}

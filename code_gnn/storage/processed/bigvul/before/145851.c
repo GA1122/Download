@@ -1,0 +1,1 @@
+HeadlessDevToolsManagerDelegate::~HeadlessDevToolsManagerDelegate() {}

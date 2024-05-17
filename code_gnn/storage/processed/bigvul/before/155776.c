@@ -1,0 +1,2 @@
+HistoryController::~HistoryController() {
+}

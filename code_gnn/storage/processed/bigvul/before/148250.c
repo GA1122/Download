@@ -1,0 +1,2 @@
+BrowserPpapiHostImpl::InstanceData::~InstanceData() {
+}

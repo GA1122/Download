@@ -1,0 +1,3 @@
+GeolocationInspectorAgent::~GeolocationInspectorAgent()
+{
+}

@@ -1,0 +1,2 @@
+ SuggestionState::SuggestionState()
+     : visible(false) {}

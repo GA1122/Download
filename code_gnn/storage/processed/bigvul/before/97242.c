@@ -1,0 +1,3 @@
+void WebFrameLoaderClient::transitionToCommittedForNewPage() {
+  makeDocumentView();
+}

@@ -1,0 +1,3 @@
+void RenderWidgetHostImpl::OnMsgClose() {
+  Shutdown();
+}

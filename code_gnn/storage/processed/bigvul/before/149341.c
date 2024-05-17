@@ -1,0 +1,1 @@
+IndexedDBConnection::~IndexedDBConnection() {}

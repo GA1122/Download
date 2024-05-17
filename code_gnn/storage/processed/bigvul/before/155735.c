@@ -1,0 +1,3 @@
+void Compositor::DidFailToInitializeLayerTreeFrameSink() {
+  NOTREACHED();
+}

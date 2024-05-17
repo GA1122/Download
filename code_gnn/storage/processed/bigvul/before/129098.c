@@ -1,0 +1,2 @@
+DebuggerFunction::~DebuggerFunction() {
+}

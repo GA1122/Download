@@ -1,0 +1,3 @@
+JNIEnv* getCallbackEnv() {
+ return callbackEnv;
+}

@@ -1,0 +1,3 @@
+void BluetoothAdapter::Shutdown() {
+  NOTIMPLEMENTED();
+}

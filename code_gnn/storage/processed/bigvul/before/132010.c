@@ -1,0 +1,2 @@
+ClipboardMessageFilter::ClipboardMessageFilter()
+    : BrowserMessageFilter(ClipboardMsgStart) {}

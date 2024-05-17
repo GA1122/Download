@@ -1,0 +1,4 @@
+void FrameLoaderClient::updateGlobalHistoryRedirectLinks()
+{
+    notImplemented();
+}

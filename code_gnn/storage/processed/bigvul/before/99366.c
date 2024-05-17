@@ -1,0 +1,3 @@
+PrintingContext::~PrintingContext() {
+  ResetSettings();
+ }

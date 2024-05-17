@@ -1,0 +1,3 @@
+void SessionService::ResetFromCurrentBrowsers() {
+  ScheduleReset();
+}

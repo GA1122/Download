@@ -1,0 +1,2 @@
+ATSParser::PSISection::~PSISection() {
+}

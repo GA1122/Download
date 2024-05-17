@@ -1,0 +1,2 @@
+void Compositor::BeginMainFrameNotExpectedSoon() {
+}

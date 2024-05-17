@@ -1,0 +1,2 @@
+RenderMediaClient::~RenderMediaClient() {
+}

@@ -1,0 +1,3 @@
+void WebView::didChangeScrollbarsForMainFrame() const
+{
+}

@@ -1,0 +1,62 @@
+void PeopleHandler::RegisterMessages() {
+  InitializeSyncBlocker();
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupDidClosePage",
+      base::BindRepeating(&PeopleHandler::OnDidClosePage,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupSetDatatypes",
+      base::BindRepeating(&PeopleHandler::HandleSetDatatypes,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupSetEncryption",
+      base::BindRepeating(&PeopleHandler::HandleSetEncryption,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupShowSetupUI",
+      base::BindRepeating(&PeopleHandler::HandleShowSetupUI,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupGetSyncStatus",
+      base::BindRepeating(&PeopleHandler::HandleGetSyncStatus,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupManageOtherPeople",
+      base::BindRepeating(&PeopleHandler::HandleManageOtherPeople,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "UnifiedConsentToggleChanged",
+      base::BindRepeating(&PeopleHandler::OnUnifiedConsentToggleChanged,
+                          base::Unretained(this)));
+#if defined(OS_CHROMEOS)
+  web_ui()->RegisterMessageCallback(
+      "AttemptUserExit",
+      base::BindRepeating(&PeopleHandler::HandleAttemptUserExit,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "RequestPinLoginState",
+      base::BindRepeating(&PeopleHandler::HandleRequestPinLoginState,
+                          base::Unretained(this)));
+#else
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupSignout", base::BindRepeating(&PeopleHandler::HandleSignout,
+                                              base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupPauseSync", base::BindRepeating(&PeopleHandler::HandlePauseSync,
+                                                base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupStartSignIn",
+      base::BindRepeating(&PeopleHandler::HandleStartSignin,
+                          base::Unretained(this)));
+#endif
+#if BUILDFLAG(ENABLE_DICE_SUPPORT)
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupGetStoredAccounts",
+      base::BindRepeating(&PeopleHandler::HandleGetStoredAccounts,
+                          base::Unretained(this)));
+  web_ui()->RegisterMessageCallback(
+      "SyncSetupStartSyncingWithEmail",
+      base::BindRepeating(&PeopleHandler::HandleStartSyncingWithEmail,
+                          base::Unretained(this)));
+#endif
+}

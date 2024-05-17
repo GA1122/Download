@@ -1,0 +1,3 @@
+void RenderProcessHostImpl::OnDumpHandlesDone() {
+  Cleanup();
+}

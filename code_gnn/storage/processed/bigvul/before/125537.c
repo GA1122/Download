@@ -1,0 +1,2 @@
+EntryInfoPairResult::~EntryInfoPairResult() {
+}

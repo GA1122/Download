@@ -1,0 +1,2 @@
+SecurityHandler::~SecurityHandler() {
+}

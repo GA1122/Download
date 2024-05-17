@@ -1,0 +1,3 @@
+void MockWebRTCPeerConnectionHandler::stop()
+{
+}

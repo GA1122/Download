@@ -1,0 +1,3 @@
+void WebsiteSettings::OnSiteDataAccessed() {
+  PresentSiteData();
+ }

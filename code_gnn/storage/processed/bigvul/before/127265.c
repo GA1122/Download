@@ -1,0 +1,2 @@
+WtsSessionProcessDelegate::Core::~Core() {
+}

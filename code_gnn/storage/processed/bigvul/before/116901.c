@@ -1,0 +1,3 @@
+TestWebKitPlatformSupport::sharedWorkerRepository() {
+  return NULL;
+}

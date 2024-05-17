@@ -1,0 +1,22 @@
+void UiSceneCreator::CreateScene() {
+  Create2dBrowsingSubtreeRoots();
+  CreateWebVrRoot();
+  CreateBackground();
+  CreateViewportAwareRoot();
+  CreateContentQuad();
+  CreateExitPrompt();
+  CreateAudioPermissionPrompt();
+  CreateWebVRExitWarning();
+  CreateSystemIndicators();
+  CreateUrlBar();
+  CreateOmnibox();
+  CreateWebVrUrlToast();
+  CreateCloseButton();
+  CreateToasts();
+  CreateSplashScreenForDirectWebVrLaunch();
+  CreateWebVrTimeoutScreen();
+  CreateUnderDevelopmentNotice();
+  CreateVoiceSearchUiGroup();
+  CreateController();
+  CreateKeyboard();
+}

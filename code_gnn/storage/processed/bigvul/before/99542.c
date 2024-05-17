@@ -1,0 +1,3 @@
+PluginTest::~PluginTest()
+{
+}

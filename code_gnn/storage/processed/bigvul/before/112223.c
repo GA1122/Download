@@ -1,0 +1,2 @@
+void QuotaThreadTask::RunOnTargetThread() {
+}

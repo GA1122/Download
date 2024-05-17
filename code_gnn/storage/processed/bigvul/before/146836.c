@@ -1,0 +1,10 @@
+void Document::SetURL(const KURL& url) {
+  const KURL& new_url = url.IsEmpty() ? BlankURL() : url;
+  if (new_url == url_)
+    return;
+
+  url_ = new_url;
+  access_entry_from_url_ = nullptr;
+  UpdateBaseURL();
+  GetContextFeatures().UrlDidChange(this);
+}

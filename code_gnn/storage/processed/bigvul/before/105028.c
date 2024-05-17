@@ -1,0 +1,1 @@
+ FakeURLFetcherFactory::FakeURLFetcherFactory() {}

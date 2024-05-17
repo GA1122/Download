@@ -1,0 +1,1 @@
+WebPluginDelegateProxy::SharedBitmap::SharedBitmap() {}

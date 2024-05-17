@@ -1,0 +1,3 @@
+void PrintDialogGtk::ReleaseDialog() {
+  Release();
+}

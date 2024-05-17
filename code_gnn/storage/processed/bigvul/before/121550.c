@@ -1,0 +1,2 @@
+LocalReaderProxy::~LocalReaderProxy() {
+}

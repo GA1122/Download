@@ -1,0 +1,1 @@
+MostVisitedSitesBridge::~MostVisitedSitesBridge() {}

@@ -1,0 +1,4 @@
+JSTestEventTarget::~JSTestEventTarget()
+{
+    releaseImplIfNotNull();
+}

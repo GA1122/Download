@@ -1,0 +1,27 @@
+static void ConvertBigEndian(HFSPlusVolumeHeader* header) {
+  ConvertBigEndian(&header->signature);
+  ConvertBigEndian(&header->version);
+  ConvertBigEndian(&header->attributes);
+  ConvertBigEndian(&header->lastMountedVersion);
+  ConvertBigEndian(&header->journalInfoBlock);
+  ConvertBigEndian(&header->createDate);
+  ConvertBigEndian(&header->modifyDate);
+  ConvertBigEndian(&header->backupDate);
+  ConvertBigEndian(&header->checkedDate);
+  ConvertBigEndian(&header->fileCount);
+  ConvertBigEndian(&header->folderCount);
+  ConvertBigEndian(&header->blockSize);
+  ConvertBigEndian(&header->totalBlocks);
+  ConvertBigEndian(&header->freeBlocks);
+  ConvertBigEndian(&header->nextAllocation);
+  ConvertBigEndian(&header->rsrcClumpSize);
+  ConvertBigEndian(&header->dataClumpSize);
+  ConvertBigEndian(&header->nextCatalogID);
+  ConvertBigEndian(&header->writeCount);
+  ConvertBigEndian(&header->encodingsBitmap);
+  ConvertBigEndian(&header->allocationFile);
+  ConvertBigEndian(&header->extentsFile);
+  ConvertBigEndian(&header->catalogFile);
+  ConvertBigEndian(&header->attributesFile);
+  ConvertBigEndian(&header->startupFile);
+}

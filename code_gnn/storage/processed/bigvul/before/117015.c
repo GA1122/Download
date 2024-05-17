@@ -1,0 +1,2 @@
+GestureSequence::~GestureSequence() {
+}

@@ -1,0 +1,2 @@
+ExtensionPopupObserver::~ExtensionPopupObserver() {
+}

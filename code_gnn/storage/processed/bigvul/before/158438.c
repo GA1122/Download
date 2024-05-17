@@ -1,0 +1,1 @@
+  void ResetCompositor() { GetDelegatedFrameHost()->ResetCompositor(); }

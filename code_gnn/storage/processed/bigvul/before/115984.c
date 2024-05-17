@@ -1,0 +1,3 @@
+void ExtensionContextMenuModel::ExtensionUninstallCanceled() {
+  Release();
+}

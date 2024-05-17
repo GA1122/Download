@@ -1,0 +1,3 @@
+void PageInfo::OnSiteDataAccessed() {
+  PresentSiteData();
+}

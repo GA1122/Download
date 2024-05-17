@@ -1,0 +1,2 @@
+HttpBridge::~HttpBridge() {
+}

@@ -1,0 +1,2 @@
+SyncBackendHost::Core::~Core() {
+}

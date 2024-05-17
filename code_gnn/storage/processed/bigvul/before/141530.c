@@ -1,0 +1,3 @@
+PaintLayerScrollableArea::~PaintLayerScrollableArea() {
+  CHECK(HasBeenDisposed());
+}

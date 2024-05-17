@@ -1,0 +1,3 @@
+PluginHost::PluginHost() {
+  InitializeHostFuncs();
+}

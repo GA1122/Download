@@ -1,0 +1,3 @@
+DefaultAudioDestinationHandler::~DefaultAudioDestinationHandler() {
+  DCHECK(!IsInitialized());
+}

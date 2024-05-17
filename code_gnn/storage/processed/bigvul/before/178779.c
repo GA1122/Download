@@ -1,0 +1,30 @@
+ static int hugetlbfs_statfs(struct dentry *dentry, struct kstatfs *buf)
+ {
+ 	struct hugetlbfs_sb_info *sbinfo = HUGETLBFS_SB(dentry->d_sb);
+ 	struct hstate *h = hstate_inode(dentry->d_inode);
+ 
+ 	buf->f_type = HUGETLBFS_MAGIC;
+ 	buf->f_bsize = huge_page_size(h);
+ 	if (sbinfo) {
+  		spin_lock(&sbinfo->stat_lock);
+  		 
+		if (sbinfo->max_blocks >= 0) {
+			buf->f_blocks = sbinfo->max_blocks;
+			buf->f_bavail = buf->f_bfree = sbinfo->free_blocks;
+// 		if (sbinfo->spool) {
+// 			long free_pages;
+// 
+// 			spin_lock(&sbinfo->spool->lock);
+// 			buf->f_blocks = sbinfo->spool->max_hpages;
+// 			free_pages = sbinfo->spool->max_hpages
+// 				- sbinfo->spool->used_hpages;
+// 			buf->f_bavail = buf->f_bfree = free_pages;
+// 			spin_unlock(&sbinfo->spool->lock);
+  			buf->f_files = sbinfo->max_inodes;
+  			buf->f_ffree = sbinfo->free_inodes;
+  		}
+ 		spin_unlock(&sbinfo->stat_lock);
+ 	}
+ 	buf->f_namelen = NAME_MAX;
+ 	return 0;
+ }

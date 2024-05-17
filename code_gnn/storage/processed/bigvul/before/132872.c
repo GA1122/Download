@@ -1,0 +1,2 @@
+  OcclusionTrackingPictureLayerImplTest()
+      : PictureLayerImplTest(OcclusionTrackingSettings()) {}

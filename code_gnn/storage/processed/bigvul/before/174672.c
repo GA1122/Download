@@ -1,0 +1,3 @@
+HeapCache::~HeapCache()
+{
+}

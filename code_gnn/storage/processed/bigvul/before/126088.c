@@ -1,0 +1,2 @@
+ExtensionUninstallObserver::~ExtensionUninstallObserver() {
+}

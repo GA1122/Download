@@ -1,0 +1,2 @@
+ExtensionUninstaller::~ExtensionUninstaller() {
+}

@@ -1,0 +1,2 @@
+void WebUILoginView::UpdateWindowType() {
+}

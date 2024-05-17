@@ -1,0 +1,1 @@
+ExternalProtocolDialog::~ExternalProtocolDialog() {}

@@ -1,0 +1,3 @@
+void TabStrip::OnThemeChanged() {
+  FrameColorsChanged();
+}

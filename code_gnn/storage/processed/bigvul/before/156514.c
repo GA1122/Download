@@ -1,0 +1,3 @@
+SQLiteDatabase::~SQLiteDatabase() {
+  Close();
+}

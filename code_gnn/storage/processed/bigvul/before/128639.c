@@ -1,0 +1,2 @@
+ContextualSearchDelegate::~ContextualSearchDelegate() {
+}

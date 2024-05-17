@@ -1,0 +1,3 @@
+ScreenOrientationDispatcherHost::~ScreenOrientationDispatcherHost() {
+  ResetCurrentLock();
+}

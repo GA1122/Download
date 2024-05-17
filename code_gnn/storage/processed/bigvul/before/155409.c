@@ -1,0 +1,3 @@
+    IsWebAuthenticationTouchIdAuthenticatorSupported() {
+  return true;
+}

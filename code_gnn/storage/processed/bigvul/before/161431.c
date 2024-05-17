@@ -1,0 +1,2 @@
+ ServiceWorkerHandler::~ServiceWorkerHandler() {
+}

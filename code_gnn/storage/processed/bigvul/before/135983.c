@@ -1,0 +1,1 @@
+ChromeExtensionWebContentsObserver::~ChromeExtensionWebContentsObserver() {}

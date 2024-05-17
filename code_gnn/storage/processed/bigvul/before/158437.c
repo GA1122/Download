@@ -1,0 +1,2 @@
+   RenderWidgetHostViewAuraWithViewHarnessTest()
+      : view_(nullptr) {}

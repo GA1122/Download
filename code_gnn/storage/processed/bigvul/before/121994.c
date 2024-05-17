@@ -1,0 +1,1 @@
+  ScopedKeepAlive() { chrome::StartKeepAlive(); }

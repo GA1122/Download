@@ -1,0 +1,3 @@
+    ~LocalSiteCharacteristicsWebContentsObserver() {
+  DCHECK(!writer_);
+}

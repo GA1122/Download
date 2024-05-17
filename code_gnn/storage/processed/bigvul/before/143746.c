@@ -1,0 +1,1 @@
+  ContentTestLauncherDelegate() {}

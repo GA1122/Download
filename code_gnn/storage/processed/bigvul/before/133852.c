@@ -1,0 +1,21 @@
+static void ConvertBigEndian(HFSPlusCatalogFile* file) {
+  ConvertBigEndian(&file->recordType);
+  ConvertBigEndian(&file->flags);
+  ConvertBigEndian(&file->reserved1);
+  ConvertBigEndian(&file->fileID);
+  ConvertBigEndian(&file->createDate);
+  ConvertBigEndian(&file->contentModDate);
+  ConvertBigEndian(&file->attributeModDate);
+  ConvertBigEndian(&file->accessDate);
+  ConvertBigEndian(&file->backupDate);
+  ConvertBigEndian(&file->bsdInfo.ownerID);
+  ConvertBigEndian(&file->bsdInfo.groupID);
+  ConvertBigEndian(&file->bsdInfo.fileMode);
+  ConvertBigEndian(&file->userInfo.fdType);
+  ConvertBigEndian(&file->userInfo.fdCreator);
+  ConvertBigEndian(&file->userInfo.fdFlags);
+  ConvertBigEndian(&file->textEncoding);
+  ConvertBigEndian(&file->reserved2);
+  ConvertBigEndian(&file->dataFork);
+  ConvertBigEndian(&file->resourceFork);
+}

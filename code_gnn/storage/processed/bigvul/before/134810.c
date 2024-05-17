@@ -1,0 +1,3 @@
+void TouchEventConverterEvdev::OnStopped() {
+  ReleaseTouches();
+ }

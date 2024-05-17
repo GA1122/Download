@@ -1,0 +1,3 @@
+void TreeView::OnDestroy() {
+  Cleanup();
+}

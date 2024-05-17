@@ -1,0 +1,1 @@
+SuggestionState::~SuggestionState() {}

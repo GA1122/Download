@@ -1,0 +1,42 @@
+ void attachLoaderClientToView(WebKitWebView* webView)
+ {
+     WKPageLoaderClient wkLoaderClient = {
+         kWKPageLoaderClientCurrentVersion,
+         webView,  
+         didStartProvisionalLoadForFrame,
+         didReceiveServerRedirectForProvisionalLoadForFrame,
+         didFailProvisionalLoadWithErrorForFrame,
+         didCommitLoadForFrame,
+         0,  
+         didFinishLoadForFrame,
+         didFailLoadWithErrorForFrame,
+         didSameDocumentNavigationForFrame,
+         didReceiveTitleForFrame,
+         0,  
+         0,  
+         0,  
+         didDisplayInsecureContentForFrame,
+         didRunInsecureContentForFrame,
+         0,  
+         didReceiveAuthenticationChallengeInFrame,
+         didChangeProgress,  
+         didChangeProgress,
+         didChangeProgress,  
+         0,  
+         0,  
+         0,  
+         didChangeBackForwardList,
+         0,  
+         0,  
+         0,  
+         0,  
+          0,  
+          0,  
+          0,  
+//         0,  
+//         0,  
+          0,  
+      };
+      WKPageRef wkPage = toAPI(webkitWebViewBaseGetPage(WEBKIT_WEB_VIEW_BASE(webView)));
+     WKPageSetPageLoaderClient(wkPage, &wkLoaderClient);
+ }

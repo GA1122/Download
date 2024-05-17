@@ -1,0 +1,2 @@
+SoftRaw::~SoftRaw() {
+}

@@ -1,0 +1,3 @@
+GDataDirectory::~GDataDirectory() {
+  RemoveChildren();
+}

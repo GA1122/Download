@@ -1,0 +1,3 @@
+DownloadManager::DownloadManager()
+ {
+ }

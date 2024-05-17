@@ -1,0 +1,3 @@
+void GuestViewBase::RenderViewReady() {
+  GuestReady();
+}

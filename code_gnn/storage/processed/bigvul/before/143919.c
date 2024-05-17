@@ -1,0 +1,3 @@
+void WebRunnerMainDelegate::PreSandboxStartup() {
+  InitializeResourceBundle();
+}

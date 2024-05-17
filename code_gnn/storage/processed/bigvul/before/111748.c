@@ -1,0 +1,2 @@
+PromoResourceService::~PromoResourceService() {
+}

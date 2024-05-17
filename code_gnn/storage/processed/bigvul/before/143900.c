@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetBrowsingDataRemoverDelegate() {
+  return nullptr;
+}

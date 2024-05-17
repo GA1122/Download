@@ -1,0 +1,4 @@
+void BaseMultipleFieldsDateAndTimeInputType::listAttributeTargetChanged()
+{
+    updatePickerIndicatorVisibility();
+}

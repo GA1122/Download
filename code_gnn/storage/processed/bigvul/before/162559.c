@@ -1,0 +1,3 @@
+void Resource::Prune() {
+  DestroyDecodedDataIfPossible();
+}

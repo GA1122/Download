@@ -1,0 +1,2 @@
+GaiaCookieManagerService::GaiaCookieRequest::~GaiaCookieRequest() {
+}

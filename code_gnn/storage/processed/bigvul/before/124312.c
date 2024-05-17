@@ -1,0 +1,2 @@
+ExtensionSystem::~ExtensionSystem() {
+}

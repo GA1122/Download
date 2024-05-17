@@ -1,0 +1,2 @@
+DataReductionProxyIOData::~DataReductionProxyIOData() {
+}

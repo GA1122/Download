@@ -1,0 +1,3 @@
+  void UpdateAutoHideStateNow() {
+    GetShelfLayoutManager()->UpdateAutoHideStateNow();
+  }

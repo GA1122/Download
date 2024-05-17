@@ -1,0 +1,2 @@
+MetricsLog::~MetricsLog() {
+}

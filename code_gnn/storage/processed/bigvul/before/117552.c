@@ -1,0 +1,3 @@
+LowBatteryObserver::~LowBatteryObserver() {
+  Hide();
+}

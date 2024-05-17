@@ -1,0 +1,228 @@
+EXPORTED int mboxlist_setacl(const struct namespace *namespace __attribute__((unused)),
+                    const char *name,
+                    const char *identifier, const char *rights,
+                    int isadmin, const char *userid,
+                    const struct auth_state *auth_state)
+{
+    mbentry_t *mbentry = NULL;
+    int r;
+    int myrights;
+    int mode = ACL_MODE_SET;
+    int isusermbox = 0;
+    int isidentifiermbox = 0;
+    int anyoneuseracl = 1;
+    int ensure_owner_rights = 0;
+    int mask;
+    const char *mailbox_owner = NULL;
+    struct mailbox *mailbox = NULL;
+    char *newacl = NULL;
+    struct txn *tid = NULL;
+
+     
+    mbname_t *mbname = mbname_from_userid(identifier);
+     
+    identifier = mbname_userid(mbname);
+
+     
+    if (mboxname_userownsmailbox(userid, name))
+        isusermbox = 1;
+    anyoneuseracl = config_getswitch(IMAPOPT_ANYONEUSERACL);
+
+     
+    if (mboxname_userownsmailbox(identifier, name))
+        isidentifiermbox = 1;
+
+     
+    if (isusermbox) {
+        mailbox_owner = userid;
+    }
+    else if (isidentifiermbox) {
+        mailbox_owner = identifier;
+    }
+
+     
+    ensure_owner_rights = isusermbox || isidentifiermbox;
+
+     
+     
+    do {
+        r = mboxlist_mylookup(name, &mbentry, &tid, 1);
+    } while(r == IMAP_AGAIN);
+
+     
+    if (!r && mbentry->mbtype & (MBTYPE_MOVING | MBTYPE_RESERVE | MBTYPE_DELETED)) {
+        r = IMAP_MAILBOX_NOTSUPPORTED;
+    }
+
+     
+     
+    if (!r && !(mbentry->mbtype & MBTYPE_REMOTE)) {
+        cyrusdb_abort(mbdb, tid);
+        tid = NULL;
+        mboxlist_entry_free(&mbentry);
+
+         
+        r = mailbox_open_iwl(name, &mailbox);
+
+        if (!r) {
+            do {
+                 
+                r = mboxlist_mylookup(name, &mbentry, &tid, 1);
+            } while (r == IMAP_AGAIN);
+        }
+
+        if(r) goto done;
+    }
+
+     
+    if (!r && !isadmin) {
+        myrights = cyrus_acl_myrights(auth_state, mbentry->acl);
+        if (!(myrights & ACL_ADMIN)) {
+            r = (myrights & ACL_LOOKUP) ?
+                IMAP_PERMISSION_DENIED : IMAP_MAILBOX_NONEXISTENT;
+            goto done;
+        }
+    }
+
+     
+    if (!r && !isadmin && !anyoneuseracl && !strncmp(identifier, "anyone", 6)) {
+      r = IMAP_PERMISSION_DENIED;
+      goto done;
+    }
+
+     
+    if(!r) {
+         
+        newacl = xstrdup(mbentry->acl);
+        if (rights && *rights) {
+             
+            mode = ACL_MODE_SET;
+            if (*rights == '+') {
+                rights++;
+                mode = ACL_MODE_ADD;
+            }
+            else if (*rights == '-') {
+                rights++;
+                mode = ACL_MODE_REMOVE;
+            }
+             
+            if (!isadmin && isidentifiermbox && mode != ACL_MODE_ADD) {
+                int has_admin_rights = mboxlist_have_admin_rights(rights);
+                if ((has_admin_rights && mode == ACL_MODE_REMOVE) ||
+                   (!has_admin_rights && mode != ACL_MODE_REMOVE)) {
+                    syslog(LOG_ERR, "Denied removal of admin rights on "
+                           "folder \"%s\" (owner: %s) by user \"%s\"", name,
+                           mailbox_owner, userid);
+                    r = IMAP_PERMISSION_DENIED;
+                    goto done;
+                }
+            }
+
+            r = cyrus_acl_strtomask(rights, &mask);
+
+            if (!r && cyrus_acl_set(&newacl, identifier, mode, mask,
+                                    ensure_owner_rights ? mboxlist_ensureOwnerRights : 0,
+                                    (void *)mailbox_owner)) {
+                r = IMAP_INVALID_IDENTIFIER;
+            }
+        } else {
+             
+            if (!isadmin && isidentifiermbox) {
+                syslog(LOG_ERR, "Denied removal of admin rights on "
+                       "folder \"%s\" (owner: %s) by user \"%s\"", name,
+                       mailbox_owner, userid);
+                r = IMAP_PERMISSION_DENIED;
+                goto done;
+            }
+
+            if (cyrus_acl_remove(&newacl, identifier,
+                                 ensure_owner_rights ? mboxlist_ensureOwnerRights : 0,
+                                 (void *)mailbox_owner)) {
+                r = IMAP_INVALID_IDENTIFIER;
+            }
+        }
+    }
+
+    if (!r) {
+         
+        free(mbentry->acl);
+        mbentry->acl = xstrdupnull(newacl);
+
+        r = mboxlist_update_entry(name, mbentry, &tid);
+
+        if (r) {
+            syslog(LOG_ERR, "DBERROR: error updating acl %s: %s",
+                   name, cyrusdb_strerror(r));
+            r = IMAP_IOERROR;
+        }
+
+         
+        struct mboxevent *mboxevent = mboxevent_new(EVENT_ACL_CHANGE);
+        mboxevent_extract_mailbox(mboxevent, mailbox);
+        mboxevent_set_acl(mboxevent, identifier, rights);
+        mboxevent_set_access(mboxevent, NULL, NULL, userid, mailbox->name, 0);
+
+        mboxevent_notify(&mboxevent);
+        mboxevent_free(&mboxevent);
+
+    }
+
+     
+     
+    if (!r && !(mbentry->mbtype & MBTYPE_REMOTE)) {
+        mailbox_set_acl(mailbox, newacl, 1);
+         
+        r = mailbox_commit(mailbox);
+    }
+
+     
+    if (!r) {
+        if((r = cyrusdb_commit(mbdb, tid)) != 0) {
+            syslog(LOG_ERR, "DBERROR: failed on commit: %s",
+                   cyrusdb_strerror(r));
+            r = IMAP_IOERROR;
+        }
+        tid = NULL;
+    }
+
+     
+    if (!r && config_mupdate_server) {
+        mupdate_handle *mupdate_h = NULL;
+         
+        char buf[MAX_PARTITION_LEN + HOSTNAME_SIZE + 2];
+
+        snprintf(buf, sizeof(buf), "%s!%s", config_servername, mbentry->partition);
+
+        r = mupdate_connect(config_mupdate_server, NULL, &mupdate_h, NULL);
+        if(r) {
+            syslog(LOG_ERR,
+                   "cannot connect to mupdate server for setacl on '%s'",
+                   name);
+        } else {
+            r = mupdate_activate(mupdate_h, name, buf, newacl);
+            if(r) {
+                syslog(LOG_ERR,
+                       "MUPDATE: can't update mailbox entry for '%s'",
+                       name);
+            }
+        }
+        mupdate_disconnect(&mupdate_h);
+    }
+
+  done:
+    if (r && tid) {
+         
+        int r2 = cyrusdb_abort(mbdb, tid);
+        if (r2) {
+            syslog(LOG_ERR,
+                   "DBERROR: error aborting txn in mboxlist_setacl: %s",
+                   cyrusdb_strerror(r2));
+        }
+    }
+    mailbox_close(&mailbox);
+    free(newacl);
+    mboxlist_entry_free(&mbentry);
+    mbname_free(&mbname);
+
+    return r;
+}

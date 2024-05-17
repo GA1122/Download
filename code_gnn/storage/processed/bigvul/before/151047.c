@@ -1,0 +1,2 @@
+ResponseWriter::~ResponseWriter() {
+}

@@ -1,0 +1,2 @@
+  SameProxyWithDifferentSchemesProxyResolverFactory()
+      : ProxyResolverFactory(false) {}

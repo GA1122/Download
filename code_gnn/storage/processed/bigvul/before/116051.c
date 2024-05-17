@@ -1,0 +1,1 @@
+NTPResourceCache::~NTPResourceCache() {}

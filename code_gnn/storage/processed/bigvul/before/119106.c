@@ -1,0 +1,4 @@
+  ~SandboxSymbolizeHelper() {
+    UnregisterCallback();
+    CloseObjectFiles();
+  }

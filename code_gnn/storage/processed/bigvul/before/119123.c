@@ -1,0 +1,3 @@
+  TestFieldTrialObserver() {
+    FieldTrialList::AddObserver(this);
+  }

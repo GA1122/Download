@@ -1,0 +1,1 @@
+SSLCertErrorHandler::~SSLCertErrorHandler() {}

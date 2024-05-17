@@ -1,0 +1,2 @@
+PolicyStatusInfo::~PolicyStatusInfo() {
+}

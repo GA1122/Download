@@ -1,0 +1,3 @@
+GLSurfaceOzoneEGL::~GLSurfaceOzoneEGL() {
+  Destroy();   
+}

@@ -1,0 +1,3 @@
+void AutofillPopupViewNativeViews::Show() {
+  DoShow();
+}

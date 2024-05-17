@@ -1,0 +1,3 @@
+void PaletteTray::OnActiveToolChanged() {
+  UpdateTrayIcon();
+}

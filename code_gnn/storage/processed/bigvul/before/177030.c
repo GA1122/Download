@@ -1,0 +1,2 @@
+InputDispatcher::CommandEntry::~CommandEntry() {
+}

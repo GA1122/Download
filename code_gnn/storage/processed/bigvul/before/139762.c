@@ -1,0 +1,1 @@
+ResourceFetcher::~ResourceFetcher() {}

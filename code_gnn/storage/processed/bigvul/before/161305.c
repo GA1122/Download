@@ -1,0 +1,2 @@
+InspectorHandler::~InspectorHandler() {
+}

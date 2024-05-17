@@ -1,0 +1,3 @@
+  void Cancel() {
+    delete this;
+  }

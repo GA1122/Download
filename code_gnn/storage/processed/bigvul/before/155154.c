@@ -1,0 +1,3 @@
+void OmniboxViewViews::OnTemplateURLServiceChanged() {
+  InstallPlaceholderText();
+}

@@ -1,0 +1,2 @@
+FaviconSource::~FaviconSource() {
+}

@@ -1,0 +1,4 @@
+void Document::didLoadAllImports()
+{
+    executeScriptsWaitingForResourcesIfNeeded();
+}

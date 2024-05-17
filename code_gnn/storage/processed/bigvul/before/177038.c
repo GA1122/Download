@@ -1,0 +1,2 @@
+InputDispatcherThread::~InputDispatcherThread() {
+}

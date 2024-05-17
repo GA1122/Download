@@ -1,0 +1,3 @@
+bool IsHomeLauncherEnabledInTabletMode() {
+  return IsTabletModeEnabled();
+}

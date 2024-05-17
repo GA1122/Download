@@ -1,0 +1,44 @@
+void ExtensionSettingsHandler::RegisterMessages() {
+  extension_service_ = Profile::FromWebUI(web_ui())->GetOriginalProfile()->
+      GetExtensionService();
+
+  web_ui()->RegisterMessageCallback("extensionSettingsRequestExtensionsData",
+      base::Bind(&ExtensionSettingsHandler::HandleRequestExtensionsData,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsToggleDeveloperMode",
+      base::Bind(&ExtensionSettingsHandler::HandleToggleDeveloperMode,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsInspect",
+      base::Bind(&ExtensionSettingsHandler::HandleInspectMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsReload",
+      base::Bind(&ExtensionSettingsHandler::HandleReloadMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsEnable",
+      base::Bind(&ExtensionSettingsHandler::HandleEnableMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsEnableIncognito",
+      base::Bind(&ExtensionSettingsHandler::HandleEnableIncognitoMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsAllowFileAccess",
+      base::Bind(&ExtensionSettingsHandler::HandleAllowFileAccessMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsUninstall",
+      base::Bind(&ExtensionSettingsHandler::HandleUninstallMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsOptions",
+      base::Bind(&ExtensionSettingsHandler::HandleOptionsMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsShowButton",
+      base::Bind(&ExtensionSettingsHandler::HandleShowButtonMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsLoad",
+      base::Bind(&ExtensionSettingsHandler::HandleLoadMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsAutoupdate",
+      base::Bind(&ExtensionSettingsHandler::HandleAutoUpdateMessage,
+                 base::Unretained(this)));
+  web_ui()->RegisterMessageCallback("extensionSettingsSelectFilePath",
+      base::Bind(&ExtensionSettingsHandler::HandleSelectFilePathMessage,
+                 base::Unretained(this)));
+}

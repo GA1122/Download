@@ -1,0 +1,2 @@
+OneClickSigninSyncStarter::SigninDialogDelegate::~SigninDialogDelegate() {
+}

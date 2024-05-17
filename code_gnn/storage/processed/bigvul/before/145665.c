@@ -1,0 +1,2 @@
+ExtensionOptionsGuest::~ExtensionOptionsGuest() {
+}

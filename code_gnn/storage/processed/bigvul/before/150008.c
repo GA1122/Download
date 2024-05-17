@@ -1,0 +1,3 @@
+void LayerTreeHostImpl::RequestUpdateForSynchronousInputHandler() {
+  UpdateRootLayerStateForSynchronousInputHandler();
+}

@@ -1,0 +1,24 @@
+void sk_common_release(struct sock *sk)
+{
+	if (sk->sk_prot->destroy)
+		sk->sk_prot->destroy(sk);
+
+	 
+
+	sk->sk_prot->unhash(sk);
+
+	 
+
+	sock_orphan(sk);
+
+	xfrm_sk_free_policy(sk);
+
+	sk_refcnt_debug_release(sk);
+
+	if (sk->sk_frag.page) {
+		put_page(sk->sk_frag.page);
+		sk->sk_frag.page = NULL;
+	}
+
+	sock_put(sk);
+}

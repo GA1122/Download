@@ -1,0 +1,3 @@
+void PrintingContext::DismissDialog() {
+  NOTIMPLEMENTED();
+}

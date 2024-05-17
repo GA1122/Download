@@ -1,0 +1,3 @@
+MockCanvasSurfaceLayerBridgeClient::~MockCanvasSurfaceLayerBridgeClient()
+{
+}

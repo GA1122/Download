@@ -1,0 +1,1 @@
+RegistrationManager::RegistrationStatus::~RegistrationStatus() {}

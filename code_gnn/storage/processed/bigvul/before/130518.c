@@ -1,0 +1,2 @@
+CommandsIssuedQuery::~CommandsIssuedQuery() {
+}

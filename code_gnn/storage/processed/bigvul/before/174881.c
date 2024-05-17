@@ -1,0 +1,2 @@
+CameraService::ProClient::~ProClient() {
+}

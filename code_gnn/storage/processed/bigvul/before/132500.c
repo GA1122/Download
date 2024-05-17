@@ -1,0 +1,2 @@
+UsbIsochronousTransferFunction::UsbIsochronousTransferFunction() {
+}

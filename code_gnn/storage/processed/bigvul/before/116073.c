@@ -1,0 +1,2 @@
+void ExtensionSettingsHandler::Initialize() {
+}

@@ -1,0 +1,2 @@
+ObjectBackedNativeHandler::~ObjectBackedNativeHandler() {
+}

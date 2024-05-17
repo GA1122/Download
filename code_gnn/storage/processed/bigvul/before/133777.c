@@ -1,0 +1,28 @@
+SSLClientSocketOpenSSL::SSLClientSocketOpenSSL(
+    scoped_ptr<ClientSocketHandle> transport_socket,
+    const HostPortPair& host_and_port,
+    const SSLConfig& ssl_config,
+    const SSLClientSocketContext& context)
+    : transport_send_busy_(false),
+      transport_recv_busy_(false),
+      transport_recv_eof_(false),
+      weak_factory_(this),
+      pending_read_error_(kNoPendingReadResult),
+      transport_write_error_(OK),
+      completed_handshake_(false),
+      client_auth_cert_needed_(false),
+      cert_verifier_(context.cert_verifier),
+      server_bound_cert_service_(context.server_bound_cert_service),
+      ssl_(NULL),
+      transport_bio_(NULL),
+      transport_(transport_socket.Pass()),
+      host_and_port_(host_and_port),
+      ssl_config_(ssl_config),
+      ssl_session_cache_shard_(context.ssl_session_cache_shard),
+      trying_cached_session_(false),
+      next_handshake_state_(STATE_NONE),
+      npn_status_(kNextProtoUnsupported),
+      channel_id_request_return_value_(ERR_UNEXPECTED),
+      channel_id_xtn_negotiated_(false),
+      net_log_(transport_->socket()->NetLog()) {
+}

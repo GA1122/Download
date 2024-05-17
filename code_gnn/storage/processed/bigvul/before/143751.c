@@ -1,0 +1,1 @@
+  NonSfiPackagedAppTest() : PackagedAppTest("nonsfi") { }

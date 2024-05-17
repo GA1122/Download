@@ -1,0 +1,2 @@
+UsbOpenDeviceFunction::UsbOpenDeviceFunction() {
+}

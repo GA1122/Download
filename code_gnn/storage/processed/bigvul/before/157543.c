@@ -1,0 +1,2 @@
+TestDataReductionProxyConfig::~TestDataReductionProxyConfig() {
+}

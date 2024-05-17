@@ -1,0 +1,4 @@
+void LayerTreeHostQt::forceRepaint()
+{
+    scheduleLayerFlush();
+}

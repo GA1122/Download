@@ -1,0 +1,3 @@
+void AutofillPopupSeparatorView::RefreshStyle() {
+  SchedulePaint();
+}

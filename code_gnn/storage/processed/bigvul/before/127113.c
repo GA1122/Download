@@ -1,0 +1,1 @@
+AudioRendererAlgorithm::~AudioRendererAlgorithm() {}

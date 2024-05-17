@@ -1,0 +1,2 @@
+WatchDogThread::WatchDogThread() : Thread("BrowserWatchdog") {
+}

@@ -1,0 +1,1 @@
+    ~OwnsReference() { helper_->DecrementTaskCount(); }

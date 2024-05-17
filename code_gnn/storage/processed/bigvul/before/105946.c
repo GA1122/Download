@@ -1,0 +1,4 @@
+JSTestActiveDOMObject::~JSTestActiveDOMObject()
+{
+    releaseImplIfNotNull();
+}

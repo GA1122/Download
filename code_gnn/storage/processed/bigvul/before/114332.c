@@ -1,0 +1,3 @@
+    rateLimitOffscreenContextCHROMIUM() {
+  gl_->RateLimitOffscreenContextCHROMIUM();
+}

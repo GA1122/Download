@@ -1,0 +1,2 @@
+ AutoFillCCInfoBarDelegate::~AutoFillCCInfoBarDelegate() {
+}

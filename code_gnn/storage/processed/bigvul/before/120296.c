@@ -1,0 +1,3 @@
+void FolderHeaderView::ItemNameChanged() {
+  Update();
+}

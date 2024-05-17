@@ -1,0 +1,30 @@
+RenderWidget::RenderWidget(RenderThreadBase* render_thread,
+                           WebKit::WebPopupType popup_type)
+    : routing_id_(MSG_ROUTING_NONE),
+      webwidget_(NULL),
+      opener_id_(MSG_ROUTING_NONE),
+      render_thread_(render_thread),
+      host_window_(0),
+      current_paint_buf_(NULL),
+      next_paint_flags_(0),
+      update_reply_pending_(false),
+      did_show_(false),
+      is_hidden_(false),
+      needs_repainting_on_restore_(false),
+      has_focus_(false),
+      handling_input_event_(false),
+      closing_(false),
+      ime_is_active_(false),
+      ime_control_enable_ime_(true),
+      ime_control_x_(-1),
+      ime_control_y_(-1),
+      ime_control_new_state_(false),
+      ime_control_updated_(false),
+      ime_control_busy_(false),
+      popup_type_(popup_type),
+      pending_window_rect_count_(0),
+      suppress_next_char_events_(false),
+      is_gpu_rendering_active_(false) {
+  RenderProcess::current()->AddRefProcess();
+  DCHECK(render_thread_);
+}

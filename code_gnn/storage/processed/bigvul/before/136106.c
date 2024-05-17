@@ -1,0 +1,2 @@
+PopupHeaderView::~PopupHeaderView() {
+}

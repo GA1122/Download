@@ -1,0 +1,1 @@
+XmlConfigParser::~XmlConfigParser() {}

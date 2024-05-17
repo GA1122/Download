@@ -1,0 +1,2 @@
+MockDataReductionProxyConfig::~MockDataReductionProxyConfig() {
+}

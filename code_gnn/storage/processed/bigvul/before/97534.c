@@ -1,0 +1,3 @@
+    CreateSharedChangeProcessor() {
+  return new SharedChangeProcessor();
+}

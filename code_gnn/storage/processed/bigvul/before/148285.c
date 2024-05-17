@@ -1,0 +1,2 @@
+PrintingContextDelegate::~PrintingContextDelegate() {
+}

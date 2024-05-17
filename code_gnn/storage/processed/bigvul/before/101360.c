@@ -1,0 +1,3 @@
+SessionModelAssociator::~SessionModelAssociator() {
+  DCHECK(CalledOnValidThread());
+}

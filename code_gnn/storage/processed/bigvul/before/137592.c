@@ -1,0 +1,2 @@
+FrameReference::~FrameReference() {
+}

@@ -1,0 +1,2 @@
+exsltCryptoRegister (void) {
+}

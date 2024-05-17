@@ -1,0 +1,3 @@
+BluetoothAdapter::GetPendingAdvertisementsForTesting() const {
+   return {};
+ }

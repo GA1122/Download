@@ -1,0 +1,2 @@
+PermissionsData::~PermissionsData() {
+}

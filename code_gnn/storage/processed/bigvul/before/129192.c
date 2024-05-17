@@ -1,0 +1,3 @@
+   FramebufferInfoFloatTest()
+    : FramebufferInfoTest() {
+  }

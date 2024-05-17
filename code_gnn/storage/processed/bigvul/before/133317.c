@@ -1,0 +1,3 @@
+void PaletteTray::ClickedOutsideBubble() {
+  HidePalette();
+}

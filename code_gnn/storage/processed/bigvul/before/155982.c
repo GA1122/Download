@@ -1,0 +1,2 @@
+DiceTurnSyncOnHelper::~DiceTurnSyncOnHelper() {
+}

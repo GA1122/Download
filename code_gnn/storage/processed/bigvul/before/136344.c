@@ -1,0 +1,8 @@
+PaintPropertyTreeBuilderTest::DocPreTranslation(const Document* document) {
+  if (!document)
+    document = &GetDocument();
+  return document->GetLayoutView()
+      ->FirstFragment()
+      .PaintProperties()
+      ->PaintOffsetTranslation();
+}

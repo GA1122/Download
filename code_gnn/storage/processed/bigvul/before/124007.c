@@ -1,0 +1,2 @@
+void BookmarksFunction::BookmarkModelChanged() {
+}

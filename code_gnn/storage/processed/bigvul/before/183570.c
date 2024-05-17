@@ -1,0 +1,11 @@
+ void WebPluginDelegatePepper::SendJavaScriptStream(
+      const GURL& url,
+      const std::string& result,
+      bool success,
+    bool notify_needed,
+    intptr_t notify_data) {
+  instance()->SendJavaScriptStream(url, result, success, notify_needed,
+                                   notify_data);
+//     int notify_id) {
+//   instance()->SendJavaScriptStream(url, result, success, notify_id);
+  }

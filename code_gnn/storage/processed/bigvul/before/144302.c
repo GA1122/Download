@@ -1,0 +1,3 @@
+void LoginDisplayHostWebUI::HideGaiaDialog() {
+  NOTREACHED();
+}

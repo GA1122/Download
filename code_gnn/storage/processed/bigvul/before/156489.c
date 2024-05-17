@@ -1,0 +1,3 @@
+RenderFrameDevToolsAgentHost::~RenderFrameDevToolsAgentHost() {
+  SetFrameTreeNode(nullptr);
+}

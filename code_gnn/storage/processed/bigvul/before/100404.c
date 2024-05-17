@@ -1,0 +1,3 @@
+  ~RendererMainThread() {
+    Stop();
+  }

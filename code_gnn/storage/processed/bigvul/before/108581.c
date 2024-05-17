@@ -1,0 +1,3 @@
+void FontCache::platformInit()
+{
+}

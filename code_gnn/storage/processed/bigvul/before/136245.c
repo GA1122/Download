@@ -1,0 +1,2 @@
+CSPInfo::~CSPInfo() {
+}

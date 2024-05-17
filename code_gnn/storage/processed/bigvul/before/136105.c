@@ -1,0 +1,2 @@
+InternalPageInfoPopupView::~InternalPageInfoPopupView() {
+}

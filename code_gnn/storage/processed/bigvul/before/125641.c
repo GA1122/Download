@@ -1,0 +1,3 @@
+void RenderViewHostImpl::OnClose() {
+  ClosePageIgnoringUnloadEvents();
+}

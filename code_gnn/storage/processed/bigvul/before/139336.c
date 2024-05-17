@@ -1,0 +1,3 @@
+HarfBuzzShaper::HarfBuzzRun::~HarfBuzzRun()
+{
+}

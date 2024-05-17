@@ -1,0 +1,1 @@
+DOMMessageQueue::~DOMMessageQueue() {}

@@ -1,0 +1,4 @@
+JSTestSerializedScriptValueInterface::~JSTestSerializedScriptValueInterface()
+{
+    releaseImplIfNotNull();
+}

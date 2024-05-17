@@ -1,0 +1,3 @@
+DBusHelperProxy::~DBusHelperProxy()
+{
+}

@@ -1,0 +1,3 @@
+void RenderView::PpapiPluginFocusChanged() {
+  UpdateInputMethod();
+}

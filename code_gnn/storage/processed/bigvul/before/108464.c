@@ -1,0 +1,2 @@
+ChromeRenderProcessObserver::~ChromeRenderProcessObserver() {
+}

@@ -1,0 +1,3 @@
+void HTMLDocument::clear()
+{
+}

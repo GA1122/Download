@@ -1,0 +1,3 @@
+NodeIterator::NodePointer::NodePointer()
+{
+}

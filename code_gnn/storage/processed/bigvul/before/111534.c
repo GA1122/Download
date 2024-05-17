@@ -1,0 +1,3 @@
+InputHandler::~InputHandler()
+{
+}

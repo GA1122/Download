@@ -1,0 +1,13 @@
+void WebGLRenderingContextBase::Trace(blink::Visitor* visitor) {
+  visitor->Trace(context_group_);
+  visitor->Trace(bound_array_buffer_);
+  visitor->Trace(default_vertex_array_object_);
+  visitor->Trace(bound_vertex_array_object_);
+  visitor->Trace(current_program_);
+  visitor->Trace(framebuffer_binding_);
+  visitor->Trace(renderbuffer_binding_);
+  visitor->Trace(compatible_xr_device_);
+  visitor->Trace(texture_units_);
+  visitor->Trace(extensions_);
+  CanvasRenderingContext::Trace(visitor);
+}

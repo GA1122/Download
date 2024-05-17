@@ -1,0 +1,3 @@
+MainResourceLoader::~MainResourceLoader()
+{
+}

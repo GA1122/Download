@@ -1,0 +1,1 @@
+BluetoothSocketGetInfoFunction::BluetoothSocketGetInfoFunction() {}

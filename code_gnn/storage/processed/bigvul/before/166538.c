@@ -1,0 +1,3 @@
+void BrowserCommandController::ExtensionStateChanged() {
+  UpdateCommandsForBookmarkEditing();
+}

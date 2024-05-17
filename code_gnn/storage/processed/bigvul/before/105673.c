@@ -1,0 +1,20 @@
+TreeView::TreeView()
+    : tree_view_(NULL),
+      model_(NULL),
+      auto_expand_children_(false),
+      editable_(true),
+      next_id_(0),
+      controller_(NULL),
+      editing_node_(NULL),
+      root_shown_(true),
+      lines_at_root_(false),
+      process_enter_(false),
+      show_context_menu_only_when_node_selected_(true),
+      select_on_right_mouse_down_(true),
+      ALLOW_THIS_IN_INITIALIZER_LIST(wrapper_(this)),
+      original_handler_(NULL),
+      drag_enabled_(false),
+      observer_added_(false),
+      has_custom_icons_(false),
+      image_list_(NULL) {
+}

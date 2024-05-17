@@ -1,0 +1,3 @@
+GLSurfaceOzoneSurfacelessSurfaceImpl::~GLSurfaceOzoneSurfacelessSurfaceImpl() {
+  Destroy();
+}

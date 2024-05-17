@@ -1,0 +1,3 @@
+void BeforeTranslateInfoBar::OriginalLanguageChanged() {
+  UpdateOriginalButtonText();
+}

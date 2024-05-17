@@ -1,0 +1,2 @@
+ExtensionWebContentsObserver::~ExtensionWebContentsObserver() {
+}

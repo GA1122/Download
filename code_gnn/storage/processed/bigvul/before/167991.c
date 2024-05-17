@@ -1,0 +1,23 @@
+void LocalFrame::Trace(blink::Visitor* visitor) {
+  visitor->Trace(ad_tracker_);
+  visitor->Trace(probe_sink_);
+  visitor->Trace(performance_monitor_);
+  visitor->Trace(idleness_detector_);
+  visitor->Trace(inspector_trace_events_);
+  visitor->Trace(loader_);
+  visitor->Trace(navigation_scheduler_);
+  visitor->Trace(view_);
+  visitor->Trace(dom_window_);
+  visitor->Trace(page_popup_owner_);
+  visitor->Trace(script_controller_);
+  visitor->Trace(editor_);
+  visitor->Trace(spell_checker_);
+  visitor->Trace(selection_);
+  visitor->Trace(event_handler_);
+  visitor->Trace(console_);
+  visitor->Trace(input_method_controller_);
+  visitor->Trace(text_suggestion_controller_);
+  visitor->Trace(computed_node_mapping_);
+  Frame::Trace(visitor);
+  Supplementable<LocalFrame>::Trace(visitor);
+}

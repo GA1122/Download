@@ -1,0 +1,31 @@
+void *assoc_array_find(const struct assoc_array *array,
+		       const struct assoc_array_ops *ops,
+		       const void *index_key)
+{
+	struct assoc_array_walk_result result;
+	const struct assoc_array_node *node;
+	const struct assoc_array_ptr *ptr;
+	const void *leaf;
+	int slot;
+
+	if (assoc_array_walk(array, ops, index_key, &result) !=
+	    assoc_array_walk_found_terminal_node)
+		return NULL;
+
+	node = result.terminal_node.node;
+	smp_read_barrier_depends();
+
+	 
+	for (slot = 0; slot < ASSOC_ARRAY_FAN_OUT; slot++) {
+		ptr = ACCESS_ONCE(node->slots[slot]);
+		if (ptr && assoc_array_ptr_is_leaf(ptr)) {
+			 
+			leaf = assoc_array_ptr_to_leaf(ptr);
+			smp_read_barrier_depends();
+			if (ops->compare_object(leaf, index_key))
+				return (void *)leaf;
+		}
+	}
+
+	return NULL;
+}

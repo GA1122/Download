@@ -1,0 +1,3 @@
+  ~XCustomCursorCache() {
+    Clear();
+  }

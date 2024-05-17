@@ -1,0 +1,51 @@
+static int userfaultfd_copy(struct userfaultfd_ctx *ctx,
+			    unsigned long arg)
+{
+	__s64 ret;
+	struct uffdio_copy uffdio_copy;
+	struct uffdio_copy __user *user_uffdio_copy;
+	struct userfaultfd_wake_range range;
+
+	user_uffdio_copy = (struct uffdio_copy __user *) arg;
+
+	ret = -EAGAIN;
+	if (READ_ONCE(ctx->mmap_changing))
+		goto out;
+
+	ret = -EFAULT;
+	if (copy_from_user(&uffdio_copy, user_uffdio_copy,
+			    
+			   sizeof(uffdio_copy)-sizeof(__s64)))
+		goto out;
+
+	ret = validate_range(ctx->mm, uffdio_copy.dst, uffdio_copy.len);
+	if (ret)
+		goto out;
+	 
+	ret = -EINVAL;
+	if (uffdio_copy.src + uffdio_copy.len <= uffdio_copy.src)
+		goto out;
+	if (uffdio_copy.mode & ~UFFDIO_COPY_MODE_DONTWAKE)
+		goto out;
+	if (mmget_not_zero(ctx->mm)) {
+		ret = mcopy_atomic(ctx->mm, uffdio_copy.dst, uffdio_copy.src,
+				   uffdio_copy.len, &ctx->mmap_changing);
+		mmput(ctx->mm);
+	} else {
+		return -ESRCH;
+	}
+	if (unlikely(put_user(ret, &user_uffdio_copy->copy)))
+		return -EFAULT;
+	if (ret < 0)
+		goto out;
+	BUG_ON(!ret);
+	 
+	range.len = ret;
+	if (!(uffdio_copy.mode & UFFDIO_COPY_MODE_DONTWAKE)) {
+		range.start = uffdio_copy.dst;
+		wake_userfault(ctx, &range);
+	}
+	ret = range.len == uffdio_copy.len ? 0 : -EAGAIN;
+out:
+	return ret;
+}

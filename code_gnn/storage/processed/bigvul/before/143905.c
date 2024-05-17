@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetPermissionControllerDelegate() {
+  return nullptr;
+}

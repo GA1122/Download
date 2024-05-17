@@ -1,0 +1,1 @@
+ProcessInfoObserver::~ProcessInfoObserver() {}

@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetSSLHostStateDelegate() {
+  return nullptr;
+}

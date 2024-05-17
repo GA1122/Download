@@ -1,0 +1,3 @@
+void AuthenticatorSheetModelBase::OnAccept() {
+  NOTREACHED();
+}

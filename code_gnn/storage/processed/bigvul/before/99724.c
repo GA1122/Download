@@ -1,0 +1,2 @@
+VaapiWrapper::LazyProfileInfos::~LazyProfileInfos() {
+}

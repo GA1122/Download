@@ -1,0 +1,3 @@
+void PageInfoWindowView::ModelChanged() {
+  LayoutSections();
+}

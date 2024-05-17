@@ -1,0 +1,2 @@
+BluetoothDeviceChromeOS::~BluetoothDeviceChromeOS() {
+}

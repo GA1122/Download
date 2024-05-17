@@ -1,0 +1,8 @@
+JSValue jsTestObjUnsignedLongLongSequenceAttr(ExecState* exec, JSValue slotBase, const Identifier&)
+{
+    JSTestObj* castedThis = jsCast<JSTestObj*>(asObject(slotBase));
+    UNUSED_PARAM(exec);
+    TestObj* impl = static_cast<TestObj*>(castedThis->impl());
+    JSValue result = jsArray(exec, castedThis->globalObject(), impl->unsignedLongLongSequenceAttr());
+    return result;
+}

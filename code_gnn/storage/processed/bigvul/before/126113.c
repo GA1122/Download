@@ -1,0 +1,2 @@
+TabStripNotificationObserver::~TabStripNotificationObserver() {
+}

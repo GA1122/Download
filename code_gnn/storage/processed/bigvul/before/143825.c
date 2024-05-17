@@ -1,0 +1,1 @@
+  void InitLogOnShutdown() { StatisticsRecorder::InitLogOnShutdown(); }

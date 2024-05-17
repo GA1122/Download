@@ -1,0 +1,3 @@
+AppResult::~AppResult() {
+  StopObservingExtensionRegistry();
+}

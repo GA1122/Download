@@ -1,0 +1,3 @@
+  IndexedDBBrowserTest() {
+    EnableDOMAutomation();
+  }

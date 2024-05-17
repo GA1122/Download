@@ -1,0 +1,2 @@
+NewTabUILoadObserver::~NewTabUILoadObserver() {
+}

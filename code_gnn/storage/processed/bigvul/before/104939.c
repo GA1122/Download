@@ -1,0 +1,1 @@
+  InstanceData() : instance(0) {}

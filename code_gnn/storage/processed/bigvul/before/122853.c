@@ -1,0 +1,2 @@
+ImageTransportFactoryAndroid::~ImageTransportFactoryAndroid() {
+}

@@ -1,0 +1,3 @@
+  RenderViewHostManagerTest() {
+    EnableDOMAutomation();
+  }

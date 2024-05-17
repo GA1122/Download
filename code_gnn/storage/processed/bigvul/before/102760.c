@@ -1,0 +1,4 @@
+    virtual void beginTest()
+    {
+        endTest();
+    }

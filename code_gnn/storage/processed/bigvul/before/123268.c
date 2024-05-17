@@ -1,0 +1,2 @@
+ void RenderWidgetHostViewGtk::AcceleratedSurfaceSuspend() {
+}

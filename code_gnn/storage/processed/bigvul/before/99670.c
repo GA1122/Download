@@ -1,0 +1,2 @@
+VaapiVideoDecodeAccelerator::VaapiDecodeSurface::~VaapiDecodeSurface() {
+}

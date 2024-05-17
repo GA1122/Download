@@ -1,0 +1,2 @@
+PageCaptureSaveAsMHTMLFunction::PageCaptureSaveAsMHTMLFunction() {
+}

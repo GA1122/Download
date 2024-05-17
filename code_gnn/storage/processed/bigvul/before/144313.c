@@ -1,0 +1,3 @@
+void LoginDisplayHostWebUI::OnBrowserCreated() {
+  ResetLoginWindowAndView();
+}

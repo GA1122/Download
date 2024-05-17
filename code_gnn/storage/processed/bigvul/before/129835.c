@@ -1,0 +1,2 @@
+TraceEvent::~TraceEvent() {
+}

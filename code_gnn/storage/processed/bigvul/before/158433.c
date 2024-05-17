@@ -1,0 +1,2 @@
+  RenderWidgetHostViewAuraKeyboardMockInputMethod()
+      : MockInputMethod(nullptr) {}

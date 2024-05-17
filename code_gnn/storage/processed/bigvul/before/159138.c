@@ -1,0 +1,74 @@
+DownloadItemImpl::ResumeMode DownloadItemImpl::GetResumeMode() const {
+  DCHECK_CURRENTLY_ON(BrowserThread::UI);
+
+  if (!GetURL().SchemeIsHTTPOrHTTPS())
+    return RESUME_MODE_INVALID;
+
+  bool restart_required =
+      (GetFullPath().empty() || (etag_.empty() && last_modified_time_.empty()));
+
+  bool user_action_required =
+      (auto_resume_count_ >= kMaxAutoResumeAttempts || IsPaused());
+
+  switch (last_reason_) {
+    case DOWNLOAD_INTERRUPT_REASON_FILE_TRANSIENT_ERROR:
+    case DOWNLOAD_INTERRUPT_REASON_NETWORK_TIMEOUT:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_CONTENT_LENGTH_MISMATCH:
+      break;
+
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE:
+
+    case DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH:
+
+    case DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT:
+
+      restart_required = true;
+      break;
+
+    case DOWNLOAD_INTERRUPT_REASON_NETWORK_FAILED:
+    case DOWNLOAD_INTERRUPT_REASON_NETWORK_DISCONNECTED:
+    case DOWNLOAD_INTERRUPT_REASON_NETWORK_SERVER_DOWN:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_FAILED:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_UNREACHABLE:
+    case DOWNLOAD_INTERRUPT_REASON_USER_SHUTDOWN:
+    case DOWNLOAD_INTERRUPT_REASON_CRASH:
+      user_action_required = true;
+      break;
+
+    case DOWNLOAD_INTERRUPT_REASON_FILE_NO_SPACE:
+      user_action_required = true;
+      break;
+
+    case DOWNLOAD_INTERRUPT_REASON_FILE_FAILED:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_ACCESS_DENIED:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_NAME_TOO_LONG:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_TOO_LARGE:
+      user_action_required = true;
+      restart_required = true;
+      break;
+
+    case DOWNLOAD_INTERRUPT_REASON_NONE:
+    case DOWNLOAD_INTERRUPT_REASON_NETWORK_INVALID_REQUEST:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_VIRUS_INFECTED:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_BAD_CONTENT:
+    case DOWNLOAD_INTERRUPT_REASON_USER_CANCELED:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_BLOCKED:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_SECURITY_CHECK_FAILED:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_UNAUTHORIZED:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_CERT_PROBLEM:
+    case DOWNLOAD_INTERRUPT_REASON_SERVER_FORBIDDEN:
+    case DOWNLOAD_INTERRUPT_REASON_FILE_SAME_AS_SOURCE:
+      return RESUME_MODE_INVALID;
+  }
+
+  if (user_action_required && restart_required)
+    return RESUME_MODE_USER_RESTART;
+
+  if (restart_required)
+    return RESUME_MODE_IMMEDIATE_RESTART;
+
+  if (user_action_required)
+    return RESUME_MODE_USER_CONTINUE;
+
+  return RESUME_MODE_IMMEDIATE_CONTINUE;
+}

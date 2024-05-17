@@ -1,0 +1,16 @@
+CustomHistogram::CustomHistogram(const std::string& name,
+                                 const BucketRanges* ranges,
+                                 HistogramBase::AtomicCount* counts,
+                                 HistogramBase::AtomicCount* logged_counts,
+                                 uint32_t counts_size,
+                                 HistogramSamples::Metadata* meta,
+                                 HistogramSamples::Metadata* logged_meta)
+    : Histogram(name,
+                ranges->range(1),
+                ranges->range(ranges->bucket_count() - 1),
+                ranges,
+                counts,
+                logged_counts,
+                counts_size,
+                meta,
+                logged_meta) {}

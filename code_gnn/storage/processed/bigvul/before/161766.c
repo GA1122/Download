@@ -1,0 +1,3 @@
+void PlatformSensorFusion::OnSensorError() {
+  NotifySensorError();
+}

@@ -1,0 +1,1 @@
+BluetoothSocketSendFunction::~BluetoothSocketSendFunction() {}

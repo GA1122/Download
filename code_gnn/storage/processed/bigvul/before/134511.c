@@ -1,0 +1,2 @@
+void WebContentsViewAura::OnCaptureLost() {
+}

@@ -1,0 +1,2 @@
+PanelSettingsMenuModel::~PanelSettingsMenuModel() {
+}

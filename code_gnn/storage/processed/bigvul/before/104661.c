@@ -1,0 +1,1 @@
+Extension::InputComponentInfo::~InputComponentInfo() {}

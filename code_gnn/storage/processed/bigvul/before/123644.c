@@ -1,0 +1,4 @@
+ DeviceOrientationController::~DeviceOrientationController()
+{
+    stopUpdating();
+}

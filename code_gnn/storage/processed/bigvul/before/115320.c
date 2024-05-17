@@ -1,0 +1,2 @@
+  PanelBrowserTest() : BasePanelBrowserTest() {
+  }

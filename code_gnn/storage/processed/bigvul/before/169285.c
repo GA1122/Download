@@ -1,0 +1,3 @@
+void RenderFrameSubmissionObserver::OnRenderFrameMetadataChanged() {
+  Quit();
+}

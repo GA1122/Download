@@ -1,0 +1,1 @@
+WebBluetoothServiceImpl::ScanningClient::~ScanningClient() {}

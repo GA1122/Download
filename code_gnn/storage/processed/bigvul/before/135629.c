@@ -1,0 +1,3 @@
+void FrameSelection::DidLayout() {
+  UpdateAppearance();
+}

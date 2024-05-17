@@ -1,0 +1,3 @@
+RenderFrameImpl::GetRemoteNavigationAssociatedInterfaces() {
+  return GetRemoteAssociatedInterfaces();
+}

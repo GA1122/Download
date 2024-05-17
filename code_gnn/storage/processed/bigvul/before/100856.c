@@ -1,0 +1,2 @@
+HttpUtil::ValuesIterator::~ValuesIterator() {
+}

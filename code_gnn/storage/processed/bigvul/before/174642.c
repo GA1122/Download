@@ -1,0 +1,2 @@
+BnMemoryHeap::BnMemoryHeap() {
+}

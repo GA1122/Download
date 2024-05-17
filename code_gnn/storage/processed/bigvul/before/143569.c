@@ -1,0 +1,5 @@
+    OnDetectionWindowElapsedWithoutHighMemoryUsage() {
+  ResetInterventionState();
+  ResetInterfaces();
+  StartMonitoringIfNeeded();
+}

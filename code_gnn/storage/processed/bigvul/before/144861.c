@@ -1,0 +1,3 @@
+TestLifecycleUnit::~TestLifecycleUnit() {
+  OnLifecycleUnitDestroyed();
+}

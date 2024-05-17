@@ -1,0 +1,2 @@
+ExtensionHelper::~ExtensionHelper() {
+}

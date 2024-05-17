@@ -1,0 +1,2 @@
+NavigationControllerRestoredObserver::~NavigationControllerRestoredObserver() {
+}

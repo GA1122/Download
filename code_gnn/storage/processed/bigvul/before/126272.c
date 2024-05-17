@@ -1,0 +1,3 @@
+void BrowserCommandController::ContentRestrictionsChanged() {
+  UpdateCommandsForContentRestrictionState();
+}

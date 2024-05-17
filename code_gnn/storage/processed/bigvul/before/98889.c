@@ -1,0 +1,2 @@
+WebSocketHandshake::~WebSocketHandshake() {
+}

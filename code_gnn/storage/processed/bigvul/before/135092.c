@@ -1,0 +1,1 @@
+    MockQuotaManagerProxy() : QuotaManagerProxy(NULL, NULL) {}

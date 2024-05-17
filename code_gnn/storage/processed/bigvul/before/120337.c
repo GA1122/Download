@@ -1,0 +1,3 @@
+  void ReceivedAckPreventDefaulted() {
+    ReceivedAckImpl(true);
+  }

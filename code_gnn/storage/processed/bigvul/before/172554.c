@@ -1,0 +1,4 @@
+StreamingProcessor::~StreamingProcessor() {
+    deletePreviewStream();
+    deleteRecordingStream();
+}

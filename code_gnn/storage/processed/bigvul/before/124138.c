@@ -1,0 +1,2 @@
+ChromeContentBrowserClient::~ChromeContentBrowserClient() {
+}

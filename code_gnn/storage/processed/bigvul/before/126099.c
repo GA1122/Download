@@ -1,0 +1,2 @@
+NavigationNotificationObserver::~NavigationNotificationObserver() {
+}

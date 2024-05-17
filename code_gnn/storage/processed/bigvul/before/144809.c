@@ -1,0 +1,3 @@
+TabLifecycleUnitSource::TabLifecycleUnit::~TabLifecycleUnit() {
+  OnLifecycleUnitDestroyed();
+}

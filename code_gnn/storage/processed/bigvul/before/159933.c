@@ -1,0 +1,4 @@
+  void RecreateTopSitesAndBlock() {
+    ResetTopSites();
+    WaitTopSitesLoaded();
+  }

@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetBackgroundSyncController() {
+  return nullptr;
+}

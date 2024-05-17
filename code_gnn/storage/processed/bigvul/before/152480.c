@@ -1,0 +1,3 @@
+void RenderFrameImpl::PluginDidStopLoading() {
+  DidStopLoading();
+}

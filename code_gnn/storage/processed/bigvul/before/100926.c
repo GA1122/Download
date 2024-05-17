@@ -1,0 +1,3 @@
+TaskManagerHandler::~TaskManagerHandler() {
+  DisableTaskManager(NULL);
+}

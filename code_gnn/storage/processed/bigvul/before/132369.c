@@ -1,0 +1,3 @@
+void VirtualKeyboardController::OnTouchscreenDeviceConfigurationChanged() {
+  UpdateDevices();
+}

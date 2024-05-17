@@ -1,0 +1,1 @@
+ServiceWorkerContextCore::ProviderHostIterator::~ProviderHostIterator() {}

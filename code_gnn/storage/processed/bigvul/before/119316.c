@@ -1,0 +1,2 @@
+TranslateInfoBarDelegate::~TranslateInfoBarDelegate() {
+}

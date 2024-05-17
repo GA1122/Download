@@ -1,0 +1,1 @@
+TestPaletteDelegate::~TestPaletteDelegate() {}

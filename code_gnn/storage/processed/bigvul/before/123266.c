@@ -1,0 +1,3 @@
+  ~ResizeLock() {
+    CancelLock();
+  }

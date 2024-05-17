@@ -1,0 +1,1 @@
+SyncManager::ChangeDelegate::~ChangeDelegate() {}

@@ -1,0 +1,3 @@
+void Layer::OnAnimationWaitingForDeletion() {
+  SetNeedsPushProperties();
+}

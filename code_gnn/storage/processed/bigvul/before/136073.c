@@ -1,0 +1,2 @@
+ConnectionInfoPopupAndroid::~ConnectionInfoPopupAndroid() {
+}

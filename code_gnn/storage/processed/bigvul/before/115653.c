@@ -1,0 +1,2 @@
+ChromotingHost::~ChromotingHost() {
+}

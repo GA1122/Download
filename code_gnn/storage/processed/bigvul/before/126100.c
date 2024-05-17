@@ -1,0 +1,1 @@
+NewNotificationBalloonObserver::~NewNotificationBalloonObserver() { }

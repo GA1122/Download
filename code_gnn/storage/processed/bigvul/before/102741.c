@@ -1,0 +1,1 @@
+    CCLayerTreeHostTestShortlived2() { }

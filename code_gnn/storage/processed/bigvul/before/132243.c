@@ -1,0 +1,2 @@
+void RenderFrameImpl::OnMediaServiceFactoryConnectionError() {
+}

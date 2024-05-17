@@ -1,0 +1,3 @@
+void LockScreenMediaControlsView::OnImplicitAnimationsCompleted() {
+  Dismiss();
+}

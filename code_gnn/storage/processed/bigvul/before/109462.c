@@ -1,0 +1,3 @@
+BlobRegistry::~BlobRegistry()
+{
+}

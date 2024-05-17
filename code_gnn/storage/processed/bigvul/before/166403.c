@@ -1,0 +1,59 @@
+bool GLES2Util::IsSizedColorFormat(uint32_t internal_format) {
+  switch (internal_format) {
+    case GL_ALPHA16F_EXT:
+    case GL_ALPHA32F_EXT:
+    case GL_RGB8:
+    case GL_RGB565:
+    case GL_RGB16F:
+    case GL_RGB32F:
+    case GL_SRGB8:
+    case GL_RGB8_SNORM:
+    case GL_R11F_G11F_B10F:
+    case GL_RGB9_E5:
+    case GL_RGB8UI:
+    case GL_RGB8I:
+    case GL_RGB16UI:
+    case GL_RGB16I:
+    case GL_RGB32UI:
+    case GL_RGB32I:
+    case GL_BGRA8_EXT:
+    case GL_RGBA16F:
+    case GL_RGBA32F:
+    case GL_RGBA8_OES:
+    case GL_RGBA4:
+    case GL_RGB5_A1:
+    case GL_SRGB8_ALPHA8:
+    case GL_RGBA8_SNORM:
+    case GL_RGB10_A2:
+    case GL_RGBA8UI:
+    case GL_RGBA8I:
+    case GL_RGB10_A2UI:
+    case GL_RGBA16UI:
+    case GL_RGBA16I:
+    case GL_RGBA32UI:
+    case GL_RGBA32I:
+    case GL_R8:
+    case GL_R8_SNORM:
+    case GL_R16F:
+    case GL_R32F:
+    case GL_R8UI:
+    case GL_R8I:
+    case GL_R16UI:
+    case GL_R16I:
+    case GL_R32UI:
+    case GL_R32I:
+    case GL_RG8:
+    case GL_RG8_SNORM:
+    case GL_RG16F:
+    case GL_RG32F:
+    case GL_RG8UI:
+    case GL_RG8I:
+    case GL_RG16UI:
+    case GL_RG16I:
+    case GL_RG32UI:
+    case GL_RG32I:
+      return true;
+    default:
+      return false;
+  }
+}

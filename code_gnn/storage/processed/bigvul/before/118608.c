@@ -1,0 +1,1 @@
+AppLauncherHandler::AppInstallInfo::~AppInstallInfo() {}

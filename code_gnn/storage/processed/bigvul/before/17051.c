@@ -1,0 +1,15 @@
+OxideQQuickWebViewPrivate::OxideQQuickWebViewPrivate(OxideQQuickWebView* view)
+    : q_ptr(view),
+      contents_view_(new oxide::qquick::ContentsView(view)),
+      load_progress_(0),
+      security_status_(OxideQSecurityStatusPrivate::Create()),
+      find_controller_(OxideQFindControllerPrivate::Create()),
+      constructed_(false),
+      navigation_history_(view),
+      alert_dialog_(nullptr),
+      confirm_dialog_(nullptr),
+      prompt_dialog_(nullptr),
+      before_unload_dialog_(nullptr),
+      file_picker_(nullptr),
+      using_old_load_event_signal_(false),
+      construct_props_(new ConstructProps()) {}

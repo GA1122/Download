@@ -1,0 +1,20 @@
+DocumentThreadableLoader::DocumentThreadableLoader(Document& document, ThreadableLoaderClient* client, BlockingBehavior blockingBehavior, const ThreadableLoaderOptions& options, const ResourceLoaderOptions& resourceLoaderOptions)
+    : m_client(client)
+    , m_document(&document)
+    , m_options(options)
+    , m_resourceLoaderOptions(resourceLoaderOptions)
+    , m_forceDoNotAllowStoredCredentials(false)
+    , m_securityOrigin(m_resourceLoaderOptions.securityOrigin)
+    , m_sameOriginRequest(false)
+    , m_crossOriginNonSimpleRequest(false)
+    , m_isUsingDataConsumerHandle(false)
+    , m_async(blockingBehavior == LoadAsynchronously)
+    , m_requestContext(WebURLRequest::RequestContextUnspecified)
+    , m_timeoutTimer(this, &DocumentThreadableLoader::didTimeout)
+    , m_requestStartedSeconds(0.0)
+    , m_corsRedirectLimit(kMaxCORSRedirects)
+    , m_redirectMode(WebURLRequest::FetchRedirectModeFollow)
+    , m_weakFactory(this)
+{
+    ASSERT(client);
+}

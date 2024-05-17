@@ -1,0 +1,1 @@
+void DoNothing(T value) {}

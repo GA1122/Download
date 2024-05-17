@@ -1,0 +1,3 @@
+void ChromePasswordManagerClient::PasswordGenerationRejectedByTyping() {
+  HidePasswordGenerationPopup();
+}

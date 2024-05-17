@@ -1,0 +1,1 @@
+MetricsWebContentsObserver::~MetricsWebContentsObserver() {}

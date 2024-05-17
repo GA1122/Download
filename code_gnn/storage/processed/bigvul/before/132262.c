@@ -1,0 +1,31 @@
+void RenderFrameImpl::PopulateDocumentStateFromPending(
+    DocumentState* document_state) {
+  document_state->set_request_time(
+      pending_navigation_params_->request_params.request_time);
+
+  InternalDocumentStateData* internal_data =
+      InternalDocumentStateData::FromDocumentState(document_state);
+
+  if (!pending_navigation_params_->common_params.url.SchemeIs(
+          url::kJavaScriptScheme) &&
+      pending_navigation_params_->common_params.navigation_type ==
+          FrameMsg_Navigate_Type::RESTORE) {
+    internal_data->set_cache_policy_override(
+        WebURLRequest::UseProtocolCachePolicy);
+  }
+
+  if (IsReload(pending_navigation_params_->common_params.navigation_type))
+    document_state->set_load_type(DocumentState::RELOAD);
+  else if (pending_navigation_params_->request_params.page_state.IsValid())
+    document_state->set_load_type(DocumentState::HISTORY_LOAD);
+  else
+    document_state->set_load_type(DocumentState::NORMAL_LOAD);
+
+  internal_data->set_is_overriding_user_agent(
+      pending_navigation_params_->request_params.is_overriding_user_agent);
+  internal_data->set_must_reset_scroll_and_scale_state(
+      pending_navigation_params_->common_params.navigation_type ==
+      FrameMsg_Navigate_Type::RELOAD_ORIGINAL_REQUEST_URL);
+  document_state->set_can_load_local_resources(
+      pending_navigation_params_->request_params.can_load_local_resources);
+}

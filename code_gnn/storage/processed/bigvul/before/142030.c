@@ -1,0 +1,4 @@
+void TextTrackLoader::cancelLoad()
+{
+     clearResource();
+ }

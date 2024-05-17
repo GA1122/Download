@@ -1,0 +1,2 @@
+CastStreamingNativeHandler::~CastStreamingNativeHandler() {
+}

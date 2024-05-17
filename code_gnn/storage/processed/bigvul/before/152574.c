@@ -1,0 +1,3 @@
+  void EnablePreferredSizeMode() {
+    view()->OnEnablePreferredSizeChangedMode();
+  }

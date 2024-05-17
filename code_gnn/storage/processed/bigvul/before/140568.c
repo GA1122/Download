@@ -1,0 +1,2 @@
+void SpdyProxyClientSocket::SetOmniboxSpeculation() {
+}

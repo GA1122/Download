@@ -1,0 +1,2 @@
+CameraSourceListener::~CameraSourceListener() {
+}

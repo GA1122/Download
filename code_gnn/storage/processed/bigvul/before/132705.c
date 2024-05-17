@@ -1,0 +1,2 @@
+LayoutTestContentRendererClient::~LayoutTestContentRendererClient() {
+}

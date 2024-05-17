@@ -1,0 +1,3 @@
+ ~PathAdder() {
+        mPath->pop();
+ }

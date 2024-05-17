@@ -1,0 +1,3 @@
+  void FindInterceptPatternMatchInDatabase() {
+    FindInterceptPatternMatch(true);
+  }

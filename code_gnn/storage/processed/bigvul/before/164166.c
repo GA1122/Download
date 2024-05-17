@@ -1,0 +1,3 @@
+  void FindFallbackPatternMatchInWorkingSet() {
+    FindFallbackPatternMatch(false);
+  }

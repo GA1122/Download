@@ -1,0 +1,4 @@
+void WorkerThread::stopInShutdownSequence()
+{
+    stopInternal();
+}

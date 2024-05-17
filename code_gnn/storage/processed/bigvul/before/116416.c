@@ -1,0 +1,4 @@
+    WebTransformOperation()
+        : type(WebTransformOperationIdentity)
+    {
+    }

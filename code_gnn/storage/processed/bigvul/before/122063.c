@@ -1,0 +1,2 @@
+ShellAuraPlatformData::~ShellAuraPlatformData() {
+}

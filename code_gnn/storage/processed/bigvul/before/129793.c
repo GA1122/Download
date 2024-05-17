@@ -1,0 +1,1 @@
+SpdyWriteQueue::PendingWrite::~PendingWrite() {}

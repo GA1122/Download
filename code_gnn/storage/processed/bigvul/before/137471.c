@@ -1,0 +1,2 @@
+MessageLoop::DestructionObserver::~DestructionObserver() {
+}

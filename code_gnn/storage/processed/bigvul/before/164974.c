@@ -1,0 +1,1 @@
+ResourceDispatcherHostImpl::HeaderInterceptorInfo::~HeaderInterceptorInfo() {}

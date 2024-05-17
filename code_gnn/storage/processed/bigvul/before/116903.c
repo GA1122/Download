@@ -1,0 +1,2 @@
+TestWebKitPlatformSupport::~TestWebKitPlatformSupport() {
+}

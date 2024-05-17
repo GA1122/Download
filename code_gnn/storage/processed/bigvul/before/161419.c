@@ -1,0 +1,2 @@
+void ResultNoOp(bool success) {
+}

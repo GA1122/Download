@@ -1,0 +1,4 @@
+JSTestNamedConstructor::~JSTestNamedConstructor()
+{
+    releaseImplIfNotNull();
+}

@@ -1,0 +1,1 @@
+ResourcePrefetchPredictor::~ResourcePrefetchPredictor() {}

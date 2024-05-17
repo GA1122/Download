@@ -1,0 +1,2 @@
+UsbRequestAccessFunction::UsbRequestAccessFunction() {
+}

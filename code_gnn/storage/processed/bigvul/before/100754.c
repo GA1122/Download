@@ -1,0 +1,58 @@
+xmlParseStringName(xmlParserCtxtPtr ctxt, const xmlChar** str) {
+    xmlChar buf[XML_MAX_NAMELEN + 5];
+    const xmlChar *cur = *str;
+    int len = 0, l;
+    int c;
+
+#ifdef DEBUG
+    nbParseStringName++;
+#endif
+
+    c = CUR_SCHAR(cur, l);
+    if (!xmlIsNameStartChar(ctxt, c)) {
+	return(NULL);
+    }
+
+    COPY_BUF(l,buf,len,c);
+    cur += l;
+    c = CUR_SCHAR(cur, l);
+    while (xmlIsNameChar(ctxt, c)) {
+	COPY_BUF(l,buf,len,c);
+	cur += l;
+	c = CUR_SCHAR(cur, l);
+	if (len >= XML_MAX_NAMELEN) {  
+	     
+	    xmlChar *buffer;
+	    int max = len * 2;
+
+	    buffer = (xmlChar *) xmlMallocAtomic(max * sizeof(xmlChar));
+	    if (buffer == NULL) {
+	        xmlErrMemory(ctxt, NULL);
+		return(NULL);
+	    }
+	    memcpy(buffer, buf, len);
+	    while (xmlIsNameChar(ctxt, c)) {
+		if (len + 10 > max) {
+		    xmlChar *tmp;
+		    max *= 2;
+		    tmp = (xmlChar *) xmlRealloc(buffer,
+			                            max * sizeof(xmlChar));
+		    if (tmp == NULL) {
+			xmlErrMemory(ctxt, NULL);
+			xmlFree(buffer);
+			return(NULL);
+		    }
+		    buffer = tmp;
+		}
+		COPY_BUF(l,buffer,len,c);
+		cur += l;
+		c = CUR_SCHAR(cur, l);
+	    }
+	    buffer[len] = 0;
+	    *str = cur;
+	    return(buffer);
+	}
+    }
+    *str = cur;
+    return(xmlStrndup(buf, len));
+}

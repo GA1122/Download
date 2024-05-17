@@ -1,0 +1,3 @@
+void HTMLInputElement::DidNotifySubtreeInsertionsToDocument() {
+  ListAttributeTargetChanged();
+}

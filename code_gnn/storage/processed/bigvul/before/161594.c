@@ -1,0 +1,30 @@
+void AddWebContentStrings(content::WebUIDataSource* html_source) {
+  LocalizedString localized_strings[] = {
+      {"webContent", IDS_SETTINGS_WEB_CONTENT},
+      {"pageZoom", IDS_SETTINGS_PAGE_ZOOM_LABEL},
+      {"fontSize", IDS_SETTINGS_FONT_SIZE_LABEL},
+      {"verySmall", IDS_SETTINGS_VERY_SMALL_FONT},
+      {"small", IDS_SETTINGS_SMALL_FONT},
+      {"medium", IDS_SETTINGS_MEDIUM_FONT},
+      {"large", IDS_SETTINGS_LARGE_FONT},
+      {"veryLarge", IDS_SETTINGS_VERY_LARGE_FONT},
+      {"custom", IDS_SETTINGS_CUSTOM},
+      {"customizeFonts", IDS_SETTINGS_CUSTOMIZE_FONTS},
+      {"fonts", IDS_SETTINGS_FONTS},
+      {"standardFont", IDS_SETTINGS_STANDARD_FONT_LABEL},
+      {"serifFont", IDS_SETTINGS_SERIF_FONT_LABEL},
+      {"sansSerifFont", IDS_SETTINGS_SANS_SERIF_FONT_LABEL},
+      {"fixedWidthFont", IDS_SETTINGS_FIXED_WIDTH_FONT_LABEL},
+      {"minimumFont", IDS_SETTINGS_MINIMUM_FONT_SIZE_LABEL},
+      {"tiny", IDS_SETTINGS_TINY_FONT_SIZE},
+      {"huge", IDS_SETTINGS_HUGE_FONT_SIZE},
+      {"loremIpsum", IDS_SETTINGS_LOREM_IPSUM},
+      {"loading", IDS_SETTINGS_LOADING},
+      {"advancedFontSettings", IDS_SETTINGS_ADVANCED_FONT_SETTINGS},
+      {"openAdvancedFontSettings", IDS_SETTINGS_OPEN_ADVANCED_FONT_SETTINGS},
+      {"requiresWebStoreExtension", IDS_SETTINGS_REQUIRES_WEB_STORE_EXTENSION},
+      {"quickBrownFox", IDS_SETTINGS_QUICK_BROWN_FOX},
+  };
+  AddLocalizedStringsBulk(html_source, localized_strings,
+                          arraysize(localized_strings));
+}

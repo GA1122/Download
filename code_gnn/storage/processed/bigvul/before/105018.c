@@ -1,0 +1,1 @@
+HttpBridge::URLFetchState::~URLFetchState() {}

@@ -1,0 +1,1 @@
+FrameFocusedObserver::~FrameFocusedObserver() {}

@@ -1,0 +1,1 @@
+AudioRendererHost::AudioEntry::~AudioEntry() {}

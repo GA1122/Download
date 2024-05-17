@@ -1,0 +1,2 @@
+ ResizeGripper::~ResizeGripper() {
+}

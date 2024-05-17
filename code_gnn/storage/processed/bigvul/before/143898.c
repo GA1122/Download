@@ -1,0 +1,3 @@
+WebRunnerBrowserContext::GetBackgroundFetchDelegate() {
+  return nullptr;
+}

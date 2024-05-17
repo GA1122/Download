@@ -1,0 +1,2 @@
+ChromePluginServiceFilter::ProcessDetails::ProcessDetails() {
+}

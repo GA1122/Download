@@ -1,0 +1,3 @@
+TestSynchronousCompositor::~TestSynchronousCompositor() {
+  SetClient(NULL);
+}

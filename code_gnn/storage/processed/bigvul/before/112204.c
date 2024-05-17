@@ -1,0 +1,2 @@
+StackingController::~StackingController() {
+}

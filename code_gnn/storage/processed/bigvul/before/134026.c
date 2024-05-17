@@ -1,0 +1,2 @@
+ExtensionAppItem::~ExtensionAppItem() {
+}

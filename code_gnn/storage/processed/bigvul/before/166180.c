@@ -1,0 +1,2 @@
+  MockMediaStreamUIProxy()
+      : FakeMediaStreamUIProxy( true) {}

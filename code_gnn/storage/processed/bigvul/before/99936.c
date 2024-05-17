@@ -1,0 +1,2 @@
+PluginHost::~PluginHost() {
+}

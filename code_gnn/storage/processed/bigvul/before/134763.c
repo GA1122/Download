@@ -1,0 +1,2 @@
+GuestViewBase::~GuestViewBase() {
+}

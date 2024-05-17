@@ -1,0 +1,4 @@
+JSTestObj::~JSTestObj()
+{
+    releaseImplIfNotNull();
+}

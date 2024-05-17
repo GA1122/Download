@@ -1,0 +1,3 @@
+void RenderProcessHostImpl::OnGpuSwitched() {
+  RecomputeAndUpdateWebKitPreferences();
+}

@@ -1,0 +1,3 @@
+IPCThreadState::~IPCThreadState()
+{
+}

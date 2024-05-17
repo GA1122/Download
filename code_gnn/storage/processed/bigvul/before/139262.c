@@ -1,0 +1,3 @@
+void VRDisplay::OnExitPresent() {
+  StopPresenting();
+}

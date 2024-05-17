@@ -1,0 +1,2 @@
+ExtensionInstallPrompt::Prompt::~Prompt() {
+}

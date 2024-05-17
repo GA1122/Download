@@ -1,0 +1,48 @@
+bool HasColor(int format) {
+  return format == WebGLImageConversion::kDataFormatRGBA8 ||
+         format == WebGLImageConversion::kDataFormatRGBA16F ||
+         format == WebGLImageConversion::kDataFormatRGBA32F ||
+         format == WebGLImageConversion::kDataFormatRGB8 ||
+         format == WebGLImageConversion::kDataFormatRGB16F ||
+         format == WebGLImageConversion::kDataFormatRGB32F ||
+         format == WebGLImageConversion::kDataFormatBGR8 ||
+         format == WebGLImageConversion::kDataFormatBGRA8 ||
+         format == WebGLImageConversion::kDataFormatARGB8 ||
+         format == WebGLImageConversion::kDataFormatABGR8 ||
+         format == WebGLImageConversion::kDataFormatRGBA5551 ||
+         format == WebGLImageConversion::kDataFormatRGBA4444 ||
+         format == WebGLImageConversion::kDataFormatRGB565 ||
+         format == WebGLImageConversion::kDataFormatR8 ||
+         format == WebGLImageConversion::kDataFormatR16F ||
+         format == WebGLImageConversion::kDataFormatR32F ||
+         format == WebGLImageConversion::kDataFormatRA8 ||
+         format == WebGLImageConversion::kDataFormatRA16F ||
+         format == WebGLImageConversion::kDataFormatRA32F ||
+         format == WebGLImageConversion::kDataFormatAR8 ||
+         format == WebGLImageConversion::kDataFormatRGBA8_S ||
+         format == WebGLImageConversion::kDataFormatRGBA16 ||
+         format == WebGLImageConversion::kDataFormatRGBA16_S ||
+         format == WebGLImageConversion::kDataFormatRGBA32 ||
+         format == WebGLImageConversion::kDataFormatRGBA32_S ||
+         format == WebGLImageConversion::kDataFormatRGBA2_10_10_10 ||
+         format == WebGLImageConversion::kDataFormatRGB8_S ||
+         format == WebGLImageConversion::kDataFormatRGB16 ||
+         format == WebGLImageConversion::kDataFormatRGB16_S ||
+         format == WebGLImageConversion::kDataFormatRGB32 ||
+         format == WebGLImageConversion::kDataFormatRGB32_S ||
+         format == WebGLImageConversion::kDataFormatRGB10F11F11F ||
+         format == WebGLImageConversion::kDataFormatRGB5999 ||
+         format == WebGLImageConversion::kDataFormatRG8 ||
+         format == WebGLImageConversion::kDataFormatRG8_S ||
+         format == WebGLImageConversion::kDataFormatRG16 ||
+         format == WebGLImageConversion::kDataFormatRG16_S ||
+         format == WebGLImageConversion::kDataFormatRG32 ||
+         format == WebGLImageConversion::kDataFormatRG32_S ||
+         format == WebGLImageConversion::kDataFormatRG16F ||
+         format == WebGLImageConversion::kDataFormatRG32F ||
+         format == WebGLImageConversion::kDataFormatR8_S ||
+         format == WebGLImageConversion::kDataFormatR16 ||
+         format == WebGLImageConversion::kDataFormatR16_S ||
+         format == WebGLImageConversion::kDataFormatR32 ||
+         format == WebGLImageConversion::kDataFormatR32_S;
+}

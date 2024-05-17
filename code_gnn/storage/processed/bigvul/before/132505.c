@@ -1,0 +1,2 @@
+UsbResetDeviceFunction::UsbResetDeviceFunction() {
+}

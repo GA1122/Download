@@ -1,0 +1,4 @@
+ void SetTopLeftUnavailable() {
+ SetLeftUnavailable();
+ SetTopUnavailable();
+ }

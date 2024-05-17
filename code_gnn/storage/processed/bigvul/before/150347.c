@@ -1,0 +1,2 @@
+PasswordAutofillAgent::PasswordValueGatekeeper::~PasswordValueGatekeeper() {
+}

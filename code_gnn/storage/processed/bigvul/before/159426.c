@@ -1,0 +1,3 @@
+ExtensionsAPIClient::GetNetworkingCastPrivateDelegate() {
+  return nullptr;
+}

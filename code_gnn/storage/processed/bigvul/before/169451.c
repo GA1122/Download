@@ -1,0 +1,3 @@
+  NetworkActivityMontiorTest() {
+    NetworkActivityMonitorPeer::ResetMonitor();
+  }

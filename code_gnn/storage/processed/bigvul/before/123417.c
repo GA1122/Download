@@ -1,0 +1,3 @@
+void RenderWidgetHostViewGuest::WillWmDestroy() {
+  NOTIMPLEMENTED();
+}

@@ -1,0 +1,3 @@
+void BluetoothRemoteGATTCharacteristic::dispose() {
+  notifyCharacteristicObjectRemoved();
+}

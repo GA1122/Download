@@ -1,0 +1,3 @@
+InspectorClientImpl::~InspectorClientImpl()
+{
+}

@@ -1,0 +1,2 @@
+MockDownloadFileManager::MockDownloadFileManager()
+    : DownloadFileManager(NULL) { }

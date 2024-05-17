@@ -1,0 +1,3 @@
+TaskManagerView::~TaskManagerView() {
+  RemoveAllChildViews(true);
+}

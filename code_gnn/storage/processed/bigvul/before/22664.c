@@ -1,0 +1,50 @@
+unsigned long wait_task_inactive(struct task_struct *p, long match_state)
+{
+	unsigned long flags;
+	int running, on_rq;
+	unsigned long ncsw;
+	struct rq *rq;
+
+	for (;;) {
+		 
+		rq = task_rq(p);
+
+		 
+		while (task_running(rq, p)) {
+			if (match_state && unlikely(p->state != match_state))
+				return 0;
+			cpu_relax();
+		}
+
+		 
+		rq = task_rq_lock(p, &flags);
+		trace_sched_wait_task(p);
+		running = task_running(rq, p);
+		on_rq = p->se.on_rq;
+		ncsw = 0;
+		if (!match_state || p->state == match_state)
+			ncsw = p->nvcsw | LONG_MIN;  
+		task_rq_unlock(rq, &flags);
+
+		 
+		if (unlikely(!ncsw))
+			break;
+
+		 
+		if (unlikely(running)) {
+			cpu_relax();
+			continue;
+		}
+
+		 
+		if (unlikely(on_rq)) {
+			schedule_timeout_uninterruptible(1);
+			continue;
+		}
+
+		 
+		break;
+	}
+
+	return ncsw;
+}

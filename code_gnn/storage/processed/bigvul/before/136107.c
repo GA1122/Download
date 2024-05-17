@@ -1,0 +1,2 @@
+WebsiteSettingsPopupView::~WebsiteSettingsPopupView() {
+}

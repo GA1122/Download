@@ -1,0 +1,4 @@
+PHP_FUNCTION(hebrevc)
+{
+	php_hebrev(INTERNAL_FUNCTION_PARAM_PASSTHRU, 1);
+}

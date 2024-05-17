@@ -1,0 +1,4 @@
+    void writeGenerateFreshObject()
+    {
+        append(GenerateFreshObjectTag);
+    }

@@ -1,0 +1,4 @@
+QQuickWebViewFlickablePrivate::~QQuickWebViewFlickablePrivate()
+{
+    interactionEngine->disconnect();
+}

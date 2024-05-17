@@ -1,0 +1,3 @@
+void InspectorPageAgent::stopScreencast(ErrorString*)
+{
+}

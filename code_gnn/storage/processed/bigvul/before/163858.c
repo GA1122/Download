@@ -1,0 +1,2 @@
+ExtensionBrowserTest::~ExtensionBrowserTest() {
+}

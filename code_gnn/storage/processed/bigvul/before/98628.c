@@ -1,0 +1,2 @@
+ThumbnailGenerator::~ThumbnailGenerator() {
+}

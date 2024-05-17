@@ -1,0 +1,2 @@
+  ScopedClipboard() : opened_(false) {
+  }

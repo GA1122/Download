@@ -1,0 +1,3 @@
+void WorkerGlobalScopeImageBitmapFactories::trace(Visitor*)
+{
+}

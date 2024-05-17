@@ -1,0 +1,4 @@
+ BrowserActionsContainer::~BrowserActionsContainer() {
+  HidePopup();
+  DeleteBrowserActionViews();
+}

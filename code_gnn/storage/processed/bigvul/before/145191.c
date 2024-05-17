@@ -1,0 +1,2 @@
+ChromeExtensionsDispatcherDelegate::ChromeExtensionsDispatcherDelegate() {
+}

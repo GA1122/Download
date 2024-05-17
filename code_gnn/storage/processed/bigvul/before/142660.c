@@ -1,0 +1,10 @@
+DEFINE_TRACE(FrameLoader)
+{
+    visitor->trace(m_frame);
+    visitor->trace(m_progressTracker);
+    visitor->trace(m_documentLoader);
+    visitor->trace(m_provisionalDocumentLoader);
+    visitor->trace(m_currentItem);
+    visitor->trace(m_provisionalItem);
+    visitor->trace(m_deferredHistoryLoad);
+}

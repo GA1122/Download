@@ -1,0 +1,2 @@
+VariationsRequestSchedulerMobile::~VariationsRequestSchedulerMobile() {
+}

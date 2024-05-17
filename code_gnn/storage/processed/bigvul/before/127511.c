@@ -1,0 +1,4 @@
+    ~JPEGImageReader()
+    {
+        close();
+    }

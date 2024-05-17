@@ -1,0 +1,3 @@
+SSLClientSocketOpenSSL::~SSLClientSocketOpenSSL() {
+  Disconnect();
+}

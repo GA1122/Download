@@ -1,0 +1,3 @@
+void OomInterventionTabHelper::WebContentsDestroyed() {
+  StopMonitoring();
+}

@@ -1,0 +1,3 @@
+ExtensionsAPIClient::GetMediaPerceptionAPIDelegate() {
+  return nullptr;
+}

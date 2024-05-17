@@ -1,0 +1,2 @@
+UsbBulkTransferFunction::UsbBulkTransferFunction() {
+}

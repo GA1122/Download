@@ -1,0 +1,3 @@
+BubbleManager::~BubbleManager() {
+  FinalizePendingRequests();
+}

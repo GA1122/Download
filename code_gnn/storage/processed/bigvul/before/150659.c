@@ -1,0 +1,3 @@
+void InputHandlerProxy::RequestAnimationForSnapFling() {
+  RequestAnimation();
+}

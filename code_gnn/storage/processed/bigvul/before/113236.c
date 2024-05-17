@@ -1,0 +1,3 @@
+void ShelfLayoutManager::OnWindowResized() {
+  LayoutShelf();
+}

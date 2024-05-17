@@ -1,0 +1,3 @@
+Parcel::Blob::~Blob() {
+    release();
+}

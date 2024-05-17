@@ -1,0 +1,3 @@
+void RenderFrameSubmissionObserver::WaitForMetadataChange() {
+  Wait();
+}

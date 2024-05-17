@@ -1,0 +1,1 @@
+PageSnapshotTaker::~PageSnapshotTaker() {}

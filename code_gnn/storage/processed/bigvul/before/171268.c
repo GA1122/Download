@@ -1,0 +1,3 @@
+SoundTriggerHwService::CallbackEvent::~CallbackEvent()
+{
+}

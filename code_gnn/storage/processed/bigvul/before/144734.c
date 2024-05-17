@@ -1,0 +1,3 @@
+void LocalSiteCharacteristicsDataImpl::NotifyLoadedSiteForegrounded() {
+  DecrementNumLoadedBackgroundTabs();
+}

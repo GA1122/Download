@@ -1,0 +1,3 @@
+void GraphicsContext::setImageInterpolationQuality(InterpolationQuality)
+{
+}

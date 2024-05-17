@@ -1,0 +1,2 @@
+TranslateManager::~TranslateManager() {
+}

@@ -1,0 +1,2 @@
+SpeechRecognitionManagerImpl::Session::~Session() {
+}

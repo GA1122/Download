@@ -1,0 +1,2 @@
+BeforeTranslateInfoBar::~BeforeTranslateInfoBar() {
+}

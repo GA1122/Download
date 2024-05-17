@@ -1,0 +1,11 @@
+void nw_buf_list_release(nw_buf_list *list)
+{
+    nw_buf *curr = list->head;
+    nw_buf *next = NULL;
+    while (curr) {
+        next = curr->next;
+        nw_buf_free(list->pool, curr);
+        curr = next;
+    }
+    free(list);
+}
