@@ -384,5 +384,5 @@ class BaseModule(pl.LightningModule):
 
     def configure_optimizers(self):
         params = self.parameters()
-        optimizer = optim.Adam(params=params, lr=self.learning_rate)
+        optimizer = optim.Adam(params=params, lr=0.001) 
         return optimizer
