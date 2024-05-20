@@ -21,7 +21,7 @@
 # module load cuDNN/cuda12.1/9.1.0.70
 
 ## Enable the following line for DAS6
-module load cuda12.1/toolkit
+module load cuda11.7/toolkit
 
 ## For Lisa and Snellius, modules are usually not needed
 ## https://userinfo.surfsara.nl/systems/shared/modules
