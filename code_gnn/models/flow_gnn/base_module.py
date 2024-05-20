@@ -13,6 +13,7 @@ from torch import nn, optim
 from torch.nn import BCELoss, BCEWithLogitsLoss
 import pandas as pd
 import numpy as np
+from deepspeed.profiling.flops_profiler.profiler import FlopsProfiler
 
 import nni
 
@@ -73,6 +74,8 @@ class BaseModule(pl.LightningModule):
             positive_weight = torch.tensor([positive_weight])
         self.loss_fn = BCEWithLogitsLoss(pos_weight=positive_weight)
 
+        if profile:
+            self.prof = FlopsProfiler(self)
     
     def freeze_graph(self):
         logger.warn("freeze_graph not implemented")
