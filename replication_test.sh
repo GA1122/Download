@@ -42,4 +42,4 @@ mkdir o`echo $$`
 cd o`echo $$`
 
 # Run the actual experiment.
-python /home/gas690/test.sh
+python /home/gas690/setup_environment.sh
