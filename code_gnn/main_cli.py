@@ -316,8 +316,8 @@ if __name__ == "__main__":
     try:
         setup_transient_log()
         MyLightningCLI(FlowGNNGGNNModule, BigVulDatasetLineVDDataModule, parser_kwargs={
-            "fit": {"default_config_files": ["configs/config_default.yaml"]},
-            "test": {"default_config_files": ["configs/config_default.yaml"]},
+            "fit": {"default_config_files": ["config_default.yaml"]},
+            "test": {"default_config_files": ["config_default.yaml"]},
         }, save_config_overwrite=True)
     except QuitEarlyException:
         logger.info("Quitting early")
