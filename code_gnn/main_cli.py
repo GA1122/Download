@@ -179,7 +179,7 @@ class MyLightningCLI(LightningCLI):
         perfs = [float(re.search(r"val_loss=([0-9\.]+)\.ckpt", t).group(1)) for t in ckpts]
         ckpt_path = ckpts[np.argmin(perfs)]
         logger.info("load ckpt:%s", ckpt_path)
-        metrics = self.trainer.validate(self.model, self.datamodule, ckpt_path=ckpt_path)
+        metrics = self.trainer.test(self.model, self.datamodule, ckpt_path=ckpt_path) #validate                !!!!
         logger.info("final val result: %s", metrics)
         nni.report_final_result(metrics[0]["val_BinaryF1Score"])
 
