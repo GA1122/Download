@@ -30,8 +30,8 @@ trainer:
     # - class_path: pytorch_lightning.callbacks.RichProgressBar
     - class_path: pytorch_lightning.callbacks.ModelSummary
   enable_progress_bar: true
+  num_sanity_val_steps: 0
   overfit_batches: 0.0
-  num_sanity_val_steps: 1
   track_grad_norm: -1
   check_val_every_n_epoch: 1
   max_epochs: 25
