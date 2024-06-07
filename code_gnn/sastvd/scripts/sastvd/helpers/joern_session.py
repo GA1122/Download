@@ -32,7 +32,7 @@ def shesc(sometext):
 
 class JoernSession:
     def __init__(self, worker_id: int = 0, logfile=None, clean=False):
-        self.proc = pexpect.spawn("joern --nocolors", timeout=600, logfile=logfile)
+        self.proc = pexpect.spawn("/var/scratch/gas690/joern/joern-cli/joern --nocolors", timeout=600, logfile=logfile)
         self.read_until_prompt()
 
         if worker_id != 0:
