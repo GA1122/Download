@@ -144,10 +144,12 @@ def run_joern_sess(
     sess, filepath: str, verbose: int, export_json: bool, export_cpg: bool, export_dataflow: bool
 ):
     """Extract graph using most recent Joern."""
+    tmp = filepath.partition(".")
+    filep = tmp[0] + ".java"
     output = sess.run_script(
         "get_func_graph",
         params={
-            "filename": filepath,
+            "filename": filep,
             "exportJson": export_json,
             "exportCpg": export_cpg,
             "exportDataflow": export_dataflow,
