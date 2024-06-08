@@ -5,6 +5,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
+#SBATCH --array=0-99%10
+#SBATCH --err="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/getgraphs_%A_%a.out"
+#SBATCH --output="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/getgraphs_%A_%a.out"
 
 ## in the list above, the partition name depends on where you are running your job.
 ## On DAS5 the default would be `defq` on Lisa the default would be `gpu` or `gpu_shared`
@@ -41,5 +44,12 @@ echo $$
 mkdir o`echo $$`
 cd o`echo $$`
 
+if [ ! -z "$SLURM_ARRAY_TASK_ID"]
+then
+    jan="--job_array_number $SLURM_ARRAY_TASK_ID"
+else
+    jan=""
+fi
+
 # Run the actual experiment.
-bash /home/gas690/Download/code_gnn/sastvd/scripts/run_getgraphs.sh
+python -u /home/gas690/Download/code_gnn/sastvd/scripts/getgraphs.py bigvul --sess $jan --num_jobs 100 --overwrite $@
