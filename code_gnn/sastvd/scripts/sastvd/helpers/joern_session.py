@@ -77,7 +77,7 @@ class JoernSession:
         return self.read_until_prompt(timeout=timeout).strip()
 
     def import_script(self, script: str):
-        scriptdir: Path = Path("storage/external")
+        scriptdir: Path = Path("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external")
         scriptdir_str = str(scriptdir)
         if scriptdir_str.endswith("/"):
             scriptdir_str = scriptdir_str[:-1]
