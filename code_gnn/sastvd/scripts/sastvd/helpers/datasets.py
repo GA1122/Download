@@ -141,10 +141,7 @@ def bigvul(cache=True, sample=False):
     Read BigVul dataset from CSV
     """
 
-    savefile = (
-        svd.get_dir(svd.cache_dir() / "minimal_datasets")
-        / f"minimal_bigvul{'_sample' if sample else ''}.pq"
-    )
+    savefile = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/minimal_datasets/minimal_bigvul.pq"
     if cache:
         try:
             df = pd.read_parquet(savefile, engine="fastparquet").dropna()
