@@ -2,6 +2,7 @@
 #SBATCH --job-name=getgraphs_script
 #SBATCH --time=72:00:00
 #SBATCH -N 1
+#SBATCH -n 2
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
