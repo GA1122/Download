@@ -5,6 +5,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
+#SBATCH --err="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/dbize.log"
+#SBATCH --output="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/dbize.log"
 
 ## in the list above, the partition name depends on where you are running your job.
 ## On DAS5 the default would be `defq` on Lisa the default would be `gpu` or `gpu_shared`
