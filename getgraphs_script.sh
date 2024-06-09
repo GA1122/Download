@@ -44,12 +44,5 @@ echo $$
 mkdir o`echo $$`
 cd o`echo $$`
 
-if [ ! -z "$SLURM_ARRAY_TASK_ID"]
-then
-    jan="--job_array_number $SLURM_ARRAY_TASK_ID"
-else
-    jan=""
-fi
-
 # Run the actual experiment.
-python -u /home/gas690/Download/code_gnn/sastvd/scripts/getgraphs.py bigvul --sess $jan --num_jobs 100 --overwrite $@
+python -u /home/gas690/Download/code_gnn/sastvd/scripts/getgraphs.py bigvul --num_jobs 100 --overwrite $@
