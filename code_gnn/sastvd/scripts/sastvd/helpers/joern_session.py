@@ -36,10 +36,10 @@ class JoernSession:
         self.read_until_prompt()
 
         if worker_id != 0:
-            workspace = "workers/" + str(worker_id)
+            workspace = "Download/code_gnn/sastvd/scripts/workers/" + str(worker_id)
             self.switch_workspace(workspace)
         else:
-            workspace = "workspace"
+            workspace = "Download/code_gnn/sastvd/scripts/workspace"
 
         workspace_dir = Path(workspace)
         if clean and workspace_dir.exists():
@@ -77,7 +77,7 @@ class JoernSession:
         return self.read_until_prompt(timeout=timeout).strip()
 
     def import_script(self, script: str):
-        scriptdir: Path = Path("home/gas690/Download/code_gnn/sastvd/scripts/storage/external")
+        scriptdir: Path = Path("Download/code_gnn/sastvd/scripts/storage/external")
         scriptdir_str = str(scriptdir)
         if scriptdir_str.endswith("/"):
             scriptdir_str = scriptdir_str[:-1]
