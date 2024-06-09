@@ -14,7 +14,7 @@ dsname = args.dsname
 
 sample_text = "_sample" if sample_mode else ""
 cols = ["Unnamed: 0", "graph_id", "node_id"]
-node_dfs = pd.read_csv(svd.processed_dir() / dsname / f"nodes{sample_text}.csv", index_col=0, usecols=cols)
+node_dfs = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/nodes{sample_text}.csv", index_col=0, usecols=cols)
 node_dfs
 
 #%%
@@ -25,7 +25,7 @@ for limitall in [1, 10, 100, 500, 1000, 5000, 10000]:
         split = "fixed"
         seed = 0
         feat = f"_ABS_DATAFLOW_{sfeat}_all_limitall_{limitall}_limitsubkeys_{limitsubkeys}"
-        dst_file = svd.processed_dir() / dsname / f"nodes_feat_{feat}_{split}{sample_text}.csv"
+        dst_file = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/nodes_feat_{feat}_{split}{sample_text}.csv"
         print("processing", feat, "to", dst_file)
 
         abs_df, abs_df_hashes = svdds.abs_dataflow(feat, dsname, sample_mode, split=split, seed=seed)
