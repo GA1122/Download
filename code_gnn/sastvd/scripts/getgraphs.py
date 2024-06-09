@@ -13,13 +13,13 @@ import sastvd.helpers.joern_session as svdjs
 
 def write_file(row):
     # Write C Files
-    savedir_before = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" +  row["dataset"] + "/before"
+    savedir_before = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" +  row["dataset"] + "/before/"
     fpath1 = savedir_before + f"{row['id']}.java"
     with open(fpath1, "w") as f:
         f.write(row["before"])
 
     if row["dataset"] == "bigvul":
-        savedir_after = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" +  row["dataset"] + "/after"
+        savedir_after = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" +  row["dataset"] + "/after/"
         fpath2 = savedir_after + f"{row['id']}.java"
         if len(row["diff"]) > 0:
             with open(fpath2, "w") as f:
