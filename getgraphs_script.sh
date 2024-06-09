@@ -5,7 +5,6 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=defq
 #SBATCH --gres=gpu:1
-#SBATCH --array=0-99%10
 #SBATCH --err="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/getgraphs_%A_%a.out"
 #SBATCH --output="/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/getgraphs_%A_%a.out"
 
