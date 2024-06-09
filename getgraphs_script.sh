@@ -34,14 +34,5 @@ module load java/jdk-19
 source $HOME/.bashrc
 conda activate
 
-# Base directory for the experiment
-mkdir $HOME/experiments
-cd $HOME/experiments
-
-# Simple trick to create a unique directory for each run of the script
-echo $$
-mkdir o`echo $$`
-cd o`echo $$`
-
 # Run the actual experiment.
 python -u /home/gas690/Download/code_gnn/sastvd/scripts/getgraphs.py bigvul --num_jobs 100 --overwrite $@
