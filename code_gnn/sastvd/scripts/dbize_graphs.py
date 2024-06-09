@@ -13,7 +13,7 @@ dsname = args.dsname
 
 sample_text = "_sample" if sample_mode else ""
 cols = ["Unnamed: 0", "graph_id", "innode", "outnode"]
-edge_dfs = pd.read_csv(svd.processed_dir() / dsname / f"edges{sample_text}.csv", index_col=0, usecols=cols)
+edge_dfs = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/edges{sample_text}.csv", index_col=0, usecols=cols)
 edge_dfs
 
 #%%
@@ -30,6 +30,6 @@ for graph_id, group in edge_dfs.groupby("graph_id"):
 from dgl.data.utils import save_graphs
 import torch as th
 print({"graph_id": th.LongTensor(graph_ids)})
-save_graphs(str(svd.processed_dir() / dsname / f"graphs{sample_text}.bin"), graphs, {"graph_id": th.LongTensor(graph_ids)})
+save_graphs(str("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/graphs{sample_text}.bin"), graphs, {"graph_id": th.LongTensor(graph_ids)})
 
 print("done")
