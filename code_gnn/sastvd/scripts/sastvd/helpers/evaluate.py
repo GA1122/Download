@@ -37,7 +37,7 @@ def feature_extraction(filepath):
     Pred  : 40,   , 19, 14, 7, 38, 33, 31
     """
     cache_name = "_".join(str(filepath).split("/")[-3:])
-    cachefp = svd.get_dir(svd.cache_dir() / "ivdetect_feat_ext") / Path(cache_name).stem
+    cachefp = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/" + "ivdetect_feat_ext/" + Path(cache_name).stem
     try:
         with open(cachefp, "rb") as f:
             return pkl.load(f)
@@ -227,8 +227,8 @@ def helper(row):
     removed = df[df.id==177775].removed.item()
     helper({"id":177775, "removed": removed, "added": added})
     """
-    before_path = str(svd.processed_dir() / f"bigvul/before/{row['id']}.c")
-    after_path = str(svd.processed_dir() / f"bigvul/after/{row['id']}.c")
+    before_path = str("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + f"bigvul/before/{row['id']}.java")
+    after_path = str("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + f"bigvul/after/{row['id']}.java")
     try:
         dep_add_lines = get_dep_add_lines(before_path, after_path, row["added"])
     except Exception:
