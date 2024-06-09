@@ -14,13 +14,13 @@ import sastvd.helpers.joern_session as svdjs
 def write_file(row):
     # Write C Files
     savedir_before = svd.get_dir(svd.processed_dir() / row["dataset"] / "before")
-    fpath1 = savedir_before / f"{row['id']}.c"
+    fpath1 = savedir_before / f"{row['id']}.java"
     with open(fpath1, "w") as f:
         f.write(row["before"])
 
     if row["dataset"] == "bigvul":
         savedir_after = svd.get_dir(svd.processed_dir() / row["dataset"] / "after")
-        fpath2 = savedir_after / f"{row['id']}.c"
+        fpath2 = savedir_after / f"{row['id']}.java"
         if len(row["diff"]) > 0:
             with open(fpath2, "w") as f:
                 f.write(row["after"])
@@ -73,7 +73,7 @@ def preprocess_whole_df_split(t):
     preprocess one split of the dataframe
     """
     i, split = t
-    with open(f"hpc/logs/getgraphs_output_{i}.joernlog", "wb") as lf:
+    with open(f"/home/gas690/Download/code_gnn/sastvd/scripts/hpc/logs/getgraphs_output_{i}.joernlog", "wb") as lf:
         sess = svdjs.JoernSession(f"getgraphs/{i}", logfile=lf, clean=True)
         sess.import_script("get_func_graph")
         try:
