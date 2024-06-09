@@ -101,7 +101,7 @@ print("percentage of graphs with at least 1 vuln:", node_dfs.groupby("graph_id")
 
 #%%
 sample_text = "_sample" if sample_mode else ""
-node_dfs.to_csv(svd.processed_dir() / dsname / f"nodes{sample_text}.csv")
-edge_dfs.to_csv(svd.processed_dir() / dsname / f"edges{sample_text}.csv")
+node_dfs.to_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/nodes{sample_text}.csv")
+edge_dfs.to_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/edges{sample_text}.csv")
 
 print("done")
