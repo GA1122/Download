@@ -9,8 +9,8 @@ from glob import glob
 from pathlib import Path
 import json
 import traceback
-import .git as svdg
-import .joern as svdj
+import sastvd.helpers.git as svdg
+import sastvd.helpers.joern as svdj
 import logging
 
 logger = logging.getLogger(__name__)
