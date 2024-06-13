@@ -203,7 +203,9 @@ def get_dataflow_features(graph_id, raise_all=False, verbose=False):
 # Get all abstract dataflow info
 def get_dataflow_features_df():
     # print(get_dataflow_features_df)
-    csv_file = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/" + f"{dsname}/abstract_dataflow{'_sample' if args.sample else ''}.csv"
+    csv_file = (
+        svd.cache_dir() / f"{dsname}/abstract_dataflow{'_sample' if args.sample else ''}.csv"
+    )
     if False and args.cache:
         dataflow_df = pd.read_csv(csv_file)
     else:
