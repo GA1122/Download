@@ -206,7 +206,7 @@ def get_dataflow_features_df():
     csv_file = (
         svd.cache_dir() / f"{dsname}/abstract_dataflow{'_sample' if args.sample else ''}.csv"
     )
-    if False and args.cache:
+    if csv_file.exists() and args.cache:
         dataflow_df = pd.read_csv(csv_file)
     else:
         dataflow_df = pd.DataFrame()
@@ -330,5 +330,6 @@ if __name__ == "__main__":
     print(all_df["hash"].value_counts(dropna=False, normalize=True))
 
     all_df.to_csv(
-        "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/abstract_dataflow_hash_{'_'.join(args.select_subkeys)}{'_sample' if args.sample else ''}.csv"
+        svd.get_dir(svd.processed_dir() / dsname) / f"abstract_dataflow_hash_{'_'.join(args.select_subkeys)}{'_sample' if args.sample else ''}.csv"
     )
+
