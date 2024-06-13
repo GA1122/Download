@@ -9,8 +9,8 @@ from glob import glob
 from pathlib import Path
 import json
 import traceback
-import sastvd.helpers.git as svdg
-import sastvd.helpers.joern as svdj
+import .git as svdg
+import .joern as svdj
 import logging
 
 logger = logging.getLogger(__name__)
@@ -38,7 +38,10 @@ def devign(cache=True, sample=False):
     Read devign dataset from JSON
     """
 
-    savefile = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/" + "minimal_datasets/" + f"minimal_devign{'_sample' if sample else ''}.pq"
+    savefile = (
+        svd.get_dir(svd.cache_dir() / "minimal_datasets")
+        / f"minimal_devign{'_sample' if sample else ''}.pq"
+    )
     if cache:
         try:
             df = pd.read_parquet(savefile, engine="fastparquet").dropna()
@@ -50,7 +53,7 @@ def devign(cache=True, sample=False):
             logger.exception("devign exception, loading from source")
 
     filename = "function.json"
-    df = pd.read_json("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + filename,)
+    df = pd.read_json(svd.external_dir() / filename,)
     df = df.rename_axis("id").reset_index()
     df["dataset"] = "devign"
 
@@ -106,7 +109,7 @@ def mutated(subdataset, cache=True, sample=False):
 
     df = bigvul(cache=cache, sample=sample)
     df = df.drop(columns=["dataset", "before"])
-    fp = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + "mutated/" + f"c_{subdataset.replace('_flip', '')}.jsonl"
+    fp = svd.external_dir() / "mutated" / f"c_{subdataset.replace('_flip', '')}.jsonl"
     # print("loading", fp)
     mutated = pd.read_json(fp, lines=True)
     if "flip" in subdataset:
@@ -138,7 +141,10 @@ def bigvul(cache=True, sample=False):
     Read BigVul dataset from CSV
     """
 
-    savefile = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/minimal_datasets/minimal_bigvul.pq"
+    savefile = (
+        svd.get_dir(svd.cache_dir() / "minimal_datasets")
+        / f"minimal_bigvul{'_sample' if sample else ''}.pq"
+    )
     if cache:
         try:
             df = pd.read_parquet(savefile, engine="fastparquet").dropna()
@@ -151,7 +157,7 @@ def bigvul(cache=True, sample=False):
 
     filename = "MSR_data_cleaned_SAMPLE.csv" if sample else "MSR_data_cleaned.csv"
     df = pd.read_csv(
-        "/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + filename,
+        svd.external_dir() / filename,
         parse_dates=["Publish Date", "Update Date"],
         dtype={
             "commit_id": str,
@@ -282,7 +288,7 @@ def bigvul(cache=True, sample=False):
             "add_lines",
             "del_lines",
         ]
-    ].to_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/" + "bigvul/bigvul_metadata.csv", index=0)
+    ].to_csv(svd.cache_dir() / "bigvul/bigvul_metadata.csv", index=0)
     return df
 
 
@@ -291,7 +297,7 @@ def check_validity(_id, dsname, assert_no_exception=True, assert_line_number=Fal
 
     Example:
     _id = 1320
-    with open(str("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + f"bigvul/before/{_id}.java") + ".nodes.json", "r") as f:
+    with open(str(svd.processed_dir() / f"bigvul/before/{_id}.c") + ".nodes.json", "r") as f:
         nodes = json.load(f)
     """
 
@@ -326,7 +332,7 @@ def check_validity(_id, dsname, assert_no_exception=True, assert_line_number=Fal
 
 def itempath(_id, dsname="bigvul"):
     """Get itempath path from item id. TODO: somehow give itempath of before and after."""
-    return "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + f"{dsname}/before/{_id}.java"
+    return svd.processed_dir() / f"{dsname}/before/{_id}.c"
 
 
 def check_valid_dataflow(_id):
@@ -370,7 +376,7 @@ def ds_filter(
     if check_file:
         finished = [
             int(Path(i).name.split(".")[0])
-            for i in glob(str("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + "/before/*nodes*"))
+            for i in glob(str(svd.processed_dir() / dsname / "before/*nodes*"))
             if not os.path.basename(i).startswith("~")
         ]
         df = df[df.id.isin(finished)]
@@ -379,8 +385,8 @@ def ds_filter(
 
     # Filter out samples with no lineNumber from Joern output
     if check_valid:
-        valid_cache = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/cache/" + f"{dsname}_valid_{sample_mode}.csv"
-        if False:
+        valid_cache = svd.cache_dir() / f"{dsname}_valid_{sample_mode}.csv"
+        if valid_cache.exists():
             valid_cache_df = pd.read_csv(valid_cache, index_col=0)
         else:
             valid = svd.dfmp(
@@ -434,7 +440,7 @@ def get_splits_map(dsname):
 
 def get_linevd_splits_map():
     logger.debug("loading linevd splits")
-    splits = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + "bigvul_rand_splits.csv")
+    splits = pd.read_csv(svd.external_dir() / "bigvul_rand_splits.csv")
     splits = splits.set_index("id")
     logger.debug("splits value counts:\n%s", splits.value_counts())
     return splits.to_dict()
@@ -442,14 +448,14 @@ def get_linevd_splits_map():
 
 def get_linevul_splits():
     logger.debug("loading linevul splits")
-    splits_df = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + "linevul_splits.csv", index_col=0)
+    splits_df = pd.read_csv(svd.external_dir() / "linevul_splits.csv", index_col=0)
     splits = splits_df["split"]
     splits = splits.replace("valid", "val")
     return splits
 
 
 def get_codexglue_splits():
-    splits_df = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + "codexglue_splits.csv")
+    splits_df = pd.read_csv(svd.external_dir() / "codexglue_splits.csv")
     splits_df = splits_df.set_index("example_index")
     splits_df["split"] = splits_df["split"].replace("valid", "val")
     splits = splits_df["split"]
@@ -458,7 +464,7 @@ def get_codexglue_splits():
 
 def get_named_splits_map(split):
     logger.debug("loading %s splits", split)
-    splits_df = pd.read_csv("/home/gas690/Download/code_gnn/sastvd/scripts/storage/external/" + "splits" + f"{split}.csv", index_col=0)
+    splits_df = pd.read_csv(svd.external_dir() / "splits" / f"{split}.csv", index_col=0)
     splits_df = splits_df.set_index("example_index")
     splits = splits_df["split"]
     splits = splits.replace("valid", "val")
@@ -596,7 +602,10 @@ def abs_dataflow(feat, dsname="bigvul", sample=False, split="fixed", seed=0):
     )
     source_df = ds_partition(df, "train", dsname, split=split, seed=seed)
 
-    abs_df_file = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + f"/abstract_dataflow_hash_api_datatype_literal_operator{'_sample' if sample else ''}.csv"
+    abs_df_file = (
+        svd.processed_dir()
+        / dsname / f"abstract_dataflow_hash_api_datatype_literal_operator{'_sample' if sample else ''}.csv"
+    )
     if abs_df_file.exists():
         abs_df = pd.read_csv(abs_df_file)
         abs_df_hashes = {}
@@ -735,7 +744,7 @@ def test_abs_all_unk():
 def dataflow_1g(sample=False):
     """Load 1st generation dataflow information"""
 
-    cache_file = "/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + f"bigvul/1g_dataflow_hash_all_{sample}.csv"
+    cache_file = svd.processed_dir() / f"bigvul/1g_dataflow_hash_all_{sample}.csv"
     if cache_file.exists():
         df = pd.read_csv(
             cache_file,
