@@ -186,7 +186,7 @@ def get_node_edges(filepath: str, verbose=0):
 
     filepath = "/home/david/Documents/projects/singularity-sastvd/storage/processed/bigvul/before/53.c"
     """
-    tmp = filepath.partition(".")
+    tmp = str(filepath).partition(".")
     filepath = str(tmp[0]) + ".java"
 
     outdir = Path(filepath).parent
@@ -329,8 +329,8 @@ def plot_node_edges(filepath: str, lineNumber: int = -1, filter_edges=[]):
 
     TO BE DEPRECATED.
     """
-    tmp = filepath.partition(".")
-    filepath = str(tmp[0]) + ".java"
+    tmp = str(filepath).partition(".")
+    filepath = tmp[0] + ".java"
     
     nodes, edges = get_node_edges(filepath)
 
