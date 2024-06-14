@@ -328,6 +328,9 @@ def plot_node_edges(filepath: str, lineNumber: int = -1, filter_edges=[]):
 
     TO BE DEPRECATED.
     """
+    tmp = filepath.partition(".")
+    filepath = str(tmp[0]) + ".java"
+    
     nodes, edges = get_node_edges(filepath)
 
     if len(filter_edges) > 0:
@@ -367,7 +370,7 @@ def full_run_joern(filepath: str, verbose=0):
 def full_run_joern_from_string(code: str, dataset: str, iid: str, verbose=0):
     """Run full joern from a string instead of file."""
     savedir = svd.get_dir(svd.interim_dir() / dataset)
-    savepath = savedir / f"{iid}.c"
+    savepath = savedir / f"{iid}.java"
     with open(savepath, "w") as f:
         f.write(code)
     return full_run_joern(savepath, verbose)
