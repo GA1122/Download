@@ -186,10 +186,11 @@ def get_node_edges(filepath: str, verbose=0):
 
     filepath = "/home/david/Documents/projects/singularity-sastvd/storage/processed/bigvul/before/53.c"
     """
+    tmp = filepath.partition(".")
+    filepath = str(tmp[0]) + ".java"
+
     outdir = Path(filepath).parent
     outfile = outdir / Path(filepath).name
-    tmp = outfile.partition(".")
-    outfile = str(tmp[0]) + ".java"
 
     with open(str(outfile) + ".edges.json", "r") as f:
         edges = json.load(f)
