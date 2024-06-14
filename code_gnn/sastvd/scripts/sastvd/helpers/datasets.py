@@ -376,7 +376,7 @@ def ds_filter(
     if check_file:
         finished = [
             int(Path(i).name.split(".")[0])
-            for i in glob(str(svd.processed_dir() / dsname / "before/*nodes*"))
+            for i in glob("/home/gas690/Download/code_gnn/sastvd/scripts/storage/processed/" + dsname + "/before/*nodes*")
             if not os.path.basename(i).startswith("~")
         ]
         df = df[df.id.isin(finished)]
