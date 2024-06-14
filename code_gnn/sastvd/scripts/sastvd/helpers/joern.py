@@ -188,6 +188,8 @@ def get_node_edges(filepath: str, verbose=0):
     """
     outdir = Path(filepath).parent
     outfile = outdir / Path(filepath).name
+    tmp = outfile.partition(".")
+    outfile = str(tmp[0]) + ".java"
 
     with open(str(outfile) + ".edges.json", "r") as f:
         edges = json.load(f)
