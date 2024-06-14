@@ -386,7 +386,7 @@ def ds_filter(
     # Filter out samples with no lineNumber from Joern output
     if check_valid:
         valid_cache = svd.cache_dir() / f"{dsname}_valid_{sample_mode}.csv"
-        if valid_cache.exists():
+        if False:
             valid_cache_df = pd.read_csv(valid_cache, index_col=0)
         else:
             valid = svd.dfmp(
