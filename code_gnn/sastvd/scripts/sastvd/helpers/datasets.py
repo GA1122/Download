@@ -302,9 +302,15 @@ def check_validity(_id, dsname, assert_no_exception=True, assert_line_number=Fal
     """
 
     try:
-        svdj.get_node_edges(itempath(_id, dsname))
         # check nodes
-        with open(str(itempath(_id, dsname)) + ".nodes.json", "r") as f:
+
+        filepath = str(itempath(_id, dsname))
+        tmp = filepath.partition(".")
+        filepath = tmp[0] + ".java"
+
+        svdj.get_node_edges(filepath)
+        
+        with open(filepath + ".nodes.json", "r") as f:
             nodes = json.load(f)
         nodes_valid = False
         for n in nodes:
@@ -312,19 +318,19 @@ def check_validity(_id, dsname, assert_no_exception=True, assert_line_number=Fal
                 nodes_valid = True
                 break
         if not nodes_valid:
-            logger.warn("valid (%s): no line number", itempath(_id, dsname))
+            logger.warn("valid (%s): no line number", filepath)
             if assert_line_number:
                 return False
         # check edges
-        with open(str(itempath(_id, dsname)) + ".edges.json", "r") as f:
+        with open(filepath + ".edges.json", "r") as f:
             edges = json.load(f)
         edge_set = set([i[2] for i in edges])
         if "REACHING_DEF" not in edge_set and "CDG" not in edge_set:
-            logger.warn("valid (%s): no dataflow", itempath(_id, dsname))
+            logger.warn("valid (%s): no dataflow", filepath)
             if assert_reaching_def:
                 return False
     except Exception as E:
-        logger.warn("valid (%s): exception\n%s", itempath(_id, dsname), traceback.format_exc())
+        logger.warn("valid (%s): exception\n%s", filepath, traceback.format_exc())
         if assert_no_exception:
             return False
     return True
