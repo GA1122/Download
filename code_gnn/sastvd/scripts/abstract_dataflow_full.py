@@ -55,9 +55,9 @@ def get_dataflow_features(graph_id, raise_all=False, verbose=False):
     try:
         # breakpoint()
         cpg, n, e = dataflow.get_cpg(graph_id, dsname, return_n_e=True)
-        print(cpg)
-        print(n)
-        print(e)
+        # print(cpg)
+        # print(n)
+        # print(e)
         ast = dataflow.sub(cpg, "AST")
         arg_graph = dataflow.sub(cpg, "ARGUMENT")
         labels = nx.get_node_attributes(cpg, "_label")
@@ -65,6 +65,8 @@ def get_dataflow_features(graph_id, raise_all=False, verbose=False):
         names = nx.get_node_attributes(cpg, "name")
 
         def recurse_datatype(v):
+            print(v)
+            print(cpg.nodes[v])
             v_attr = cpg.nodes[v]
             if verbose:
                 print("recursing", v, v_attr)
