@@ -65,8 +65,8 @@ def get_dataflow_features(graph_id, raise_all=False, verbose=False):
         names = nx.get_node_attributes(cpg, "name")
 
         def recurse_datatype(v):
-            print(v)
-            print(cpg.nodes[v])
+            print("node number - " + str(v))
+            print("node information - " + str(cpg.nodes[v]))
             v_attr = cpg.nodes[v]
             if verbose:
                 print("recursing", v, v_attr)
