@@ -13,6 +13,7 @@ from torch import nn, optim
 from torch.nn import BCELoss, BCEWithLogitsLoss
 import pandas as pd
 import numpy as np
+import sys
 from deepspeed.profiling.flops_profiler.profiler import FlopsProfiler
 
 import nni
@@ -363,6 +364,8 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
+        np.set_printoptions(threshold=sys.maxsize)
+        
         print(preds)
         print(labels)
 
