@@ -320,6 +320,11 @@ class BaseModule(pl.LightningModule):
             self.test_metrics_negative.update(out[i_neg], label[i_neg])
         assert len(i_pos) + len(i_neg) == len(label)
 
+        print("=======")
+        print(out)
+        print("=======")
+        print(label)
+        print("=======")
         self.test_preds.update(out)
         self.test_labels.update(label)
         
