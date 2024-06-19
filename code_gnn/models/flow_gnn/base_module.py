@@ -390,8 +390,3 @@ class BaseModule(pl.LightningModule):
         print(classification_report(labels, preds))
         print("confusion matrix")
         print(confusion_matrix(labels, preds))
-    
-    def configure_optimizers(self): # Lisasin juurde, kuna pytorch_lightning nouab seda manual optimization-i puhul                             !!!!!!
-        params = self.parameters()
-        optimizer = optim.Adam(params=params, lr=0.001)
-        return optimizer
