@@ -65,6 +65,8 @@ class BigVulDataset:
             )
         logger.info(f"{partition} {len(df)}")
         self.df = df
+        print(len(df[df.vul == 1]))
+        print(len(df[df.vul == 0]))
 
         # get mapping from index to sample ID
         self.df = self.df.reset_index(drop=True)
