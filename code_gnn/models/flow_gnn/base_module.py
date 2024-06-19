@@ -356,6 +356,7 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
+        print(thresholds.tolist())
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         pd.DataFrame({"precision": precision.tolist(), "recall": recall.tolist(), "thresholds": thresholds.tolist() + [1]}).to_csv("pr.csv")
         #precision_bin, recall_bin, thresholds_bin = self.test_pr_curve_bin(preds, labels)
