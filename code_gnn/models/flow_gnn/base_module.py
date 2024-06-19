@@ -356,6 +356,12 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
+        print("------------")
+        print(preds)
+        print("------------")
+        print(labels)
+        print("------------")
+        
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         print(thresholds.tolist())
         print(precision.tolist())
@@ -368,9 +374,6 @@ class BaseModule(pl.LightningModule):
         preds = preds > 0.5
 
         np.set_printoptions(threshold=sys.maxsize)
-        
-        print(preds)
-        print(labels)
 
         def get_n_params(model):
             pp=0
