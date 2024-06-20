@@ -65,6 +65,7 @@ class BigVulDataset:
             )
         logger.info(f"{partition} {len(df)}")
         self.df = df
+        pd.set_option('display.max_columns', None)
         print(f"{partition} vulnerable - {len(df[df.vul == 1])}")
         print(df[df.vul == 1].head())
         print(f"{partition} nonvulnerable - {len(df[df.vul == 0])}")
