@@ -57,6 +57,9 @@ def get_graphs_by_id(dsname, sample_mode):
 
 
 def get_graphs(dsname, nodes_df, sample_mode, feat, partition, concat_all_absdf, load_features):
+    print("+++++++++")
+    print(nodes_df)
+    print("+++++++++")
     graphs_by_id = get_graphs_by_id(dsname, sample_mode)
     feats_init = []
     for i in range(len(graphs_by_id)):
@@ -94,4 +97,9 @@ def get_graphs(dsname, nodes_df, sample_mode, feat, partition, concat_all_absdf,
     logger.info("percentage of graphs with at least 1 vuln:\n%s", nodes_df.groupby("graph_id")["vuln"].agg(lambda g: 1 if g.any() else 0).value_counts(normalize=True))
     logger.info("skipped dataflow: %d", skipped_df)
 
+    print("==========")
+    print(graphs_by_id)
+    print("==========")
+    print(extrafeats_by_id)
+    print("==========")
     return graphs_by_id, extrafeats_by_id
