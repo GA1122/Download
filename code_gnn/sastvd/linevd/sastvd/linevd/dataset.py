@@ -36,7 +36,11 @@ class BigVulDatasetLineVD(svddc.BigVulDataset):
             nodes_df = nodes_df[nodes_df["graph_id"].isin(self.df.id)]
         
         self.graphs_by_id, self.extrafeats_by_id = get_graphs(dsname, nodes_df, sample_mode, feat, self.partition, concat_all_absdf, load_features)
-        
+        print("++++++++++++++++")
+        print(self.graphs_by_id)
+        print("++++++++++++++++")
+        print(self.extrafeats_by_id)
+        print("++++++++++++++++")
         # include only graphs with parsed nodes
         new_df = self.df[self.df.id.isin(self.graphs_by_id.keys())].reset_index(drop=True)
         if len(new_df) != len(self.df):
