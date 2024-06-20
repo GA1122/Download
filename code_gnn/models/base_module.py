@@ -170,6 +170,7 @@ class BaseModule(pl.LightningModule):
 
     def training_step(self, batch_data, batch_idx):
         batch, extrafeats = batch_data
+        print(batch)
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
         if self.hparams.label_style == "dataflow_solution_in":
@@ -210,6 +211,7 @@ class BaseModule(pl.LightningModule):
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
         batch, extrafeats = batch_data
+        print(batch)
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
         if self.hparams.label_style == "dataflow_solution_in":
@@ -248,6 +250,7 @@ class BaseModule(pl.LightningModule):
             end = torch.cuda.Event(enable_timing=True)
 
         batch, extrafeats = batch_data
+        print(batch)
         label = self.get_label(batch)
         if do_time:
             start.record()
