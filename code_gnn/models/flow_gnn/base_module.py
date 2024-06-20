@@ -251,11 +251,11 @@ class BaseModule(pl.LightningModule):
         batch, extrafeats = batch_data
 
         label = self.get_label(batch)
-        print("=======")
+        print("BATCH =======")
         print(batch)
-        print("=======")
+        print("MIDDLE =======")
         print(label)
-        print("=======")
+        print("LABEL =======")
         if do_time:
             start.record()
         out = self.forward(batch, extrafeats)
