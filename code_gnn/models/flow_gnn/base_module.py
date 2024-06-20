@@ -237,7 +237,12 @@ class BaseModule(pl.LightningModule):
         #     self.test_every_metrics.update(out, label)
 
     def test_step(self, batch_data, batch_idx):
-        print(batch_idx)
+        np.set_printoptions(threshold=sys.maxsize)
+        print("Batch_idx")
+        print("======")
+        print(batch_idx) #oli siin
+        print("======")
+        print("\n")
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
             prof = self.prof
@@ -250,12 +255,19 @@ class BaseModule(pl.LightningModule):
 
         batch, extrafeats = batch_data
 
-        label = self.get_label(batch)
-        print("BATCH =======")
+        print("Batch")
+        print("======")
         print(batch)
-        print("MIDDLE =======")
-        print(label)
-        print("LABEL =======")
+        print("======")
+        print("\n")
+
+        print("extrafeats")
+        print("======")
+        print(extrafeats)
+        print("======")
+        print("\n")
+        
+        label = self.get_label(batch)
         if do_time:
             start.record()
         out = self.forward(batch, extrafeats)
@@ -362,6 +374,7 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
+        np.set_printoptions(threshold=sys.maxsize)
         print("------------")
         print(preds)
         print("------------")
@@ -379,7 +392,6 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
-        np.set_printoptions(threshold=sys.maxsize)
 
         def get_n_params(model):
             pp=0
