@@ -237,12 +237,7 @@ class BaseModule(pl.LightningModule):
         #     self.test_every_metrics.update(out, label)
 
     def test_step(self, batch_data, batch_idx):
-        np.set_printoptions(threshold=sys.maxsize)
-        print("Batch_idx")
-        print("======")
-        print(batch_idx) #oli siin
-        print("======")
-        print("\n")
+        print(batch_idx)
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
             prof = self.prof
@@ -254,18 +249,6 @@ class BaseModule(pl.LightningModule):
             end = torch.cuda.Event(enable_timing=True)
 
         batch, extrafeats = batch_data
-
-        print("Batch")
-        print("======")
-        print(batch)
-        print("======")
-        print("\n")
-
-        print("extrafeats")
-        print("======")
-        print(extrafeats)
-        print("======")
-        print("\n")
         
         label = self.get_label(batch)
         if do_time:
