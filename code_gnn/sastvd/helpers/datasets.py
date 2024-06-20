@@ -332,7 +332,7 @@ def check_validity(_id, dsname, assert_no_exception=True, assert_line_number=Fal
 
 def itempath(_id, dsname="bigvul"):
     """Get itempath path from item id. TODO: somehow give itempath of before and after."""
-    return svd.processed_dir() / f"{dsname}/before/{_id}.c"
+    return svd.processed_dir() / f"{dsname}/before/{_id}.java"
 
 
 def check_valid_dataflow(_id):
