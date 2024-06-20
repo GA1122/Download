@@ -249,7 +249,13 @@ class BaseModule(pl.LightningModule):
             end = torch.cuda.Event(enable_timing=True)
 
         batch, extrafeats = batch_data
+
         label = self.get_label(batch)
+        print("=======")
+        print(batch)
+        print("=======")
+        print(label)
+        print("=======")
         if do_time:
             start.record()
         out = self.forward(batch, extrafeats)
@@ -320,11 +326,6 @@ class BaseModule(pl.LightningModule):
             self.test_metrics_negative.update(out[i_neg], label[i_neg])
         assert len(i_pos) + len(i_neg) == len(label)
 
-        print("=======")
-        print(out)
-        print("=======")
-        print(label)
-        print("=======")
         self.test_preds.update(out)
         self.test_labels.update(label)
         
