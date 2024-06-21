@@ -118,6 +118,9 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("\n")
         print("Train dataloader")
         print(self)
+        print(self.train)
+        print(self.batch_size)
+        print(self.use_random_weighted_sampler)
         if self.use_random_weighted_sampler:
             sampler = ImbalancedDatasetSampler(self.train)
 
@@ -141,6 +144,8 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("\n")
         print("Val dataloader")
         print(self)
+        print(self.val)
+        print(self.batch_size)
         return GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers)
 
     def test_dataloader(self):
@@ -148,6 +153,8 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("\n")
         print("Test dataloader")
         print(self)
+        print(self.test)
+        print(self.batch_size)
         return GraphDataLoader(
             self.test,
             batch_size=16,
