@@ -67,6 +67,9 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
             self.train = BigVulDatasetLineVD(partition="train", **dataargs)
             self.val = BigVulDatasetLineVD(partition="val", **dataargs)
             self.test = BigVulDatasetLineVD(partition="test", **dataargs)
+            print(self.train)
+            print(self.val)
+            print(self.test)
 
             if "codebert" in dataargs:
                 del dataargs["codebert"].tokenizer
