@@ -135,6 +135,13 @@ class BaseModule(pl.LightningModule):
             on_epoch=False,
             batch_size=batch.batch_size,
         )
+        print("\n")
+        print("+++++++++++++++")
+        print(out)
+        print("+++++++++++++++")
+        print(label)
+        print("+++++++++++++++")
+        print("\n")
         return out, label
 
     def log_loss(self, name, loss, batch):
