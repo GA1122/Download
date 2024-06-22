@@ -170,6 +170,10 @@ class BaseModule(pl.LightningModule):
         self.log(pred_name, pred_metric[pred_name], on_step=False, on_epoch=True)
 
     def training_step(self, batch_data, batch_idx):
+        print("\n")
+        print("Train dataloader")
+        print(self)
+        print(self.train)
         batch, extrafeats = batch_data
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
@@ -210,6 +214,11 @@ class BaseModule(pl.LightningModule):
     #                 )
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
+        print("\n")
+        print("Val dataloader")
+        print(self)
+        print(self.val)
+        print(self.batch_size)
         batch, extrafeats = batch_data
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
@@ -237,6 +246,11 @@ class BaseModule(pl.LightningModule):
         #     self.test_every_metrics.update(out, label)
 
     def test_step(self, batch_data, batch_idx):
+        print("\n")
+        print("Test dataloader")
+        print(self)
+        print(self.test)
+        print(self.batch_size)
         print(batch_idx)
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
