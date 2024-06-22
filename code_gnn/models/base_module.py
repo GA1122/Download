@@ -169,6 +169,8 @@ class BaseModule(pl.LightningModule):
         self.log(pred_name, pred_metric[pred_name], on_step=False, on_epoch=True)
 
     def training_step(self, batch_data, batch_idx):
+        print(batch_idx)
+        print(batch_data)
         batch, extrafeats = batch_data
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
@@ -237,7 +239,6 @@ class BaseModule(pl.LightningModule):
 
     def test_step(self, batch_data, batch_idx):
         print(batch_idx)
-        print(batch)
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
             prof = self.prof
