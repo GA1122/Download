@@ -62,10 +62,8 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
         logger.info("Data args: %s", dataargs)
         if train_includes_all:
-            print("Train includes all")
             self.train = BigVulDatasetLineVD(partition="all", **dataargs)
         else:
-            print("Splitted")
             self.train = BigVulDatasetLineVD(partition="train", **dataargs)
             self.val = BigVulDatasetLineVD(partition="val", **dataargs)
             self.test = BigVulDatasetLineVD(partition="test", **dataargs)
@@ -74,10 +72,6 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
                 del dataargs["codebert"].tokenizer
 
             if not sample_mode:
-                print("Not sample mode")
-                print(self.train)
-                print(self.val)
-                print(self.test)
                 duped_examples_trainval = set(self.train.df["id"]) & set(self.val.df["id"])
                 assert len(duped_examples_trainval) == 0, len(duped_examples_trainval)
                 duped_examples_valtest = set(self.val.df["id"]) & set(self.test.df["id"])
@@ -115,12 +109,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def train_dataloader(self):
         """Return train dataloader."""
-        print("\n")
-        print("Train dataloader")
-        print(self)
-        print(self.train)
-        print(self.batch_size)
-        print(self.use_random_weighted_sampler)
+        print(self.get_epoc_indices())
         if self.use_random_weighted_sampler:
             sampler = ImbalancedDatasetSampler(self.train)
 
@@ -141,20 +130,10 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def val_dataloader(self):
         """Return val dataloader."""
-        print("\n")
-        print("Val dataloader")
-        print(self)
-        print(self.val)
-        print(self.batch_size)
         return GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers)
 
     def test_dataloader(self):
         """Return test dataloader."""
-        print("\n")
-        print("Test dataloader")
-        print(self)
-        print(self.test)
-        print(self.batch_size)
         return GraphDataLoader(
             self.test,
             batch_size=16,
