@@ -111,7 +111,6 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         """Return train dataloader."""
         print("Getting epoch indices")
         print(self.train.get_epoch_indices())
-        print(batch)
         if self.use_random_weighted_sampler:
             sampler = ImbalancedDatasetSampler(self.train)
 
