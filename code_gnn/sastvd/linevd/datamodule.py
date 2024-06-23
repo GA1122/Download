@@ -112,6 +112,8 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def train_dataloader(self):
         """Return train dataloader."""
+        print("Train dataloader")
+        print(self.train)
         print("Getting epoch indices")
         print(self.train.get_epoch_indices())
         if self.use_random_weighted_sampler:
@@ -134,10 +136,14 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def val_dataloader(self):
         """Return val dataloader."""
+        print("Validation dataloader")
+        print(self.val)
         return GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers)
 
     def test_dataloader(self):
         """Return test dataloader."""
+        print("Test dataloader")
+        print(self.test)
         return GraphDataLoader(
             self.test,
             batch_size=16,
