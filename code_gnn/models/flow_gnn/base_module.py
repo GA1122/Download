@@ -217,6 +217,11 @@ class BaseModule(pl.LightningModule):
     #                 )
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
+        print("===========")
+        print(batch_data)
+        print("===========")
+        print(batch_idx)
+        print("===========")
         batch, extrafeats = batch_data
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
