@@ -176,7 +176,8 @@ class BaseModule(pl.LightningModule):
         self.log(label_name, label_metric[label_name], on_step=False, on_epoch=True)
         self.log(pred_name, pred_metric[pred_name], on_step=False, on_epoch=True)
 
-    def training_step(self, batch_data:int, batch_idx):
+    def training_step(self, batch_data, batch_idx):
+        print(batch)
         batch, extrafeats = batch_data
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
