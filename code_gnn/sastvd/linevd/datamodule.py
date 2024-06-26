@@ -139,9 +139,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("\n")
         print("Validation dataloader")
         print(self.val)
-        pd.set_option('display.max_columns', None)
-        pd.set_option('display.max_rows', 50)
-        print(self.val.head())
+        print(self.df)
         for batched_graph, labels in GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers):
             print("+++++++++")
             print(batched_graph)
