@@ -218,15 +218,15 @@ class BaseModule(pl.LightningModule):
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
         batch, extrafeats = batch_data
-        print("\n")
-        print("===========")
-        print(batch)
-        print("===========")
-        print(extrafeats)
-        print("===========")
-        print(batch_idx)
-        print("===========")
-        print("\n")
+        #print("\n")
+        #print("===========")
+        #print(batch)
+        #print("===========")
+        #print(extrafeats)
+        #print("===========")
+        #print(batch_idx)
+        #print("===========")
+        #print("\n")
         label = self.get_label(batch)
         out = self.forward(batch, extrafeats)
         if self.hparams.label_style == "dataflow_solution_in":
@@ -235,6 +235,16 @@ class BaseModule(pl.LightningModule):
 
         out = torch.sigmoid(out)
         label = label.int()
+        print("\n")
+        print("OUT ===========")
+        print(out.shape)
+        print("LABEL ===========")
+        print(label.shape)
+        print("===========")
+        print("\n")
+        print(torch.sum(label == 1))
+        print(torch.sum(label == 0))
+        
 
         self.log_loss("val", loss, batch)
         self.val_metrics.update(out, label)
