@@ -220,7 +220,7 @@ class BaseModule(pl.LightningModule):
         batch, extrafeats = batch_data
         print("\n")
         print("===========")
-        print(batch['_VULN'])
+        print(batch)
         print("===========")
         print(extrafeats)
         print("===========")
