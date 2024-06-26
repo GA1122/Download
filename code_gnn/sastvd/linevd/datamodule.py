@@ -140,13 +140,12 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("\n")
         print("Validation dataloader")
         print(self.val)
-        print(self.val.df)
+        print(self.val.df["vul"] == 1)
         for batched_graph, labels in GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers):
             print("+++++++++")
             print(batched_graph)
             print("+++++++++")
             print(labels)
-            print("+++++++++")
         return GraphDataLoader(self.val, shuffle=True, batch_size=self.batch_size, num_workers=self.val_workers)
 
     def test_dataloader(self):
