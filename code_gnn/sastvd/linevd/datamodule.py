@@ -112,6 +112,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def train_dataloader(self):
         """Return train dataloader."""
+        print("\n")
         print("Train dataloader")
         print(self.train)
         print("Getting epoch indices")
@@ -150,6 +151,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def test_dataloader(self):
         """Return test dataloader."""
+        print("\n")
         print("Test dataloader")
         print(self.test)
         return GraphDataLoader(
