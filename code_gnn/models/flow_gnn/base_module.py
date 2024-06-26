@@ -218,17 +218,16 @@ class BaseModule(pl.LightningModule):
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
         batch, extrafeats = batch_data
-        print("\n")
-        print("===========")
-        print(batch)
-        print("===========")
-        print(extrafeats)
-        print("===========")
-        print(batch_idx)
-        print("===========")
-        print("\n")
         label = self.get_label(batch)
+        print("\n")
+        print("label\n")
+        print(label)
+        print("\n")
         out = self.forward(batch, extrafeats)
+        print("\n")
+        print("out\n")
+        print(out)
+        print("\n")
         if self.hparams.label_style == "dataflow_solution_in":
             label, out = self.cut_nodef(batch, label, out, "val")
         loss = self.loss_fn(out, label)
