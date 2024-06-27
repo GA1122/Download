@@ -146,7 +146,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
             print(batched_graph)
             print("+++++++++")
             print(labels)
-        return GraphDataLoader(self.val, shuffle=True, batch_size=self.batch_size, num_workers=self.val_workers)
+        return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), shuffle=True, batch_size=self.batch_size, num_workers=self.val_workers)
 
     def test_dataloader(self):
         """Return test dataloader."""
@@ -154,7 +154,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("Test dataloader")
         print(self.test)
         return GraphDataLoader(
-            self.test,
+            Subset(self.test, self.test.get_epoch_indices()),
             batch_size=16,
             shuffle=True,
             num_workers=self.test_workers
