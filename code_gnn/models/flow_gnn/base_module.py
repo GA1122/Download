@@ -82,6 +82,8 @@ class BaseModule(pl.LightningModule):
         logger.warn("freeze_graph not implemented")
 
     def get_label(self, batch):
+        print("\n")
+        print("Getting label - " + str(self.hparams.label_style) + "\n")
         if self.hparams.label_style == "node":
             label = batch.ndata["_VULN"]
         elif self.hparams.label_style == "graph":
