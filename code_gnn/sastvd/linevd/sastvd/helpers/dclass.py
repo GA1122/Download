@@ -99,7 +99,7 @@ class BigVulDataset:
                     nonvul = nonvul.sample(int(len(nonvul)*self.undersample), replace=False, random_state=self.rng)
             if self.oversample is not None:
                 vul = vul.sample(int(len(vul)*self.oversample), replace=True, random_state=self.rng)
-            undersampled_df = pd.concat([vul, nonvul])
+            undersampled_df = pd.concat([vul]) #,nonvul
             logger.info("Resampled:\n%s\n%s", undersampled_df.value_counts("vul"), undersampled_df.value_counts("vul", normalize=True))
             index = undersampled_df.index
         return index
