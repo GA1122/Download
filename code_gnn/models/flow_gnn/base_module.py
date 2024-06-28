@@ -82,13 +82,16 @@ class BaseModule(pl.LightningModule):
         logger.warn("freeze_graph not implemented")
 
     def get_label(self, batch):
-        print("\n")
-        print("Getting label - " + str(self.hparams.label_style) + "\n")
         if self.hparams.label_style == "node":
             label = batch.ndata["_VULN"]
         elif self.hparams.label_style == "graph":
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
             label = torch.stack([g.ndata["_VULN"].max() for g in graphs])
+            print("\n")
+            print("Graph - " + str(graphs) + "\n")
+            print("Label - " + str(label) + "\n")
+            print("Label content - " + str(graphs.ndata["_VULN"]) + "\n")
+            print("\n")
         elif self.hparams.label_style == "dataflow_solution_out":
             label = batch.ndata["_DF_OUT"]
         elif self.hparams.label_style == "dataflow_solution_in":
