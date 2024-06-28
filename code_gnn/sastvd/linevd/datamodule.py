@@ -143,7 +143,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print(self.val.df["vul"] == 1)
         for batched_graph, labels in GraphDataLoader(self.val, batch_size=self.batch_size, num_workers=self.val_workers):
             print("+++++++++")
-            print(batched_graph)
+            print(batched_graph.ndata["_VULN"])
             print("+++++++++")
             print(labels)
         return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), shuffle=True, batch_size=self.batch_size, num_workers=self.val_workers)
