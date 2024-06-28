@@ -90,7 +90,6 @@ class BaseModule(pl.LightningModule):
             print("\n")
             print("Graph - " + str(graphs) + "\n")
             print("Label - " + str(label) + "\n")
-            print("Label content - " + str(graphs.ndata["_VULN"]) + "\n")
             print("\n")
         elif self.hparams.label_style == "dataflow_solution_out":
             label = batch.ndata["_DF_OUT"]
