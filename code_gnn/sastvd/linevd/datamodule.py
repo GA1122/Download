@@ -2,6 +2,7 @@ import sastvd.helpers.datasets as svdds
 from sastvd.linevd.dataset import BigVulDatasetLineVD
 
 from torch.utils.data import Subset
+import torch
 import pytorch_lightning as pl
 from pytorch_lightning.utilities.cli import DATAMODULE_REGISTRY
 from dgl.dataloading import GraphDataLoader
