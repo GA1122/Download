@@ -130,8 +130,8 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         else:
             return GraphDataLoader(
                 Subset(self.train, self.train.get_epoch_indices()),
-                shuffle=True,
                 batch_size=self.batch_size,
+                shuffle=True,
                 num_workers=self.train_workers,
             )
 
@@ -141,12 +141,14 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
         print("Validation dataloader")
         print(self.val)
         print(self.val.df["vul"] == 1)
-        for batched_graph, labels in GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), batch_size=self.batch_size, num_workers=self.val_workers):
+        for batched_graph, labels in GraphDataLoader(self.val, batch_size=self.batch_size, shuffle=True, num_workers=self.val_workers):
             print("+++++++++")
-            print(batched_graph.ndata["_VULN"])
+            print("Batch content - " + str(batched_graph.ndata["_VULN"]))
+            print("Batch length - " + str(len(batched_graph.ndata["_VULN"])))
+            print("Batch nonVulnerable count - " + str(batched_graph.ndata["_VULN"].count(0)))
             print("+++++++++")
             print(labels)
-        return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), shuffle=True, batch_size=self.batch_size, num_workers=self.val_workers)
+        return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), batch_size=self.batch_size, shuffle=True, num_workers=self.val_workers)
 
     def test_dataloader(self):
         """Return test dataloader."""
