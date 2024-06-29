@@ -91,7 +91,7 @@ class BaseModule(pl.LightningModule):
             print("Number of graphs - " + str(len(graphs)) + "\n")
             print("Label content:\n")
             for g in graphs:
-                print(g.ndata["_VULN"])
+                print("Graph content : number of nodes - " + str(g.number_of_nodes()) + ", number of edges - " + str(g.number_edges()) + ", classification length - " + str(len(g.ndata["_VULN"])) + ", classification 0 content - " + str(torch.sum(g.ndata["_VULN"] == 0)) + "\n")
             print("\n")
             print("Label - " + str(label) + "\n")
             print("\n")
