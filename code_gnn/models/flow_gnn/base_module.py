@@ -88,7 +88,11 @@ class BaseModule(pl.LightningModule):
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
             label = torch.stack([g.ndata["_VULN"].max() for g in graphs])
             print("\n")
-            print("Graph - " + str(graphs) + "\n")
+            print("Number of graphs - " + str(len(graphs)) + "\n")
+            print("Label content:\n")
+            for g in graphs:
+                print(g.ndata["_VULN"])
+            print("\n")
             print("Label - " + str(label) + "\n")
             print("\n")
         elif self.hparams.label_style == "dataflow_solution_out":
