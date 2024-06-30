@@ -8,7 +8,6 @@ import torch
 import torchmetrics
 #from torchmetrics import BinnedPrecisionRecallCurve
 
-import tensorflow as tf
 import torch
 from torch import nn, optim
 from torch.nn import BCELoss, BCEWithLogitsLoss
@@ -91,10 +90,13 @@ class BaseModule(pl.LightningModule):
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
             label = []
             for g in graphs:
-                vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"]
+                if (databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()):
+                    vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"]
+                else:
+                    vuln = 0
                 print(vuln)
                 label.append(vuln)
-            label = tf.convert_to_tensor(label)
+            label = torch.from_numpy(label)
             print("\n")
             print("Label length - " + str(len(label)) + "\n")
             print("Label - " + str(label) + "\n")
