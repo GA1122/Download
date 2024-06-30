@@ -91,7 +91,7 @@ class BaseModule(pl.LightningModule):
             for g in graphs:
                 vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"]
                 print(vuln)
-                label = label.cat((label, vuln))
+                label = torch.cat((label, vuln))
             print("\n")
             print("Label length - " + str(len(label)) + "\n")
             print("Label - " + str(label) + "\n")
