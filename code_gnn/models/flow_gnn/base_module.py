@@ -26,6 +26,7 @@ logging.getLogger("matplotlib").setLevel(logging.WARNING)
 
 database = r"/home/gas690/Download/code_gnn/storage/external/database.csv"
 databaseDF = pd.read_csv(database)
+databaseDF = databaseDF.drop(databaseDF[databaseDF["vuln"] == 0].index)
 
 class BaseModule(pl.LightningModule):
     def __init__(
@@ -101,7 +102,6 @@ class BaseModule(pl.LightningModule):
                     print("\n")
                     print("vuln - " + str(vuln))
                     print("\n")
-                vuln = 1
                 label.append(vuln)
             label = torch.FloatTensor(label)
             label = torch.flatten(label.to("cuda:0"))
