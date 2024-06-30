@@ -24,6 +24,8 @@ logger = logging.getLogger(__name__)
 
 logging.getLogger("matplotlib").setLevel(logging.WARNING)
 
+database = r"/home/gas690/Download/code_gnn/storage/external/database.csv"
+databaseDF = pd.read_csv(database)
 
 class BaseModule(pl.LightningModule):
     def __init__(
@@ -86,13 +88,11 @@ class BaseModule(pl.LightningModule):
             label = batch.ndata["_VULN"]
         elif self.hparams.label_style == "graph":
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
-            label = torch.stack([g.ndata["_VULN"].max() for g in graphs])
-            print("\n")
-            print("Number of graphs - " + str(len(graphs)) + "\n")
-            print("Label content:\n")
             for g in graphs:
-                print("Graph info: '_ABS_DATAFLOW' - " + str(g.ndata['_ABS_DATAFLOW']) + ", '_ABS_DATAFLOW_api' - " + str(g.ndata['_ABS_DATAFLOW_api']) + ", '_ABS_DATAFLOW_datatype' - " + str(g.ndata["_ABS_DATAFLOW_datatype"]) + ", '_ABS_DATAFLOW_literal' - " + str(g.ndata["_ABS_DATAFLOW_literal"]) + ", '_ABS_DATAFLOW_operator' - " + str(g.ndata["_ABS_DATAFLOW_operator"]) + "\n")
+                vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"].iloc[0]
+                label = label.cat((label, vuln))
             print("\n")
+            print("Label length - " + str(len(label)) + "\n")
             print("Label - " + str(label) + "\n")
             print("\n")
         elif self.hparams.label_style == "dataflow_solution_out":
@@ -143,13 +143,6 @@ class BaseModule(pl.LightningModule):
             on_epoch=False,
             batch_size=batch.batch_size,
         )
-        print("\n")
-        print("+++++++++++++++")
-        print(out)
-        print("+++++++++++++++")
-        print(label)
-        print("+++++++++++++++")
-        print("\n")
         return out, label
 
     def log_loss(self, name, loss, batch):
@@ -386,13 +379,6 @@ class BaseModule(pl.LightningModule):
         self.test_metrics_negative.reset()
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
-
-        np.set_printoptions(threshold=sys.maxsize)
-        print("------------")
-        print(preds)
-        print("------------")
-        print(labels)
-        print("------------")
         
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         print(thresholds.tolist())
