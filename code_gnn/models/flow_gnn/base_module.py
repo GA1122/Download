@@ -91,13 +91,13 @@ class BaseModule(pl.LightningModule):
             label = []
             for g in graphs:
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values) & (g.num_edges() in databaseDF["num_edges"].values):
-                    vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"]
+                    vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"].values
                 else:
                     vuln = 0
                 print(vuln)
                 label.append(vuln)
             label = torch.FloatTensor(label)
-            label = torch.flatten(label)
+            label = label.reshape(-1)
             print("\n")
             print("Label length - " + str(len(label)) + "\n")
             print("Label - " + str(label) + "\n")
