@@ -94,7 +94,7 @@ class BaseModule(pl.LightningModule):
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values & g.num_edges() in databaseDF["num_edges"].values):
                     if (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index() == databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index()):
                         print("\n")
-                        print("Muudan 1ks")
+                        print("MUUDAN 1KS")
                         print("\n")
                         vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"].values
                     else:
