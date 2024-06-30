@@ -99,7 +99,7 @@ class BaseModule(pl.LightningModule):
                     vuln = 0
                 if(vuln == 1):
                     print("\n")
-                    print("vuln - " vuln)
+                    print("vuln - " + str(vuln))
                     print("\n")
                 label.append(vuln)
             label = torch.FloatTensor(label)
