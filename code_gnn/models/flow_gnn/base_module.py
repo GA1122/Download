@@ -93,17 +93,17 @@ class BaseModule(pl.LightningModule):
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values & g.num_edges() in databaseDF["num_edges"].values):
                     if (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index() == databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index()):
                         vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"].values
-                    vuln = 0
+                    else:
+                        vuln = 0
                 else:
                     vuln = 0
-                print(vuln)
+                if(vuln == 1):
+                    print("\n")
+                    print("vuln - " vuln)
+                    print("\n")
                 label.append(vuln)
             label = torch.FloatTensor(label)
             label = torch.flatten(label.to("cuda:0"))
-            print("\n")
-            print("Label length - " + str(len(label)) + "\n")
-            print("Label - " + str(label) + "\n")
-            print("\n")
         elif self.hparams.label_style == "dataflow_solution_out":
             label = batch.ndata["_DF_OUT"]
         elif self.hparams.label_style == "dataflow_solution_in":
