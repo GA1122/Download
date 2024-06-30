@@ -98,7 +98,7 @@ class BaseModule(pl.LightningModule):
                 print(vuln)
                 label.append(vuln)
             label = torch.FloatTensor(label)
-            label = torch.flatten(label)
+            label = torch.flatten(label.to("cuda:0"))
             print("\n")
             print("Label length - " + str(len(label)) + "\n")
             print("Label - " + str(label) + "\n")
