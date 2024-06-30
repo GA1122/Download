@@ -89,7 +89,8 @@ class BaseModule(pl.LightningModule):
         elif self.hparams.label_style == "graph":
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
             for g in graphs:
-                vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"].iloc[0]
+                vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"]
+                print(vuln)
                 label = label.cat((label, vuln))
             print("\n")
             print("Label length - " + str(len(label)) + "\n")
