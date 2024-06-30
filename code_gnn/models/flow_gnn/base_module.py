@@ -91,7 +91,7 @@ class BaseModule(pl.LightningModule):
             label = []
             for g in graphs:
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values) & (g.num_edges() in databaseDF["num_edges"].values):
-                    vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"].values[0]
+                    vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"]
                 else:
                     vuln = 0
                 print(vuln)
