@@ -102,6 +102,7 @@ class BaseModule(pl.LightningModule):
                     print("vuln - " + str(vuln))
                     print("\n")
                 label.append(vuln)
+            vuln = 1
             label = torch.FloatTensor(label)
             label = torch.flatten(label.to("cuda:0"))
         elif self.hparams.label_style == "dataflow_solution_out":
