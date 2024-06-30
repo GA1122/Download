@@ -88,6 +88,7 @@ class BaseModule(pl.LightningModule):
             label = batch.ndata["_VULN"]
         elif self.hparams.label_style == "graph":
             graphs = dgl.unbatch(batch, batch.batch_num_nodes())
+            label = torch.empty((1,1))
             for g in graphs:
                 vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges()), "vuln"]
                 print(vuln)
