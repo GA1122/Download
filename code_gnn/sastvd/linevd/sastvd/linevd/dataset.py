@@ -49,11 +49,6 @@ class BigVulDatasetLineVD(svddc.BigVulDataset):
 
     def __getitem__(self, idx):
         """Override getitem."""
-        print("__getitem__")
-        print(self)
-        print("------------")
-        print(idx)
-        print("------------")
         return self.item(self.idx2id[idx]), idx
 
     def __len__(self):
