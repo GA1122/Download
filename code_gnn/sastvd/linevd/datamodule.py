@@ -148,7 +148,7 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
             print("Batch _VULN column - " + str(batched_graph[0].ndata["_VULN"]))
             print("Batch length - " + str(len(batched_graph[0].ndata["_VULN"])))
             print("Batch nonVulnerable count - " + str(torch.sum(batched_graph[0].ndata["_VULN"] == 0)))
-            print("LIST - " + str(torch.sum(batched_graph[1])))
+            print("LIST - " + str(batched_graph[1]))
             print("+++++++++")
             print("Labels - " + str(labels) + "\n")
         return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), batch_size=self.batch_size, shuffle=True, num_workers=self.val_workers)
