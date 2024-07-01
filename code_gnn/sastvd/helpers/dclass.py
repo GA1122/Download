@@ -95,7 +95,7 @@ class BigVulDataset:
         if self.undersample is not None or self.oversample is not None:
             logger.info("undersampling: %s oversampling: %s. Resampling from:\n%s\n%s", str(self.undersample), str(self.oversample), self.df.value_counts("vul"), self.df.value_counts("vul", normalize=True))
             vul = self.df[self.df.vul == 1]
-            nonvul = self.df[self.df.vul == 1] #0
+            nonvul = self.df[self.df.vul == 0]
             if self.undersample is not None:
                 if str(self.undersample).startswith("v"):
                     undersample = float(str(self.undersample)[1:])
