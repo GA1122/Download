@@ -256,6 +256,8 @@ class BaseModule(pl.LightningModule):
 
         for id in ids:
             print("ID and vuln")
+            print(id)
+            print(id in databaseDF["ID"].values)
             print(databaseDF.loc[databaseDF["ID"] == id]["vuln"])
             label.append(databaseDF.loc[databaseDF["ID"] == id]["vuln"])
         
