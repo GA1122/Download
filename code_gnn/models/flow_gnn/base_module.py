@@ -94,8 +94,8 @@ class BaseModule(pl.LightningModule):
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values & g.num_edges() in databaseDF["num_edges"].values):
                     print("\n")
                     print("ESIMENE KONTROLL")
-                    print(databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index())
-                    print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index())
+                    print(databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"])
+                    print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"])
                     print("\n")
                     if (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index() == databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index()):
                         print("\n")
