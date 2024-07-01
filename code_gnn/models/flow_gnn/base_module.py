@@ -234,8 +234,13 @@ class BaseModule(pl.LightningModule):
 
     def validation_step(self, batch_data, batch_idx, dataloader_idx=0):
         batch, extrafeats = batch_data
+        ids = extrafeats
+        extrafeats = batch[1]
+        batch = batch[0]
         print("\n")
         print("BATCH LABEL --- " + str(batch.ndata["_VULN"]))
+        print("Extrafeats - " + str(extrafeats))
+        print("IDs - " + str(ids))
         print("\n")
         label = self.get_label(batch)
         
