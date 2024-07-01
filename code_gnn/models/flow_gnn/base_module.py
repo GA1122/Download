@@ -200,6 +200,9 @@ class BaseModule(pl.LightningModule):
         label = []
 
         for id in ids:
+            print("ID CHECK!")
+            print(id)
+            print(id in databaseDF["ID"].values)
             label.append(databaseDF.loc[databaseDF["ID"] == id]["vuln"])
         
         label = torch.FloatTensor(label)
