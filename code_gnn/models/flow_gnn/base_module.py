@@ -200,7 +200,7 @@ class BaseModule(pl.LightningModule):
         label = []
 
         for id in ids:
-            label.append(databaseDF.loc[databaseDF["ID"] == id.item()]["vuln"])
+            label.append(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
         
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
@@ -254,9 +254,9 @@ class BaseModule(pl.LightningModule):
         for id in ids:
             print("ID and vuln")
             print(id.item())
-            print(id in databaseDF["ID"].values)
-            print(databaseDF.loc[databaseDF["ID"] == id.item()]["vuln"])
-            label.append(databaseDF.loc[databaseDF["ID"] == id.item()]["vuln"])
+            print(id.item() in databaseDF["ID"].values)
+            print(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
+            label.append(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
         
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
@@ -318,7 +318,7 @@ class BaseModule(pl.LightningModule):
         label = []
 
         for id in ids:
-            label.append(databaseDF.loc[databaseDF["ID"] == id.item()]["vuln"])
+            label.append(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
         
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
