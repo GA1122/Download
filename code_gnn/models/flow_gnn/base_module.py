@@ -92,13 +92,11 @@ class BaseModule(pl.LightningModule):
             label = []
             for g in graphs:
                 if (g.number_of_nodes() in databaseDF["num_nodes"].values & g.num_edges() in databaseDF["num_edges"].values):
+                    print("EDGE COUNT:")
+                    print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].values)
                     print("\n")
-                    print("ESIMENE KONTROLL")
-                    print("NODES:")
-                    print(databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"])
-                    print("EDGES:")
-                    print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"])
                     for id in (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].values):
+                        print(id)
                         if id in (databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].values):
                             print("\n")
                             print("TEINE KONTROLL")
