@@ -99,7 +99,7 @@ class BaseModule(pl.LightningModule):
                     print("EDGES:")
                     print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"])
                     print("VORDLUS:")
-                    print((databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"]).compare(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"]))
+                    print((databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].values).compare(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].values))
                     print("\n")
                     if (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index() == databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index()):
                         print("\n")
