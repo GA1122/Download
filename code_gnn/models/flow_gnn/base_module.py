@@ -98,16 +98,15 @@ class BaseModule(pl.LightningModule):
                     print(databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"])
                     print("EDGES:")
                     print(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"])
-                    print("VORDLUS:")
-                    print((databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].values).compare(databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].values))
-                    print("\n")
-                    if (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].first_valid_index() == databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].first_valid_index()):
-                        print("\n")
-                        print("TEINE KONTROLL")
-                        print("\n")
-                        vuln = databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes()) & (databaseDF["num_edges"] == g.num_edges())]["vuln"].values
-                    else:
-                        vuln = 0
+                    for id in (databaseDF.loc[(databaseDF["num_nodes"] == g.number_of_nodes())]["ID"].values):
+                        if id in (databaseDF.loc[(databaseDF["num_edges"] == g.num_edges())]["ID"].values):
+                            print("\n")
+                            print("TEINE KONTROLL")
+                            print("\n")
+                            vuln = databaseDF.loc[databaseDF["ID"] == id, "vuln"].iloc[0]
+                            break
+                        else:
+                            vuln = 0
                 else:
                     vuln = 0
                 if(vuln == 1):
