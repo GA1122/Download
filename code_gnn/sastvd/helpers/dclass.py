@@ -107,6 +107,9 @@ class BigVulDataset:
             undersampled_df = pd.concat([vul, nonvul])
             logger.info("Resampled new way:\n%s\n%s", undersampled_df.value_counts("vul"), undersampled_df.value_counts("vul", normalize=True))
             index = undersampled_df.index
+        print("Get epoch indices:")
+        print("Indices length - " + str(len(index)))
+        print("Index - " + str(index))
         return index
 
     def __getitem__(self, idx):
