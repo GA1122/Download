@@ -26,7 +26,6 @@ logging.getLogger("matplotlib").setLevel(logging.WARNING)
 
 database = r"/home/gas690/Download/code_gnn/storage/external/database.csv"
 databaseDF = pd.read_csv(database)
-databaseDF = databaseDF.drop(databaseDF[databaseDF["vuln"] == 0].index)
 
 class BaseModule(pl.LightningModule):
     def __init__(
@@ -194,7 +193,20 @@ class BaseModule(pl.LightningModule):
 
     def training_step(self, batch_data, batch_idx):
         batch, extrafeats = batch_data
-        label = self.get_label(batch)
+        ids = extrafeats
+        extrafeats = batch[1]
+        batch = batch[0]
+        
+        label = []
+
+        for id in ids:
+            label.append(databaseDF.loc[databaseDF["ID"] == id, "vuln"].iloc[0])
+        
+        label = torch.FloatTensor(label)
+        label = torch.flatten(label.to("cuda:0"))
+
+        print("Label - " + str(label))
+        
         out = self.forward(batch, extrafeats)
         if self.hparams.label_style == "dataflow_solution_in":
             label, out = self.cut_nodef(batch, label, out, "train")
@@ -237,12 +249,15 @@ class BaseModule(pl.LightningModule):
         ids = extrafeats
         extrafeats = batch[1]
         batch = batch[0]
-        print("\n")
-        print("BATCH LABEL --- " + str(batch.ndata["_VULN"]))
-        print("Extrafeats - " + str(extrafeats))
-        print("IDs - " + str(ids))
-        print("\n")
-        label = self.get_label(batch)
+        label = []
+
+        for id in ids:
+            label.append(databaseDF.loc[databaseDF["ID"] == id, "vuln"].iloc[0])
+        
+        label = torch.FloatTensor(label)
+        label = torch.flatten(label.to("cuda:0"))
+
+        print("Label - " + str(label))
         
         out = self.forward(batch, extrafeats)
 
@@ -292,8 +307,19 @@ class BaseModule(pl.LightningModule):
             end = torch.cuda.Event(enable_timing=True)
 
         batch, extrafeats = batch_data
+        ids = extrafeats
+        extrafeats = batch[1]
+        batch = batch[0]
         
-        label = self.get_label(batch)
+        label = []
+
+        for id in ids:
+            label.append(databaseDF.loc[databaseDF["ID"] == id, "vuln"].iloc[0])
+        
+        label = torch.FloatTensor(label)
+        label = torch.flatten(label.to("cuda:0"))
+
+        print("Label - " + str(label))
         if do_time:
             start.record()
         out = self.forward(batch, extrafeats)
