@@ -13,6 +13,7 @@ from torch.nn import BCELoss, BCEWithLogitsLoss
 import pandas as pd
 import numpy as np
 from deepspeed.profiling.flops_profiler.profiler import FlopsProfiler
+from torchmetrics.classification import BinaryROC
 
 import nni
 
@@ -366,8 +367,9 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
-        print(preds)
-        print(labels)
+        BROC = BinaryROC(thresholds=None)
+        print("BinaryROC result: ")
+        print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
 
         def get_n_params(model):
             pp=0
