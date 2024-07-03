@@ -444,7 +444,7 @@ class BaseModule(pl.LightningModule):
 
         BROC = BinaryROC(thresholds=None)
         print("BinaryROC result: ")
-        print(BROC(torch.from_numpy(preds), torch.from_numpy(labels)))
+        print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
         
         def get_n_params(model):
             pp=0
