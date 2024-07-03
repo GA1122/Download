@@ -7,6 +7,7 @@ import pytorch_lightning as pl
 import torch
 import torchmetrics
 #from torchmetrics import BinnedPrecisionRecallCurve
+from torchmetrics.classification import BinaryROC
 
 import torch
 from torch import nn, optim
@@ -441,7 +442,10 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
-
+        BROC = BinaryROC(thresholds=None)
+        print("BinaryROC result: ")
+        print(BROC(preds, labels))
+        
         def get_n_params(model):
             pp=0
             for p in list(model.parameters()):
