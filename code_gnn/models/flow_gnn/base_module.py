@@ -206,6 +206,8 @@ class BaseModule(pl.LightningModule):
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
 
+        label = self.get_label(batch)
+        
         print("Label - " + str(label))
         
         out = self.forward(batch, extrafeats)
@@ -263,6 +265,8 @@ class BaseModule(pl.LightningModule):
         label = torch.flatten(label.to("cuda:0"))
 
         print("Label - " + str(label))
+
+        label = self.get_label(batch)
         
         out = self.forward(batch, extrafeats)
 
@@ -324,6 +328,8 @@ class BaseModule(pl.LightningModule):
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
 
+        label = self.get_label(batch)
+        
         print("Label - " + str(label))
         if do_time:
             start.record()
