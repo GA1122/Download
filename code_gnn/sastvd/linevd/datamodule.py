@@ -68,9 +68,6 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
             self.train = BigVulDatasetLineVD(partition="train", **dataargs)
             self.val = BigVulDatasetLineVD(partition="val", **dataargs)
             self.test = BigVulDatasetLineVD(partition="test", **dataargs)
-            print(self.train)
-            print(self.val)
-            print(self.test)
 
             if "codebert" in dataargs:
                 del dataargs["codebert"].tokenizer
@@ -133,19 +130,6 @@ class BigVulDatasetLineVDDataModule(pl.LightningDataModule):
 
     def val_dataloader(self):
         """Return val dataloader."""
-        print("\n")
-        print("Validation dataloader")
-        print(self.val)
-        print(self.val.df["vul"] == 1)
-        for batched_graph, labels in GraphDataLoader(self.val, batch_size=self.batch_size, shuffle=True, num_workers=self.val_workers):
-            print("+++++++++")
-            print("Batch content - " + str(batched_graph))
-            print("Batch _VULN column - " + str(batched_graph[0].ndata["_VULN"]))
-            print("Batch length - " + str(len(batched_graph[0].ndata["_VULN"])))
-            print("Batch nonVulnerable count - " + str(torch.sum(batched_graph[0].ndata["_VULN"] == 0)))
-            print("LIST - " + str(batched_graph[1]))
-            print("+++++++++")
-            print("Labels - " + str(labels) + "\n")
         return GraphDataLoader(Subset(self.val, self.val.get_epoch_indices()), batch_size=self.batch_size, shuffle=True, num_workers=self.val_workers)
 
     def test_dataloader(self):
