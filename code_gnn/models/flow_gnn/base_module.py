@@ -446,7 +446,7 @@ class BaseModule(pl.LightningModule):
 
         print("BinaryROC result: ")
         for x in range(11):
-            if x == 0:
+            if x == 0 or x == 1:
                 BROC = BinaryROC(thresholds=None)
             else:
                 BROC = BinaryROC(thresholds=x)
