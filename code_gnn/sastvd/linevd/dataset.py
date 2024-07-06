@@ -46,7 +46,7 @@ class BigVulDatasetLineVD(svddc.BigVulDataset):
 
     def item(self, _id):
         """Get item by id."""
-        return self.graphs_by_id[_id]
+        return self.graphs_by_id[_id], self.extrafeats_by_id[_id]
 
     def __getitem__(self, idx):
         """Override getitem."""
