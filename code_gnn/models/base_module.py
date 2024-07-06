@@ -367,9 +367,13 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
-        BROC = BinaryROC(thresholds=5)
         print("BinaryROC result: ")
-        print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
+        for x in range(11):
+            if x == 0:
+                BROC = BinaryROC(thresholds=None)
+            else:
+                BROC = BinaryROC(thresholds=x)
+            print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
 
         def get_n_params(model):
             pp=0
