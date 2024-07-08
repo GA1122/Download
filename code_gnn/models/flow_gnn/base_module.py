@@ -251,13 +251,6 @@ class BaseModule(pl.LightningModule):
         extrafeats = batch[1]
         batch = batch[0]
         label = []
-
-        for id in ids:
-            print("ID and vuln")
-            print(id.item())
-            print(id.item() in databaseDF["ID"].values)
-            print(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
-            label.append(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
         
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
@@ -272,16 +265,6 @@ class BaseModule(pl.LightningModule):
 
         out = torch.sigmoid(out)
         label = label.int()
-        print("\n")
-        print("OUT ===========")
-        print(out.shape)
-        print("LABEL ===========")
-        print(label.shape)
-        print("LABEL CONTENT ===========")
-        print(torch.sum(label == 1))
-        print(torch.sum(label == 0))
-        print("===========")
-        print("\n")
         
         self.log_loss("val", loss, batch)
         self.val_metrics.update(out, label)
@@ -300,10 +283,6 @@ class BaseModule(pl.LightningModule):
         #     self.test_every_metrics.update(out, label)
 
     def test_step(self, batch_data, batch_idx):
-        print("\n")
-        print("Doing test step!")
-        print(batch_idx)
-        print("\n")
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
             prof = self.prof
@@ -439,7 +418,7 @@ class BaseModule(pl.LightningModule):
         print("Labels - " + str(labels))
         print("\n")
         print("\n")
-        print("Length - " str(len(preds)))
+        print("Length - " + str(len(preds)))
         print("\n")
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         pd.DataFrame({"precision": precision.tolist(), "recall": recall.tolist(), "thresholds": thresholds.tolist() + [1]}).to_csv("pr.csv")
