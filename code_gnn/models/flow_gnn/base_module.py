@@ -9,6 +9,7 @@ import torchmetrics
 #from torchmetrics import BinnedPrecisionRecallCurve
 from torchmetrics.classification import BinaryROC
 
+import numpy
 import torch
 from torch import nn, optim
 from torch.nn import BCELoss, BCEWithLogitsLoss
