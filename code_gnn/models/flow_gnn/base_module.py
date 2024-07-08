@@ -251,7 +251,10 @@ class BaseModule(pl.LightningModule):
         extrafeats = batch[1]
         batch = batch[0]
         label = []
-        
+
+        for id in ids:
+            label.append(databaseDF.loc[databaseDF["ID"] == id.item(), "vuln"].iloc[0])
+                    
         label = torch.FloatTensor(label)
         label = torch.flatten(label.to("cuda:0"))
 
