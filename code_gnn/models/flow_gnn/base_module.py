@@ -300,7 +300,10 @@ class BaseModule(pl.LightningModule):
         #     self.test_every_metrics.update(out, label)
 
     def test_step(self, batch_data, batch_idx):
+        print("\n")
+        print("Doing test step!")
         print(batch_idx)
+        print("\n")
         do_profile = self.hparams.profile and batch_idx > 2
         if do_profile:
             prof = self.prof
