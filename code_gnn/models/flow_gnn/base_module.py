@@ -418,14 +418,6 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
-        numpy.set_printoptions(threshold=sys.maxsize)
-        print("\n")
-        print("Predictions - " + str(preds.numpy()))
-        print("Labels - " + str(labels.numpy()))
-        print("\n")
-        print("\n")
-        print("Length - " + str(len(preds)))
-        print("\n")
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         pd.DataFrame({"precision": precision.tolist(), "recall": recall.tolist(), "thresholds": thresholds.tolist() + [1]}).to_csv("pr.csv")
         #precision_bin, recall_bin, thresholds_bin = self.test_pr_curve_bin(preds, labels)
@@ -434,7 +426,15 @@ class BaseModule(pl.LightningModule):
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
-
+        numpy.set_printoptions(threshold=sys.maxsize)
+        print("\n")
+        print("Predictions - " + str(preds))
+        print("Labels - " + str(labels))
+        print("\n")
+        print("\n")
+        print("Length - " + str(len(preds)))
+        print("\n")
+        
         print("BinaryROC result: ")
         for x in range(11):
             if x == 0 or x == 1:
