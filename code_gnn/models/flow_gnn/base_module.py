@@ -417,6 +417,8 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
+        numpy.set_printoptions(threshold=sys.maxsize)
+        print("\n")
         print("Predictions - " + str(preds))
         print("Labels - " + str(labels))
         print("\n")
