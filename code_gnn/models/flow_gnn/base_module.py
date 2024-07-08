@@ -420,8 +420,8 @@ class BaseModule(pl.LightningModule):
 
         numpy.set_printoptions(threshold=sys.maxsize)
         print("\n")
-        print("Predictions - " + str(preds))
-        print("Labels - " + str(labels))
+        print("Predictions - " + str(preds.numpy()))
+        print("Labels - " + str(labels.numpy()))
         print("\n")
         print("\n")
         print("Length - " + str(len(preds)))
