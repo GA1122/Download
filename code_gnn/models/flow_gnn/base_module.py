@@ -302,7 +302,6 @@ class BaseModule(pl.LightningModule):
         extrafeats = batch[1]
         batch = batch[0]
 
-        print("Test batch size - " + str(len(batch)))
         print("Test IDs size - " + str(len(ids)))
         
         label = []
