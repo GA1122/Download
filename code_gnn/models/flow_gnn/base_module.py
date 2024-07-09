@@ -460,7 +460,7 @@ class BaseModule(pl.LightningModule):
                 BROC = BinaryROC(thresholds=None)
             else:
                 BROC = BinaryROC(thresholds=x)
-            print(BROC(ROCpreds, torch.from_numpy(labels)))
+            print(BROC(ROCpreds.cpu(), torch.from_numpy(labels)))
         
         def get_n_params(model):
             pp=0
