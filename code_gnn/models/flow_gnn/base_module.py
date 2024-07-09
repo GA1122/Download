@@ -422,6 +422,7 @@ class BaseModule(pl.LightningModule):
 
         print("\n")
         print("1. Predictions shape - " + str(preds.size()))
+        print("1. Predictions content - " + str(preds))
         print("\n")
         
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
@@ -431,13 +432,15 @@ class BaseModule(pl.LightningModule):
 
         print("\n")
         print("2. Predictions shape - " + str(preds.size()))
+        print("2. Predictions content - " + str(preds))
         print("\n")
         
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
         print("\n")
-        print("3. Predictions shape - " + str(preds.size()))
+        print("3. Predictions shape - " + str(len(preds)))
+        print("3. Predictions content - " + str(preds))
         print("\n")
         
         numpy.set_printoptions(threshold=sys.maxsize)
