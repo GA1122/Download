@@ -421,7 +421,7 @@ class BaseModule(pl.LightningModule):
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
         print("\n")
-        print("1. Predictions shape - " + str(preds.shape()))
+        print("1. Predictions shape - " + str(preds.size()))
         print("\n")
         
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
@@ -430,14 +430,14 @@ class BaseModule(pl.LightningModule):
         #pd.DataFrame({"precision": precision_bin.tolist(), "recall": recall_bin.tolist(), "thresholds": thresholds_bin.tolist() + [1]}).to_csv("pr_binned.csv")
 
         print("\n")
-        print("2. Predictions shape - " + str(preds.shape()))
+        print("2. Predictions shape - " + str(preds.size()))
         print("\n")
         
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
         print("\n")
-        print("3. Predictions shape - " + str(preds.shape()))
+        print("3. Predictions shape - " + str(preds.size()))
         print("\n")
         
         numpy.set_printoptions(threshold=sys.maxsize)
