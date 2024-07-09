@@ -301,6 +301,9 @@ class BaseModule(pl.LightningModule):
         ids = extrafeats
         extrafeats = batch[1]
         batch = batch[0]
+
+        print("Test batch size - " + str(len(batch)))
+        print("Test IDs size - " + str(len(ids)))
         
         label = []
 
@@ -418,14 +421,26 @@ class BaseModule(pl.LightningModule):
 
         preds, labels = self.test_preds.compute(), self.test_labels.compute().int()
 
+        print("\n")
+        print("1. Predictions shape - " + str(preds.shape()))
+        print("\n")
+        
         precision, recall, thresholds = self.test_pr_curve(preds, labels)
         pd.DataFrame({"precision": precision.tolist(), "recall": recall.tolist(), "thresholds": thresholds.tolist() + [1]}).to_csv("pr.csv")
         #precision_bin, recall_bin, thresholds_bin = self.test_pr_curve_bin(preds, labels)
         #pd.DataFrame({"precision": precision_bin.tolist(), "recall": recall_bin.tolist(), "thresholds": thresholds_bin.tolist() + [1]}).to_csv("pr_binned.csv")
 
+        print("\n")
+        print("2. Predictions shape - " + str(preds.shape()))
+        print("\n")
+        
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
+        print("\n")
+        print("3. Predictions shape - " + str(preds.shape()))
+        print("\n")
+        
         numpy.set_printoptions(threshold=sys.maxsize)
         print("\n")
         print("Predictions - " + str(preds))
