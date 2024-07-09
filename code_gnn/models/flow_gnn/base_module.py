@@ -434,6 +434,8 @@ class BaseModule(pl.LightningModule):
         print("2. Predictions shape - " + str(preds.size()))
         print("2. Predictions content - " + str(preds))
         print("\n")
+
+        ROCpreds = preds
         
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
@@ -458,7 +460,7 @@ class BaseModule(pl.LightningModule):
                 BROC = BinaryROC(thresholds=None)
             else:
                 BROC = BinaryROC(thresholds=x)
-            print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
+            print(BROC(torch.from_numpy(ROCpreds), torch.from_numpy(labels)))
         
         def get_n_params(model):
             pp=0
