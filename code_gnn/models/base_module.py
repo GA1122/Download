@@ -364,6 +364,8 @@ class BaseModule(pl.LightningModule):
         #precision_bin, recall_bin, thresholds_bin = self.test_pr_curve_bin(preds, labels) Eemaldasin import-i vea tottu
         #pd.DataFrame({"precision": precision_bin.tolist(), "recall": recall_bin.tolist(), "thresholds": thresholds_bin.tolist() + [1]}).to_csv("pr_binned.csv") Eemaldasin import-i vea tottu
 
+        ROCpreds = preds
+        
         preds, labels = preds.cpu().numpy(), labels.cpu().numpy()
         preds = preds > 0.5
 
@@ -373,7 +375,7 @@ class BaseModule(pl.LightningModule):
                 BROC = BinaryROC(thresholds=None)
             else:
                 BROC = BinaryROC(thresholds=x)
-            print(BROC(torch.from_numpy(preds.astype(int).astype(float)), torch.from_numpy(labels)))
+            print(BROC(ROCpreds.cpu(), torch.from_numpy(labels)))
 
         def get_n_params(model):
             pp=0
